@@ -1,5 +1,21 @@
+@font-face {
+    font-family: 'Orpheus-Pro';
+    src: url("../fonts/Orpheus-Pro.otf");
+}
+
+@font-face {
+    font-family: 'Orpheus-Pro-Bold';
+    src: url("../fonts/Orpheus-Pro-Bold.otf");
+}
+
+@font-face {
+    font-family: 'Orpheus-Pro-Medium';
+    src: url("../fonts/Orpheus-Pro-Medium.otf");
+}
+
 body{
     background: #cbc4b0;
+    font-family: 'Orpheus-Pro-Bold',sans-serif;
 }
 
 .cpo-logo{
