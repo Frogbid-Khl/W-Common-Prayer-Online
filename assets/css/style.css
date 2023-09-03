@@ -1,0 +1,59 @@
+body{
+    background: #cbc4b0;
+}
+
+.cpo-logo{
+    max-width: 150px;
+}
+
+.cpo-home-image{
+    border:5px solid #847a68;
+}
+
+.cpo-card{
+    border:5px solid #847a68;
+    background: #d7d2c8;
+}
+
+.cpo-home-btn{
+    border:3px solid #847a68;
+    border-radius: unset;
+    background: #d7d2c8;
+    color: black;
+    font-weight: bold;
+    height: 70px;
+    margin: auto;
+}
+
+.cpo-home-btn:hover{
+    border:3px solid #847a68;
+    background: #847a68;
+}
+
+.cpo-card-btn{
+    background: #847a68;
+    padding: 5rem 1rem 4rem;
+    border:5px solid #d7d2c8;
+}
+
+.cpo-btn-home{
+    background: #d7d2c8;
+    border:3px solid #d5bd80;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+}
+
+.cpo-btn-home:hover{
+    border:3px solid #d5bd80;
+    background: #d5bd80;
+    color: black;
+}
+
+.cpo-footer-card{
+    background: #d7d2c8;
+    border: unset;
+}
