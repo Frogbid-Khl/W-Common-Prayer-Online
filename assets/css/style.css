@@ -41,9 +41,10 @@ body{
     margin: auto;
 }
 
-.cpo-home-btn:hover{
-    border:3px solid #847a68;
-    background: #847a68;
+.cpo-home-btn:hover,.cpo-home-btn:active{
+    border:3px solid #847a68 !important;
+    background: #847a68 !important;
+    color: black !important;
 }
 
 .cpo-card-btn{
@@ -63,10 +64,10 @@ body{
     border-radius: 15px;
 }
 
-.cpo-btn-home:hover{
-    border:3px solid #d5bd80;
-    background: #d5bd80;
-    color: black;
+.cpo-btn-home:hover,.cpo-btn-home:active{
+    border:3px solid #d5bd80 !important;
+    background: #d5bd80 !important;
+    color: black !important;
 }
 
 .cpo-footer-card{
