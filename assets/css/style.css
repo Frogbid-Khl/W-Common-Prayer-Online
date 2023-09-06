@@ -18,6 +18,31 @@ body{
     font-family: 'Orpheus-Pro-Bold',sans-serif;
 }
 
+
+.cole-stone{
+    color: #a29987;
+}
+
+.york-gray{
+    color: #d3ccba;
+}
+
+.bruton-white{
+    color: #d7d2c8;
+}
+
+.pelham-gray{
+    color: #847a68;
+}
+
+.palace-ocher{
+    color: #bc9a51;
+}
+
+.bishop-purple{
+    color: #67032f;
+}
+
 .cpo-logo{
     max-width: 150px;
 }
