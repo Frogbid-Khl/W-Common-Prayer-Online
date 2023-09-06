@@ -22,6 +22,10 @@ body{
     max-width: 150px;
 }
 
+.cpo-title{
+    letter-spacing: 5px;
+}
+
 .cpo-home-image{
     border:5px solid #847a68;
 }
