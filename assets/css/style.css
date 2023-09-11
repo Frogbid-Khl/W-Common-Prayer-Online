@@ -13,55 +13,55 @@
     src: url("../fonts/Orpheus-Pro-Medium.otf");
 }
 
-body{
+body {
     background: #cbc4b0;
-    font-family: 'Orpheus-Pro-Bold',sans-serif;
+    font-family: 'Orpheus-Pro-Bold', sans-serif;
 }
 
 
-.cole-stone{
+.cole-stone {
     color: #a29987;
 }
 
-.york-gray{
+.york-gray {
     color: #d3ccba;
 }
 
-.bruton-white{
+.bruton-white {
     color: #d7d2c8;
 }
 
-.pelham-gray{
+.pelham-gray {
     color: #847a68;
 }
 
-.palace-ocher{
+.palace-ocher {
     color: #bc9a51;
 }
 
-.bishop-purple{
+.bishop-purple {
     color: #67032f;
 }
 
-.cpo-logo{
+.cpo-logo {
     max-width: 150px;
 }
 
-.cpo-title{
+.cpo-title {
     letter-spacing: 5px;
 }
 
-.cpo-home-image{
-    border:5px solid #847a68;
+.cpo-home-image {
+    border: 5px solid #847a68;
 }
 
-.cpo-card{
-    border:5px solid #847a68;
+.cpo-card {
+    border: 5px solid #847a68;
     background: #d7d2c8;
 }
 
-.cpo-home-btn{
-    border:3px solid #847a68;
+.cpo-home-btn {
+    border: 3px solid #847a68;
     border-radius: unset;
     background: #d7d2c8;
     color: black;
@@ -70,21 +70,22 @@ body{
     margin: auto;
 }
 
-.cpo-home-btn:hover,.cpo-home-btn:active{
-    border:3px solid #847a68 !important;
+.cpo-home-btn:hover, .cpo-home-btn:active {
+    border: 3px solid #847a68 !important;
     background: #847a68 !important;
     color: black !important;
 }
 
-.cpo-card-btn{
-    background: #847a68;
+.cpo-card-btn {
+    background: #a29a85;
     padding: 5rem 1rem 4rem;
-    border:5px solid #d7d2c8;
+    border: 5px solid #d9d2c8;
+    border-radius: 15px;
 }
 
-.cpo-btn-home{
-    background: #d7d2c8;
-    border:3px solid #d5bd80;
+.cpo-btn-home {
+    background-image: linear-gradient(#d5bd80, #bc9a51);
+    border: 3px solid #827a65;
     color: black;
     font-size: 1.5rem;
     font-weight: bold;
@@ -93,13 +94,40 @@ body{
     border-radius: 15px;
 }
 
-.cpo-btn-home:hover,.cpo-btn-home:active{
-    border:3px solid #d5bd80 !important;
-    background: #d5bd80 !important;
-    color: black !important;
+.cpo-btn-home:hover, .cpo-btn-home:active {
+    background-image: linear-gradient(#bc9a51, #bc9a51);
+    border: 3px solid #827a65;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
 }
 
-.cpo-footer-card{
+.cpo-footer-bg {
+    background: #d7d2c8;
+}
+
+.cpo-footer-card {
     background: #d7d2c8;
     border: unset;
+}
+
+.cpo-footer-btn {
+    border: 3px solid #847a68;
+    border-radius: 10px;
+    background: #bc9a51;
+    color: black;
+    font-weight: bold;
+    margin: auto;
+}
+
+.cpo-footer-btn:hover, .cpo-footer-btn:active {
+    border: 3px solid #847a68;
+    border-radius: 10px;
+    background: #d5bd80;
+    color: black;
+    font-weight: bold;
+    margin: auto;
 }
