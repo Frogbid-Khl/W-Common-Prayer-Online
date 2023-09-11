@@ -95,9 +95,9 @@ body {
 }
 
 .cpo-btn-home:hover, .cpo-btn-home:active {
-    background-image: linear-gradient(#bc9a51, #bc9a51);
-    border: 3px solid #827a65;
-    color: black;
+    background-image: linear-gradient(#bc9a51, #bc9a51) !important;
+    border: 3px solid #827a65 !important;
+    color: black !important;
     font-size: 1.5rem;
     font-weight: bold;
     padding-top: 15px;
@@ -124,10 +124,16 @@ body {
 }
 
 .cpo-footer-btn:hover, .cpo-footer-btn:active {
-    border: 3px solid #847a68;
-    border-radius: 10px;
-    background: #d5bd80;
+    border: 3px solid #847a68 !important;
+    border-radius: 10px !important;
+    background: #d5bd80 !important;
     color: black;
     font-weight: bold;
     margin: auto;
+}
+
+.cpo-content-page-title{
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #000;
 }
