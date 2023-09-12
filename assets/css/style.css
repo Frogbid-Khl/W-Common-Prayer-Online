@@ -13,8 +13,22 @@
     src: url("../fonts/Orpheus-Pro-Medium.otf");
 }
 
+
+/* Light Mode */
+:root {
+    --background-color: #cbc4b0;
+    --text-color: #000;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --background-color: #222;
+    --text-color: #fff;
+}
+
 body {
-    background: #cbc4b0;
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-family: 'Orpheus-Pro-Bold', sans-serif;
 }
 
@@ -135,5 +149,11 @@ body {
 .cpo-content-page-title{
     display: inline-block;
     padding-bottom: 5px;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid var(--text-color);;
 }
+
+#text-container {
+    font-size: 16px;
+}
+
+
