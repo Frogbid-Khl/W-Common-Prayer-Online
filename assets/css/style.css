@@ -191,6 +191,10 @@ body {
     }
 
     .cpo-range{
-        width: 90%;
+        width: 85%;
+    }
+
+    .cpo-body-padding-top{
+        padding-top: 8rem;
     }
 }
