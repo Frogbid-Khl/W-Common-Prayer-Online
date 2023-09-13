@@ -32,11 +32,36 @@ if (darkModePreference === "dark") {
 }
 
 darkModeSwitch.addEventListener("change", () => {
+
     if (darkModeSwitch.checked) {
         body.classList.add("dark-mode");
         setCookie("darkModePreference", "dark", 365); // Set the dark mode preference in a cookie for 1 year
     } else {
         body.classList.remove("dark-mode");
         setCookie("darkModePreference", "light", 365); // Set the light mode preference in a cookie for 1 year
+    }
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const fontSizeRange = document.getElementById("fontSizeRange");
+    const textContainer = document.getElementById("text-container");
+
+    if(fontSizeRange){
+        fontSizeRange.addEventListener("input", () => {
+            textContainer.style.fontSize = fontSizeRange.value + "px";
+        })
+    }
+
+
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const menuItems = document.getElementById("menu-items");
+
+    if(mobileMenuButton) {
+        mobileMenuButton.addEventListener("click", function () {
+            // Toggle the visibility of the menu items
+            menuItems.style.display = (menuItems.style.display === "block") ? "none" : "block";
+        });
     }
 });

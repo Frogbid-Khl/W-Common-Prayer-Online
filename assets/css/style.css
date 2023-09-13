@@ -17,12 +17,14 @@
 /* Light Mode */
 :root {
     --background-color: #cbc4b0;
+    --dynamic-background-color: #ffffff;
     --text-color: #000;
 }
 
 /* Dark Mode */
 .dark-mode {
     --background-color: #222;
+    --dynamic-background-color: #565656;
     --text-color: #fff;
 }
 
@@ -149,7 +151,7 @@ body {
 .cpo-content-page-title{
     display: inline-block;
     padding-bottom: 5px;
-    border-bottom: 3px solid var(--text-color);;
+    border-bottom: 3px solid var(--text-color);
 }
 
 #text-container {
@@ -158,4 +160,37 @@ body {
 
 .cpo-text{
     color: var(--text-color);
+}
+
+
+.cpo-dynamic-bg{
+    background: var(--dynamic-background-color);
+}
+
+.cpo-bg{
+    background: var(--background-color);
+    border-bottom: 3px solid var(--text-color);
+}
+
+.cpo-body-padding-top{
+    padding-top: 9rem;
+}
+
+.cpo-range{
+    width: 95%;
+}
+
+@media (max-width: 768px) {
+    #menu-items {
+        display: none;
+    }
+
+    #mobile-menu-button {
+        display: block;
+        cursor: pointer;
+    }
+
+    .cpo-range{
+        width: 90%;
+    }
 }
