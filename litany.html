@@ -10,6 +10,24 @@
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href='assets/vendor/Rangeslider/rangeslider.css' rel='stylesheet'/>
     <link href="assets/css/style.css" rel="stylesheet"/>
+
+    <style>
+        /* Media Query for Mobile View */
+        @media (max-width: 768px) {
+            /* Hide menu items initially for mobile view */
+            #menu-items {
+                display: none;
+            }
+
+            /* Display mobile menu button */
+            #mobile-menu-button {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+
+    </style>
 </head>
 <body>
 <div class="container-fluid form-check form-switch mt-2 position-absolute" style="padding-left: unset">
@@ -26,8 +44,26 @@
     </div>
 </div>
 
+<!-- Mobile Menu Button -->
+<div id="mobile-menu-button" class="d-lg-none pt-5">
+    <div class="bg-light">
+        <div class="container-fluid pt-3 pb-2">
+            <div class="row">
+                <div class="col-6">
+                    <h5>
+                        Menu
+                    </h5>
+                </div>
+                <div class="col-6 text-end">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Button Start -->
-<section class="container-fluid">
+<section class="container-fluid" id="menu-items">
     <div class="row pt-5">
         <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">
             <div class="row">
@@ -504,6 +540,19 @@
 
     fontSizeRange.addEventListener("input", () => {
         textContainer.style.fontSize = fontSizeRange.value + "px";
+    })
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const menuItems = document.getElementById("menu-items");
+
+        mobileMenuButton.addEventListener("click", function () {
+            // Toggle the visibility of the menu items
+            menuItems.style.display = (menuItems.style.display === "block") ? "none" : "block";
+        });
     });
 </script>
 </body>
