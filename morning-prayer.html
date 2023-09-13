@@ -28,7 +28,7 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-12 mt-5 text-center">
+        <div class="col-12 pt-5 text-center">
             <h1 class="cpo-content-page-title">THE ORDER FOR MORNING PRAYER</h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
@@ -1353,18 +1353,6 @@
     fontSizeRange.addEventListener("input", () => {
         textContainer.style.fontSize = fontSizeRange.value + "px";
     });
-
-    const darkModeSwitch = document.getElementById("darkModeSwitch");
-    const body = document.body;
-
-    darkModeSwitch.addEventListener("change", () => {
-        if (darkModeSwitch.checked) {
-            body.classList.add("dark-mode");
-        } else {
-            body.classList.remove("dark-mode");
-        }
-    });
-
 </script>
 </body>
 </html>
