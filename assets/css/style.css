@@ -28,6 +28,18 @@
     --text-color: #fff;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+ul li{
+    list-style: none;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
