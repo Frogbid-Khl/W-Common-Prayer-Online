@@ -36,14 +36,18 @@ function getPreviousLiturgicalOccasion($date) {
     $currentYear = date('Y');
     $easterDate = calculateEasterDate($currentYear);
 
+    //echo $easterDate.'<br/>';
+
+    // Calculate pre-Lenten Sundays
+    $epiphany=date('Y-m-d', strtotime("$currentYear-01-06"));
+    $septuagesimaSunday = date('Y-m-d', strtotime("$easterDate -63 days"));
+    $sexagesimaSunday = date('Y-m-d', strtotime("$easterDate -56 days"));
+    $quinquagesimaSunday = date('Y-m-d', strtotime("$easterDate -49 days"));
+
+
+
     $liturgicalDates = [
         'Epiphany' => date('Y-m-d', strtotime("$currentYear-01-06")),
-        '1st Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +1 week")),
-        '2nd Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +2 weeks")),
-        '3rd Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +3 weeks")),
-        '4th Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +4 weeks")),
-        '5th Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +5 weeks")),
-        '6th Sunday after the Epiphany' => date('Y-m-d', strtotime("$easterDate +6 weeks")),
         'Septuagesima Sunday' => date('Y-m-d', strtotime("$easterDate -63 days")),
         'Sexagesima Sunday' => date('Y-m-d', strtotime("$easterDate -56 days")),
         'Quinquagesima Sunday' => date('Y-m-d', strtotime("$easterDate -49 days")),
@@ -56,11 +60,22 @@ function getPreviousLiturgicalOccasion($date) {
         'Palm Sunday' => date('Y-m-d', strtotime("$easterDate -7 days")),
         'Good Friday' => date('Y-m-d', strtotime("$easterDate -2 days")),
         'Easter' => $easterDate,
-        '1st Sunday after Easter' => date('Y-m-d', strtotime("$easterDate +1 week")),
-        '2nd Sunday after Easter' => date('Y-m-d', strtotime("$easterDate +2 weeks")),
-        '3rd Sunday after Easter' => date('Y-m-d', strtotime("$easterDate +3 weeks")),
-        '4th Sunday after Easter' => date('Y-m-d', strtotime("$easterDate +4 weeks")),
-        '5th Sunday after Easter (Rogation Sunday)' => date('Y-m-d', strtotime("$easterDate +5 weeks")),
+    ];
+
+// Check if Septuagesima Sunday has already passed
+    if (strtotime($easterDate) > strtotime("$currentYear-01-06")) {
+        $liturgicalDates += [
+            '1st Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +1 week")),
+            '2nd Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +2 weeks")),
+            '3rd Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +3 weeks")),
+            '4th Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +4 weeks")),
+            '5th Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +5 weeks")),
+            '6th Sunday after the Epiphany' => date('Y-m-d', strtotime("$epiphany +6 weeks")),
+        ];
+    }
+
+// Other events that do not depend on Septuagesima Sunday
+    $liturgicalDates += [
         'Ascension' => date('Y-m-d', strtotime("$easterDate +39 days")),
         'Sunday after the Ascension' => date('Y-m-d', strtotime("$easterDate +40 days")),
         'Pentecost (Whitsunday)' => date('Y-m-d', strtotime("$easterDate +49 days")),
@@ -113,6 +128,7 @@ function getPreviousLiturgicalOccasion($date) {
     }
 
     return $previousOccasion;
+
 }
 
 // Find the date of the last Sunday
