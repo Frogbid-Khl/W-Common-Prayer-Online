@@ -1,5 +1,6 @@
 <?php
-function calculateEasterDate($year) {
+function calculateEasterDate($year)
+{
     $a = $year % 19;
     $b = floor($year / 100);
     $c = $year % 100;
@@ -18,7 +19,8 @@ function calculateEasterDate($year) {
     return date("m/d/Y", mktime(0, 0, 0, $month, $day, $year));
 }
 
-function calculateLiturgicalDates($year) {
+function calculateLiturgicalDates($year)
+{
     $easterDate = calculateEasterDate($year);
     $christmasDate = $year . '-12-25';
     $date_epiphany = $year . '-01-06';
@@ -44,6 +46,10 @@ function calculateLiturgicalDates($year) {
     $first_sunday_after_christmas_date = $christmas->format('Y-m-d');
     $forth_sunday_advent = $sunday_before_christmas->format('Y-m-d');
 
+
+    $septuagesimaSunday = date('Y-m-d', strtotime("$easterDate -63 days"));
+    $sundayNextBeforeAdvent = date('Y-m-d', strtotime("$forth_sunday_advent -28 days"));
+
     $liturgicalDates = [
         'Epiphany' => date('m/d/Y', strtotime($date_epiphany)),
         '1st Sunday after the Epiphany' => date('m/d/Y', strtotime($first_sunday_after_epiphany_date)),
@@ -52,16 +58,16 @@ function calculateLiturgicalDates($year) {
         '4th Sunday after the Epiphany' => date('m/d/Y', strtotime("$first_sunday_after_epiphany_date +3 weeks")),
         '5th Sunday after the Epiphany' => date('m/d/Y', strtotime("$first_sunday_after_epiphany_date +4 weeks")),
         '6th Sunday after the Epiphany' => date('m/d/Y', strtotime("$first_sunday_after_epiphany_date +5 weeks")),
-        'Septuagesima Sunday' => date('m/d/Y', strtotime("$easterDate -63 days")),
-        'Sexagesima Sunday' => date('m/d/Y', strtotime("$easterDate -56 days")),
-        'Quinquagesima Sunday' => date('m/d/Y', strtotime("$easterDate -49 days")),
+        'Septuagesima Sunday' => date('m/d/Y', strtotime("$easterDate -9 weeks")),
+        'Sexagesima Sunday' => date('m/d/Y', strtotime("$easterDate -8 weeks")),
+        'Quinquagesima Sunday' => date('m/d/Y', strtotime("$easterDate -7 weeks")),
         'Ash Wednesday' => date('m/d/Y', strtotime("$easterDate -46 days")),
-        '1st Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -42 days")),
-        '2nd Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -35 days")),
-        '3rd Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -28 days")),
-        '4th Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -21 days")),
-        '5th Sunday in Lent (Passion Sunday)' => date('m/d/Y', strtotime("$easterDate -14 days")),
-        'Palm Sunday' => date('m/d/Y', strtotime("$easterDate -7 days")),
+        '1st Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -6 weeks")),
+        '2nd Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -5 weeks")),
+        '3rd Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -4 weeks")),
+        '4th Sunday in Lent' => date('m/d/Y', strtotime("$easterDate -3 weeks")),
+        '5th Sunday in Lent (Passion Sunday)' => date('m/d/Y', strtotime("$easterDate -2 weeks")),
+        'Palm Sunday' => date('m/d/Y', strtotime("$easterDate -1 week")),
         'Good Friday' => date('m/d/Y', strtotime("$easterDate -2 days")),
         'Easter' => date('m/d/Y', strtotime($easterDate)),
         '1st Sunday after Easter' => date('m/d/Y', strtotime("$easterDate +1 week")),
@@ -71,43 +77,94 @@ function calculateLiturgicalDates($year) {
         '5th Sunday after Easter (Rogation Sunday)' => date('m/d/Y', strtotime("$easterDate +5 weeks")),
         'Ascension' => date('m/d/Y', strtotime("$easterDate +39 days")),
         'Sunday after the Ascension' => date('m/d/Y', strtotime("$easterDate +40 days")),
-        'Pentecost (Whitsunday)' => date('m/d/Y', strtotime("$easterDate +49 days")),
-        'Trinity Sunday' => date('m/d/Y', strtotime("$easterDate +56 days")),
-        '1st Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +63 days")),
-        '2nd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +70 days")),
-        '3rd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +77 days")),
-        '4th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +84 days")),
-        '5th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +91 days")),
-        '6th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +98 days")),
-        '7th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +105 days")),
-        '8th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +112 days")),
-        '9th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +119 days")),
-        '10th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +126 days")),
-        '11th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +133 days")),
-        '12th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +140 days")),
-        '13th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +147 days")),
-        '14th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +154 days")),
-        '15th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +161 days")),
-        '16th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +168 days")),
-        '17th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +175 days")),
-        '18th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +182 days")),
-        '19th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +189 days")),
-        '20th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +196 days")),
-        '21st Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +203 days")),
-        '22nd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +210 days")),
-        '23rd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +217 days")),
-        '24th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +224 days")),
-        '25th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +231 days")),
-        '26th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +238 days")),
-        'Sunday next before Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -28 days")),
-        '1st Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -21 days")),
-        '2nd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -14 days")),
-        '3rd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -7 days")),
+        'Pentecost (Whitsunday)' => date('m/d/Y', strtotime("$easterDate +7 weeks")),
+        'Trinity Sunday' => date('m/d/Y', strtotime("$easterDate +8 weeks")),
+        '1st Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +9 weeks")),
+        '2nd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +10 weeks")),
+        '3rd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +11 weeks")),
+        '4th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +12 weeks")),
+        '5th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +13 weeks")),
+        '6th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +14 weeks")),
+        '7th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +15 weeks")),
+        '8th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +16 weeks")),
+        '9th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +17 weeks")),
+        '10th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +18 weeks")),
+        '11th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +19 weeks")),
+        '12th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +20 weeks")),
+        '13th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +21 weeks")),
+        '14th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +22 weeks")),
+        '15th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +23 weeks")),
+        '16th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +24 weeks")),
+        '17th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +25 weeks")),
+        '18th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +26 weeks")),
+        '19th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +27 weeks")),
+        '20th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +28 weeks")),
+        '21st Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +29 weeks")),
+        '22nd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +30 weeks")),
+        '23rd Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +31 weeks")),
+        '24th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +32 weeks")),
+        '25th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +33 weeks")),
+        '26th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +34 weeks")),
+        'Sunday next before Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -4 weeks")),
+        '1st Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -3 weeks")),
+        '2nd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -2 weeks")),
+        '3rd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -1 week")),
         '4th Sunday of Advent' => date('m/d/Y', strtotime($forth_sunday_advent)),
-        'Christmas' =>  date('m/d/Y', strtotime($christmasDate)),
+        'Christmas' => date('m/d/Y', strtotime($christmasDate)),
         '1st Sunday after Christmas' => date('m/d/Y', strtotime($first_sunday_after_christmas_date)),
         '2nd Sunday after Christmas' => date('m/d/Y', strtotime("$first_sunday_after_christmas_date +1 weeks")),
     ];
+
+
+    $epiphan_sunday = [
+        '1st Sunday after the Epiphany',
+        '2nd Sunday after the Epiphany',
+        '3rd Sunday after the Epiphany',
+        '4th Sunday after the Epiphany',
+        '5th Sunday after the Epiphany',
+        '6th Sunday after the Epiphany'
+    ];
+
+    for ($i = 0; $i < 6; $i++) {
+        if (strtotime($septuagesimaSunday) < strtotime("$first_sunday_after_epiphany_date +" . ($i + 1) . " weeks")) {
+            unset($liturgicalDates[$epiphan_sunday[$i]]);
+        }
+    }
+
+    $trinity_sunday=[
+        '1st Sunday after Trinity',
+        '2nd Sunday after Trinity',
+        '3rd Sunday after Trinity',
+        '4th Sunday after Trinity',
+        '5th Sunday after Trinity',
+        '6th Sunday after Trinity',
+        '7th Sunday after Trinity',
+        '8th Sunday after Trinity',
+        '9th Sunday after Trinity',
+        '10th Sunday after Trinity',
+        '11th Sunday after Trinity',
+        '12th Sunday after Trinity',
+        '13th Sunday after Trinity',
+        '14th Sunday after Trinity',
+        '15th Sunday after Trinity',
+        '16th Sunday after Trinity',
+        '17th Sunday after Trinity',
+        '18th Sunday after Trinity',
+        '19th Sunday after Trinity',
+        '20th Sunday after Trinity',
+        '21st Sunday after Trinity',
+        '22nd Sunday after Trinity',
+        '23rd Sunday after Trinity',
+        '24th Sunday after Trinity',
+        '25th Sunday after Trinity',
+        '26th Sunday after Trinity'
+    ];
+
+    for ($i = 0; $i < 26; $i++) {
+        if (strtotime("$forth_sunday_advent -4 weeks") < strtotime("$easterDate +" . ($i + 9) . " weeks")) {
+            unset($liturgicalDates[$trinity_sunday[$i]]);
+        }
+    }
 
     return $liturgicalDates;
 }
