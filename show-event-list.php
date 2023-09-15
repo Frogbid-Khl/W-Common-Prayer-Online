@@ -161,9 +161,17 @@ function calculateLiturgicalDates($year)
     ];
 
     for ($i = 0; $i < 26; $i++) {
-        if (strtotime("$forth_sunday_advent -4 weeks") < strtotime("$easterDate +" . ($i + 9) . " weeks")) {
+        if (strtotime("$forth_sunday_advent -29 days") < strtotime("$easterDate +" . ($i + 9) . " weeks")) {
             unset($liturgicalDates[$trinity_sunday[$i]]);
         }
+    }
+
+    if(strtotime($first_sunday_after_christmas_date)>strtotime($year . '-12-31')){
+        unset($liturgicalDates['1st Sunday after Christmas']);
+    }
+
+    if(strtotime("$first_sunday_after_christmas_date +1 weeks")>strtotime($year . '-12-31')){
+        unset($liturgicalDates['2nd Sunday after Christmas']);
     }
 
     return $liturgicalDates;
