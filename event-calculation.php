@@ -207,12 +207,17 @@ function getPreviousLiturgicalOccasion($date) {
     $previousOccasion = null;
 
     foreach ($liturgicalDates as $occasion => $liturgicalDate) {
-        if ($liturgicalDate < $date) {
+        // Format the dates to exclude the time component
+        $formattedLiturgicalDate = date('Y-m-d', strtotime($liturgicalDate));
+        $formattedDate = date('Y-m-d', strtotime($date));
+
+        if (strtotime($formattedLiturgicalDate) < strtotime($formattedDate)) {
             $previousOccasion = $occasion;
         } else {
             break;
         }
     }
+
 
     return $previousOccasion;
 
@@ -234,13 +239,10 @@ function getLastSunday() {
 
 $lastSunday = getLastSunday();
 
-echo $lastSunday;
-
-
-// Get the liturgical occasion for the last Sunday
-$occasionForLastSunday = getPreviousLiturgicalOccasion($lastSunday);
-
 $today=date('Y-m-d');
+
+$occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
 if ($occasionForLastSunday) {
     $dayOfWeek = getDayOfWeekName($today);
     echo "Today is $dayOfWeek after $occasionForLastSunday\n";
