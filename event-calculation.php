@@ -1,5 +1,6 @@
 <?php
-function calculateEasterDate($year) {
+function calculateEasterDate($year)
+{
     $a = $year % 19;
     $b = floor($year / 100);
     $c = $year % 100;
@@ -18,7 +19,8 @@ function calculateEasterDate($year) {
     return date("Y-m-d", mktime(0, 0, 0, $month, $day, $year));
 }
 
-function getDayOfWeekName($date) {
+function getDayOfWeekName($date)
+{
     $dayOfWeek = date('N', strtotime($date));
     $dayOfWeekNames = [
         1 => 'Monday',
@@ -32,7 +34,8 @@ function getDayOfWeekName($date) {
     return $dayOfWeekNames[$dayOfWeek];
 }
 
-function getPreviousLiturgicalOccasion($date) {
+function getPreviousLiturgicalOccasion($date)
+{
     $year = date('Y');
 
     $easterDate = calculateEasterDate($year);
@@ -207,11 +210,10 @@ function getPreviousLiturgicalOccasion($date) {
     $previousOccasion = null;
 
     foreach ($liturgicalDates as $occasion => $liturgicalDate) {
-        // Format the dates to exclude the time component
         $formattedLiturgicalDate = date('Y-m-d', strtotime($liturgicalDate));
         $formattedDate = date('Y-m-d', strtotime($date));
 
-        if (strtotime($formattedLiturgicalDate) < strtotime($formattedDate)) {
+        if (strtotime($formattedLiturgicalDate) <= strtotime($formattedDate)) {
             $previousOccasion = $occasion;
         } else {
             break;
@@ -223,29 +225,43 @@ function getPreviousLiturgicalOccasion($date) {
 
 }
 
-// Find the date of the last Sunday
-function getLastSunday() {
-    $currentDate = new DateTime();
-    $currentDayOfWeek = $currentDate->format('N'); // 1 (Monday) to 7 (Sunday)
+function getOccasionName($today){
 
-    // Calculate the number of days to subtract to get to the previous Sunday
-    $daysToSubtract = ($currentDayOfWeek == 7) ? 0 : $currentDayOfWeek;
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
 
-    // Subtract the days to get the previous Sunday
-    $lastSunday = $currentDate->sub(new DateInterval("P{$daysToSubtract}D"));
+    if ($occasionForLastSunday) {
+        $dayOfWeek = getDayOfWeekName($today);
 
-    return $lastSunday->format('Y-m-d');
+        if ($dayOfWeek != 'Sunday') {
+
+            $found_number = '';
+
+            $text = $occasionForLastSunday;
+
+            $pattern = '/\b(\d+)(?:st|nd|rd|th)?\b/';
+
+            if (preg_match($pattern, $text, $matches)) {
+                $found_number = $matches[1];
+            }
+
+            $lastSpacePos = strrpos($occasionForLastSunday, ' ');
+
+
+            if ($lastSpacePos !== false && $found_number != '') {
+                $lastWord = substr($occasionForLastSunday, $lastSpacePos + 1);
+            } else {
+                $lastWord = $occasionForLastSunday;
+            }
+
+            echo "Today is $dayOfWeek after $lastWord $found_number<br/>";
+            echo "Season of $lastWord<br/>";
+
+        } else {
+            echo "Today is $occasionForLastSunday\n";
+        }
+    }
 }
 
-$lastSunday = getLastSunday();
-
-$today=date('Y-m-d');
-
-$occasionForLastSunday = getPreviousLiturgicalOccasion($today);
-
-if ($occasionForLastSunday) {
-    $dayOfWeek = getDayOfWeekName($today);
-    echo "Today is $dayOfWeek after $occasionForLastSunday\n";
-} else {
-    echo "No liturgical occasion for last Sunday\n";
-}
+$today= date('Y-m-d');
+//$today= '2023-09-19';
+getOccasionName($today);
