@@ -22,7 +22,6 @@ function calculateEasterDate($year)
 function calculateLiturgicalDates($year)
 {
     $easterDate = calculateEasterDate($year);
-    $christmasDate = $year . '-12-25';
     $date_epiphany = $year . '-01-06';
 
     $epiphany = new DateTime("$year-01-06");
@@ -31,24 +30,36 @@ function calculateLiturgicalDates($year)
         $epiphany->add(new DateInterval('P1D')); // Add one day
     }
 
-// Format the date in 'Y-m-d' format.
     $first_sunday_after_epiphany_date = $epiphany->format('Y-m-d');
 
-    $christmas = new DateTime("$year-12-25");
+    $christmasDate = $year . '-12-25';
 
-    while ($christmas->format('N') != 7) {
-        $christmas->add(new DateInterval('P1D'));
+    $christmasTimestamp = strtotime($christmasDate);
+
+    if (date("w", $christmasTimestamp) == 0) {
+        // If Christmas is on a Sunday, add 7 days (1 week) to skip it
+        $nextSundayTimestamp = strtotime("+1 week", $christmasTimestamp);
+    } else {
+        // If Christmas is on any other day, find the next Sunday
+        $daysUntilNextSunday = 7 - date("w", $christmasTimestamp);
+        $nextSundayTimestamp = strtotime("+" . $daysUntilNextSunday . " days", $christmasTimestamp);
     }
 
-    $sunday_before_christmas = clone $christmas;
-    $sunday_before_christmas->sub(new DateInterval('P7D'));
+    if (date("w", $christmasTimestamp) == 0) {
+        // If Christmas is on a Sunday, subtract 7 days (1 week) to skip it
+        $previousSundayTimestamp = strtotime("-1 week", $christmasTimestamp);
+    } else {
+        // If Christmas is on any other day, find the previous Sunday
+        $daysUntilPreviousSunday = date("w", $christmasTimestamp);
+        $previousSundayTimestamp = strtotime("-" . $daysUntilPreviousSunday . " days", $christmasTimestamp);
+    }
 
-    $first_sunday_after_christmas_date = $christmas->format('Y-m-d');
-    $forth_sunday_advent = $sunday_before_christmas->format('Y-m-d');
+    $previousSundayChristmas = date("Y-m-d", $previousSundayTimestamp);
 
+    $nextSundayAfterChristmas = date("Y-m-d", $nextSundayTimestamp);
 
     $septuagesimaSunday = date('Y-m-d', strtotime("$easterDate -63 days"));
-    $sundayNextBeforeAdvent = date('Y-m-d', strtotime("$forth_sunday_advent -28 days"));
+
 
     $liturgicalDates = [
         'Epiphany' => date('m/d/Y', strtotime($date_epiphany)),
@@ -105,14 +116,14 @@ function calculateLiturgicalDates($year)
         '24th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +32 weeks")),
         '25th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +33 weeks")),
         '26th Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +34 weeks")),
-        'Sunday next before Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -4 weeks")),
-        '1st Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -3 weeks")),
-        '2nd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -2 weeks")),
-        '3rd Sunday of Advent' => date('m/d/Y', strtotime("$forth_sunday_advent -1 week")),
-        '4th Sunday of Advent' => date('m/d/Y', strtotime($forth_sunday_advent)),
+        'Sunday next before Advent' => date('m/d/Y', strtotime("$previousSundayChristmas -4 weeks")),
+        '1st Sunday of Advent' => date('m/d/Y', strtotime("$previousSundayChristmas -3 weeks")),
+        '2nd Sunday of Advent' => date('m/d/Y', strtotime("$previousSundayChristmas -2 weeks")),
+        '3rd Sunday of Advent' => date('m/d/Y', strtotime("$previousSundayChristmas -1 week")),
+        '4th Sunday of Advent' => date('m/d/Y', strtotime($previousSundayChristmas)),
         'Christmas' => date('m/d/Y', strtotime($christmasDate)),
-        '1st Sunday after Christmas' => date('m/d/Y', strtotime($first_sunday_after_christmas_date)),
-        '2nd Sunday after Christmas' => date('m/d/Y', strtotime("$first_sunday_after_christmas_date +1 weeks")),
+        '1st Sunday after Christmas' => date('m/d/Y', strtotime($nextSundayAfterChristmas)),
+        '2nd Sunday after Christmas' => date('m/d/Y', strtotime("$nextSundayAfterChristmas +1 weeks")),
     ];
 
 
@@ -131,7 +142,7 @@ function calculateLiturgicalDates($year)
         }
     }
 
-    $trinity_sunday=[
+    $trinity_sunday = [
         '1st Sunday after Trinity',
         '2nd Sunday after Trinity',
         '3rd Sunday after Trinity',
@@ -161,16 +172,19 @@ function calculateLiturgicalDates($year)
     ];
 
     for ($i = 0; $i < 26; $i++) {
-        if (strtotime("$forth_sunday_advent -29 days") < strtotime("$easterDate +" . ($i + 9) . " weeks")) {
+        if (strtotime("$previousSundayChristmas -29 days") < strtotime("$easterDate +" . ($i + 9) . " weeks")) {
             unset($liturgicalDates[$trinity_sunday[$i]]);
         }
     }
 
-    if(strtotime($first_sunday_after_christmas_date)>strtotime($year . '-12-31')){
+    $nextYear = $year + 1;
+
+
+    if (strtotime($nextSundayAfterChristmas) > strtotime($nextYear . '-01-05')) {
         unset($liturgicalDates['1st Sunday after Christmas']);
     }
 
-    if(strtotime("$first_sunday_after_christmas_date +1 weeks")>strtotime($year . '-12-31')){
+    if (strtotime("$nextSundayAfterChristmas +1 week") > strtotime($nextYear . '-01-05')) {
         unset($liturgicalDates['2nd Sunday after Christmas']);
     }
 
@@ -178,7 +192,7 @@ function calculateLiturgicalDates($year)
 }
 
 // Example usage:
-$year = 2023;
+$year = $_GET['year'];
 $liturgicalDates = calculateLiturgicalDates($year);
 
 foreach ($liturgicalDates as $occasion => $date) {
