@@ -191,10 +191,19 @@ function calculateLiturgicalDates($year)
     return $liturgicalDates;
 }
 
-// Example usage:
-$year = $_GET['year'];
-$liturgicalDates = calculateLiturgicalDates($year);
+function getFullYearOccasion($year){
+    $liturgicalDates = calculateLiturgicalDates($year);
 
-foreach ($liturgicalDates as $occasion => $date) {
-    echo "$occasion: $date<br/>";
+    foreach ($liturgicalDates as $occasion => $date) {
+        echo "$occasion: $date<br/>";
+    }
 }
+
+$year= date('Y');
+
+if(isset($_GET['year'])){
+    $year= $_GET['year'];
+}
+
+getFullYearOccasion($year);
+

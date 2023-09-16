@@ -263,5 +263,9 @@ function getOccasionName($today){
 }
 
 $today= date('Y-m-d');
-//$today= '2023-09-19';
+
+if(isset($_GET['today'])){
+    $today= $_GET['today'];
+}
+
 getOccasionName($today);
