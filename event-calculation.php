@@ -36,7 +36,7 @@ function getDayOfWeekName($date)
 
 function getPreviousLiturgicalOccasion($date)
 {
-    $year = date('Y');
+    $year = date('Y', strtotime($date));
 
     $easterDate = calculateEasterDate($year);
     $date_epiphany = $year . '-01-06';
@@ -225,14 +225,20 @@ function getPreviousLiturgicalOccasion($date)
 
 }
 
-function getOccasionName($today){
+function getOccasionName($today)
+{
 
     $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
 
     if ($occasionForLastSunday) {
         $dayOfWeek = getDayOfWeekName($today);
 
-        if ($dayOfWeek != 'Sunday') {
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
 
             $found_number = '';
 
@@ -262,10 +268,10 @@ function getOccasionName($today){
     }
 }
 
-$today= date('Y-m-d');
+$today = date('Y-m-d');
 
-if(isset($_GET['today'])){
-    $today= $_GET['today'];
+if (isset($_GET['today'])) {
+    $today = $_GET['today'];
 }
 
 getOccasionName($today);
