@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                       href="#">Psalter</a>
+                       href="psalter">Psalter</a>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                       href="#">Psalter</a>
+                       href="psalter">Psalter</a>
                 </div>
             </div>
         </div>

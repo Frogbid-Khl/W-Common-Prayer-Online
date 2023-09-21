@@ -12,6 +12,8 @@ RewriteRule ^litany litany.php [NE,L]
 
 RewriteRule ^penitential-office penitential-office.php [NE,L]
 
+RewriteRule ^psalter psalter.php [NE,L]
+
 RewriteRule ^family-prayer family-prayer.php [NE,L]
 
 RewriteRule ^prayers-and-thanksgivings prayers-and-thanksgivings.php [NE,L]
