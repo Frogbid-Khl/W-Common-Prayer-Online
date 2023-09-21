@@ -1,3 +1,39 @@
+<?php
+date_default_timezone_set("America/New_York");
+require_once('include/dbController.php');
+$db_handle = new DBController();
+
+function convertToRoman($number)
+{
+    if ($number < 1 || $number > 3999) {
+        return "Invalid input";
+    }
+
+    $values = array(
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4, 1
+    );
+
+    $romanNumerals = array(
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV",
+        "I"
+    );
+
+    $romanNumber = '';
+
+    for ($i = 0; $i < count($values); $i++) {
+        while ($number >= $values[$i]) {
+            $romanNumber .= $romanNumerals[$i];
+            $number -= $values[$i];
+        }
+    }
+
+    return $romanNumber;
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -147,7 +183,7 @@
                     </a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#daily">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#num">
                         Numerical Index of Psalms
                     </a>
                 </div>
@@ -156,7 +192,7 @@
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#num">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#daily">
                         Daily Psalter (30 Days)
                     </a>
                 </div>
@@ -171,36 +207,145 @@
         </div>
         <div class="col-lg-12 mt-3">
             <div id="text-container">
-                <div class="table-responsive">
-                    <table class="table table-striped">
+                <div class="table-responsive" id="topic">
+                    <table class="table table-striped cpo-table">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th class="text-center pt-3 pb-3" scope="col" colspan="3"><h3>Topical Selections of
+                                    Psalms</h3></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        <?php
+                        $query = "SELECT * FROM `topical_selection`";
+                        $data = $db_handle->runQuery($query);
+                        $row_count = $db_handle->numRows($query);
+                        for ($i = 0; $i < $row_count; $i++) {
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo convertToRoman($data[$i]["id"]); ?></th>
+                                <td><?php echo $data[$i]["name"]; ?></td>
+                                <td><?php echo $data[$i]["pslam"]; ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                         </tbody>
                     </table>
+                </div>
+                <hr/>
+                <div class="row mt-5" id="daily">
+                    <div class="col-12 text-center">
+                        <h2>
+                            The Daily Psalter (30 days)
+                        </h2>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped cpo-table text-center">
+                                <thead>
+                                <tr>
+                                    <th class="pt-3 pb-3" scope="col" colspan="3"><h4>Daily Psalter, Morning</h4></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $query = "SELECT * FROM `daily_psalter` where day_type='Morning'";
+                                $data = $db_handle->runQuery($query);
+                                $row_count = $db_handle->numRows($query);
+                                for ($i = 0; $i < 10; $i++) {
+                                    ?>
+                                    <tr>
+                                        <td><a href="#"><?php echo "Day ".$data[$i]["day_name"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Day ".$data[($i*2)+1]["day_name"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Day ".$data[($i*3)+2]["day_name"]; ?></a></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped cpo-table text-center">
+                                <thead>
+                                <tr>
+                                    <th class="pt-3 pb-3" scope="col" colspan="3"><h4>Daily Psalter, Evening</h4></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $query = "SELECT * FROM `daily_psalter` where day_type='Evening'";
+                                $data = $db_handle->runQuery($query);
+                                $row_count = $db_handle->numRows($query);
+                                for ($i = 0; $i < 10; $i++) {
+                                    ?>
+                                    <tr>
+                                        <td><a href="#"><?php echo "Day ".$data[$i]["day_name"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Day ".$data[($i*2)+1]["day_name"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Day ".$data[($i*3)+2]["day_name"]; ?></a></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row mt-5" id="num">
+                    <div class="col-12 text-center">
+                        <h2>
+                            Numerical Index of Psalms
+                        </h2>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped cpo-table text-center">
+                                <tbody>
+                                <?php
+                                $query = "SELECT * FROM `psalm` where id>=1 and id<=75";
+                                $data = $db_handle->runQuery($query);
+                                $row_count = $db_handle->numRows($query);
+                                for ($i = 0; $i < 25; $i++) {
+                                    ?>
+                                    <tr>
+                                        <td><a href="#"><?php echo "Ps ".$data[$i]["id"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Ps ".$data[($i*2)+1]["id"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Ps ".$data[($i*3)+2]["id"]; ?></a></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped cpo-table text-center">
+                                <tbody>
+                                <?php
+                                $query = "SELECT * FROM `psalm` where id>=76 and id<=150";
+                                $data = $db_handle->runQuery($query);
+                                $row_count = $db_handle->numRows($query);
+                                for ($i = 0; $i < 25; $i++) {
+                                    ?>
+                                    <tr>
+                                        <td><a href="#"><?php echo "Ps ".$data[$i]["id"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Ps ".$data[($i*2)+1]["id"]; ?></a></td>
+                                        <td><a href="#"><?php echo "Ps ".$data[($i*3)+2]["id"]; ?></a></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -242,9 +387,9 @@
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER

@@ -29,6 +29,7 @@
 }
 
 a{
+    color: #00008b;
     text-decoration: none;
 }
 
@@ -236,4 +237,8 @@ body {
 
 #cpo-scroll-to-top:hover {
     background-color: #847a68;
+}
+
+.cpo-table{
+    --bs-table-bg: #fff0;
 }
