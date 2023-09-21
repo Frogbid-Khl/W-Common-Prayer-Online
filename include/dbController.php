@@ -9,9 +9,9 @@ class DBController {
     function __construct() {
         if($_SERVER['SERVER_NAME']=="www.cpo.frogbid.com"||$_SERVER['SERVER_NAME']=="cpo.frogbid.com"){
             $this->host = "localhost";
-            $this->user = "upnb8u5yepuix";
+            $this->user = "uxcm1zcftoout";
             $this->password = "+91iexAy61@)";
-            $this->database = "dbybeddfkdftvr";
+            $this->database = "dbepbgl0geptt1";
         }
 
         $this->conn = $this->connectDB();
