@@ -175,6 +175,12 @@ function convertToRoman($number)
             <h3>www.CommonPrayerOnline.org</h3>
             <p>An Independent, Traditional</p>
             <p>1928 BCP Ministry</p>
+            <p>
+                <?php
+                $dateString = date("l, F j, Y");
+                echo "Today is " . $dateString;
+                ?>
+            </p>
         </div>
         <div class="col-lg-6 mt-3">
             <div class="row">
@@ -231,7 +237,7 @@ function convertToRoman($number)
                                     $pslamArray = explode(",", $data[$i]["pslam"]);
                                     foreach ($pslamArray as $value) {
                                         ?>
-                                        <a href="#"><?php echo $value.","; ?></a> &nbsp;
+                                        <a href="#"><?php echo $value . ","; ?></a> &nbsp;
                                         <?php
                                     }
                                     ?>
