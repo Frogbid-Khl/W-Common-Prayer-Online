@@ -1,0 +1,28 @@
+RewriteEngine on
+
+RewriteRule ^home index.php [NE,L]
+
+RewriteRule ^daily-office daily-office.php [NE,L]
+
+RewriteRule ^morning-prayer morning-prayer.php [NE,L]
+
+RewriteRule ^occasional-office occasional-office.php [NE,L]
+
+RewriteRule ^litany litany.php [NE,L]
+
+RewriteRule ^penitential-office penitential-office.php [NE,L]
+
+RewriteRule ^prayers-and-thanksgivings prayers-and-thanksgivings.php [NE,L]
+
+RewriteRule ^visitation-of-the-sick visitation-of-the-sick.php [NE,L]
+
+RewriteRule ^collects collects.php [NE,L]
+
+RewriteRule ^kallender kallender.php [NE,L]
+
+RewriteRule ^event-calculation event-calculation.php [NE,L]
+
+RewriteRule ^show-event-list show-event-list.php [NE,L]
+
+
+
