@@ -259,11 +259,11 @@ function getOccasionName($today)
                 $lastWord = $occasionForLastSunday;
             }
 
-            echo "Today is $dayOfWeek after $lastWord $found_number<br/>";
-            echo "Season of $lastWord<br/>";
+            echo "Today is <span class='cpo-event-color'>$dayOfWeek after $lastWord $found_number</span><br/>";
+            echo "Season of <span class='cpo-event-color'>$lastWord</span><br/>";
 
         } else {
-            echo "Today is $occasionForLastSunday\n";
+            echo "Today is <span class='cpo-event-color'>$occasionForLastSunday</span><br/>";
         }
     }
 }

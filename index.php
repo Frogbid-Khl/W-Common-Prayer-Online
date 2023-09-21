@@ -17,7 +17,8 @@
             <label class="form-check-label" for="darkModeSwitch">Light</label>
         </div>
         <div class="col-4">
-            <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+            <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                   style="margin-left: unset;">
         </div>
         <div class="col-4">
             <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -156,10 +157,7 @@
         <div class="card cpo-footer-card mt-4 text-center pt-4 pb-3 wow fadeInDown" data-wow-duration="1s"
              data-wow-delay="0.5s">
             <p>
-                Today is <span class="bishop-purple">Thursday after Trinity 12</span>
-                <br/>
-                Season of <span class="bishop-purple">Trinity</span>
-                <br/>
+                <?php include('event-calculation.php'); ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>
             <div class="row">
@@ -169,8 +167,10 @@
                            href="#">
                             MORNING PRAYER
                         </a>
-                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i class="fa-solid fa-arrow-right"></i></p>
-                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
+                                    class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER

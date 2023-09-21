@@ -1162,10 +1162,7 @@
         <div class="card cpo-footer-card mt-4 text-center pt-4 pb-3 wow fadeInDown" data-wow-duration="1s"
              data-wow-delay="0.5s">
             <p>
-                Today is <span class="bishop-purple">Thursday after Trinity 12</span>
-                <br/>
-                Season of <span class="bishop-purple">Trinity</span>
-                <br/>
+                <?php include('event-calculation.php'); ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>
             <div class="row">
