@@ -123,7 +123,6 @@
     <!-- Button End -->
 </section>
 
-
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
@@ -2004,6 +2003,8 @@
     </div>
 </section>
 <!-- Footer End -->
+
+<button onclick="topFunction()" id="cpo-scroll-to-top" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jQuery/jquery-3.6.4.min.js"></script>

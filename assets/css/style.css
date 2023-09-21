@@ -214,3 +214,26 @@ body {
 .cpo-event-color{
     color: #67032f;
 }
+
+#cpo-scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: #bc9a51;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: 1px solid #847a68 !important;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
+}
+
+#cpo-scroll-to-top:hover {
+    background-color: #847a68;
+}

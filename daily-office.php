@@ -236,6 +236,8 @@
 </section>
 <!-- Footer End -->
 
+<button onclick="topFunction()" id="cpo-scroll-to-top" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
 <script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
 <script src="assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
