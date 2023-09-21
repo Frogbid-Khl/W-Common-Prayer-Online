@@ -51,11 +51,11 @@
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="index.html">Home</a>
+                           href="home">Home</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office.html">Daily Offices</a>
+                           href="daily-office">Daily Offices</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -109,11 +109,11 @@
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany.html">Litany</a>
+                           href="litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender.html">Kalendar</a>
+                           href="kallender">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
             <h1 class="cpo-content-page-title">The Occasional Offices</h1>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="litany.html">
+            <a class="text-decoration-none cpo-text" href="litany">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> The Litany
                 </h3>
@@ -140,7 +140,7 @@
             </p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="penitential-office.html">
+            <a class="text-decoration-none cpo-text" href="penitential-office">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> A Penitential Office
                 </h3>
@@ -163,7 +163,7 @@
             </p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="family-prayer.html">
+            <a class="text-decoration-none cpo-text" href="family-prayer">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> Family Prayer
                 </h3>
@@ -173,7 +173,7 @@
             </p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="prayer-thanks-giving.html">
+            <a class="text-decoration-none cpo-text" href="prayer-thanks-giving">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> Prayers & Thanksgivings
                 </h3>
@@ -184,7 +184,7 @@
             </p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="visitation-of-the-sick.html">
+            <a class="text-decoration-none cpo-text" href="visitation-of-the-sick">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> Visitation of the Sick
                 </h3>
@@ -194,7 +194,7 @@
             </p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="collects.html">
+            <a class="text-decoration-none cpo-text" href="collects">
                 <h3>
                     <i class="fa-solid fa-cross fa-2x"></i> Collects
                 </h3>
@@ -213,13 +213,13 @@
     <div class="card mt-4 cpo-card-btn wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="index.html">Home</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office.html">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="church-year.html">The Church Year</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="church-year">The Church Year</a>
             </div>
         </div>
     </div>

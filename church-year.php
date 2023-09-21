@@ -51,11 +51,11 @@
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="index.html">Home</a>
+                           href="home">Home</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office.html">Daily Offices</a>
+                           href="daily-office">Daily Offices</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -109,11 +109,11 @@
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany.html">Litany</a>
+                           href="litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender.html">Kalendar</a>
+                           href="kallender">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -236,13 +236,13 @@
     <div class="card mt-4 cpo-card-btn wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="index.html">Home</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office.html">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office.html">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
             </div>
         </div>
     </div>
