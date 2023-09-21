@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">Collect</a>
+                           href="collects">Collect</a>
                     </div>
                 </div>
             </div>
@@ -90,11 +90,11 @@
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">Penitential Office</a>
+                           href="penitential-office">Penitential Office</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">Family Prayer</a>
+                           href="family-prayer">Family Prayer</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
