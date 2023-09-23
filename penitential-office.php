@@ -1,3 +1,9 @@
+<?php
+date_default_timezone_set("America/New_York");
+require_once("include/dbController.php");
+require_once('event-calculation.php');
+$db_handle = new DBController();
+?>
 <!doctype html>
 <html lang="en">
 <head>

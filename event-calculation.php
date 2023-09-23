@@ -274,5 +274,3 @@ $today = date('Y-m-d');
 if (isset($_GET['today'])) {
     $today = $_GET['today'];
 }
-
-getOccasionName($today);

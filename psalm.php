@@ -1,6 +1,8 @@
 <?php
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
+require_once('event-calculation.php');
+
 $db_handle = new DBController();
 
 $url = $_SERVER['REQUEST_URI'];

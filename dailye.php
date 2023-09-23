@@ -1,6 +1,8 @@
 <?php
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
+require_once('event-calculation.php');
+
 $db_handle = new DBController();
 
 $url = $_SERVER['REQUEST_URI'];
@@ -203,8 +205,12 @@ function numberToWords($number) {
                 echo "Today is " . $dateString;
                 ?>
             </p>
-            <h3>Monday after Trinity XIV</h3>
-            <h3>The Season is TRINITY</h3>
+            <h3>
+                <?php
+                $day=date('Y-m-d');
+                getOccasionName($day);
+                ?>
+            </h3>
             <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
         </div>
         <div class="col-lg-12 mt-3">
@@ -246,7 +252,10 @@ function numberToWords($number) {
         <div class="card cpo-footer-card mt-4 text-center pt-4 pb-3 wow fadeInDown" data-wow-duration="1s"
              data-wow-delay="0.5s">
             <p>
-                <?php include('event-calculation.php'); ?>
+                <?php
+                $day=date('Y-m-d');
+                getOccasionName($day);
+                ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>
             <div class="row">
