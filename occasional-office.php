@@ -238,7 +238,10 @@ $db_handle = new DBController();
         <div class="card cpo-footer-card mt-4 text-center pt-4 pb-3 wow fadeInDown" data-wow-duration="1s"
              data-wow-delay="0.5s">
             <p>
-                <?php include('event-calculation.php'); ?>
+                <?php
+                $day=date('Y-m-d');
+                getOccasionName($day);
+                ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>
             <div class="row">
