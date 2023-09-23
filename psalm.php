@@ -1,14 +1,75 @@
+<?php
+date_default_timezone_set("America/New_York");
+require_once("include/dbController.php");
+$db_handle = new DBController();
+
+$url = $_SERVER['REQUEST_URI'];
+$id = substr($url, strrpos($url, '/') + 1);
+
+$extension = '../';
+$description = '';
+
+$query = "SELECT * FROM psalm where id='$id'";
+
+$data = $db_handle->runQuery($query);
+$row = $db_handle->numRows($query);
+for ($j = 0; $j < $row; $j++) {
+    $description = $data[$j]["description"];
+}
+
+if ($row == 0) {
+    echo "<script>
+                window.location.href='../psalter';
+                </script>";
+}
+
+function numberToWords($number) {
+    $units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    $teens = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+    $tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+    if ($number == 0) {
+        return 'zero';
+    }
+
+    $words = [];
+
+    // Convert the number to an array of digits
+    $digits = str_split(strrev($number));
+
+    for ($i = 0; $i < count($digits); $i++) {
+        $digit = (int) $digits[$i];
+
+        if ($i % 3 === 0) {
+            $words[] = $units[$digit];
+        } elseif ($i % 3 === 1) {
+            if ($digit == 1) {
+                $words[] = $teens[$digits[$i - 1]];
+            } else {
+                $words[] = $tens[$digit];
+            }
+        } elseif ($i % 3 === 2) {
+            if ($digit > 0) {
+                $words[] = $units[$digit] . ' hundred';
+            }
+        }
+    }
+
+    return implode(' ', array_reverse($words));
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Occasional Offices - Common Prayer Online</title>
-    <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
-    <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
-    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
+    <title>Psalm <?php echo $id; ?>- Common Prayer Online</title>
+    <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
+    <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
+    <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -18,7 +79,8 @@
                 <label class="form-check-label" for="darkModeSwitch">Light</label>
             </div>
             <div class="col-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                       style="margin-left: unset;">
             </div>
             <div class="col-4">
                 <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -122,91 +184,70 @@
     <!-- Button End -->
 </section>
 
-<!-- Occasional Start -->
-<section class="container-fluid cpo-body-padding-top">
+<section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">The Occasional Offices</h1>
+            <h1 class="cpo-content-page-title">THE ORDER FOR MORNING PRAYER</h1>
+            <p>As Written in the 1928 Book of Common Prayer</p>
+        </div>
+        <div class="col-lg-6 text-center mt-3">
+            <p>Developed and Presented by</p>
+            <h3>www.CommonPrayerOnline.org</h3>
+            <p>An Independent, Traditional</p>
+            <p>1928 BCP Ministry</p>
+        </div>
+        <div class="col-lg-6 text-center mt-3">
+            <p>
+                <?php
+                $dateString = date("l, F j, Y");
+                echo "Today is " . $dateString;
+                ?>
+            </p>
+            <h3>Monday after Trinity XIV</h3>
+            <h3>The Season is TRINITY</h3>
+            <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="litany">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> The Litany
-                </h3>
-            </a>
-            <p>
-                or General Supplication, To be used after the Third Collects of Morning or Evening Prayer; or before the
-                Holy Communion; or separately.
-            </p>
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Concerning the Service of the Church</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Miscellaneous Rubrics from the 1928 BCP</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Information about the BCP and Lectionary</a>
+                </div>
+            </div>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="penitential-office">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> A Penitential Office
-                </h3>
-            </a>
-            <p>
-                for Ash Wednesday. On the First Day of Lent, the Office ensuing may be read immediately after the
-                Prayer, We humbly beseech thee, O Father, in the Litany; or it may be used with Morning Prayer, or
-                Evening Prayer, or as a separate Office. The same Office may be read at other times, at the discretion
-                of the Minister.
-            </p>
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Today's Readings/Propers</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Tomorrow's Readings/Propers</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Yesterday's Readings/Propers</a>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="psalter">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> The Psalter
-                </h3>
-            </a>
-            <p>
-                or Psalms of David, with Topical and Numerical Indexes, and the 30-Day Psalter.
-            </p>
+        <div class="col-lg-12 mt-3">
+            <div>
+                <span>Aa</span>
+                <input type="range" id="fontSizeRange" class="cpo-range" min="10" max="40" step="1" value="16"/>
+                <span>Aa</span>
+            </div>
         </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="family-prayer">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Family Prayer
-                </h3>
-            </a>
-            <p>
-                Forms of Prayer to be used in Families, With Additional Prayers.
-            </p>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="prayer-thanks-giving">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Prayers & Thanksgivings
-                </h3>
-            </a>
-            <p>
-                To be used before the Prayer for All Conditions of Men, or, when that is not said, before the final
-                Prayer of Thanksgiving or blessing, or before the Grace.
-            </p>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="visitation-of-the-sick">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Visitation of the Sick
-                </h3>
-            </a>
-            <p>
-                The following Service, or any part thereof, may be used at the discretion of the Minister.
-            </p>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="collects">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Collects
-                </h3>
-            </a>
-            <p>
-                To be used after the Collects of Morning or Evening Prayer, or Communion, at the discretion of the
-                Minister.
-            </p>
+        <div class="col-lg-12 mt-3">
+            <blockquote id="text-container">
+                <h1 class="text-center text-capitalize">The <?php echo numberToWords($id); ?> Psalm</h1>
+                <?php echo $description; ?>
+            </blockquote>
         </div>
     </div>
 </section>
-<!-- Occasional End -->
 
 <!-- Main Button Start -->
 <section class="container-fluid">
@@ -216,7 +257,7 @@
                 <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
                 <a class="btn btn-primary cpo-btn-home w-100" href="church-year">The Church Year</a>
@@ -242,8 +283,10 @@
                            href="#">
                             MORNING PRAYER
                         </a>
-                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i class="fa-solid fa-arrow-right"></i></p>
-                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
+                                    class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER
@@ -258,10 +301,10 @@
 
 <button onclick="topFunction()" id="cpo-scroll-to-top" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-<script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
-<script src="assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
-<script src="assets/vendor/Wow/wow.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/Wow/wow.js"></script>
+<script src="<?php echo $extension; ?>assets/js/main.js"></script>
 </body>
 </html>

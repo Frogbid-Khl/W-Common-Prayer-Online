@@ -19,6 +19,7 @@
     --background-color: #cbc4b0;
     --dynamic-background-color: #ffffff;
     --text-color: #000;
+    --link-color: #00008b;
 }
 
 /* Dark Mode */
@@ -26,10 +27,11 @@
     --background-color: #222;
     --dynamic-background-color: #565656;
     --text-color: #fff;
+    --link-color: #7373ff;
 }
 
 a{
-    color: #00008b;
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -240,5 +242,10 @@ body {
 }
 
 .cpo-table{
+    --bs-table-color: var(--text-color);
     --bs-table-bg: #fff0;
+}
+
+.cpo-table > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-color-type: var(--text-color);
 }

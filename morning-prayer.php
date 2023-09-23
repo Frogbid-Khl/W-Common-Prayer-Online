@@ -135,7 +135,12 @@
             <p>1928 BCP Ministry</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
-            <p>Today is Monday, September 11, 2023</p>
+            <p>
+                <?php
+                $dateString = date("l, F j, Y");
+                echo "Today is " . $dateString;
+                ?>
+            </p>
             <h3>Monday after Trinity XIV</h3>
             <h3>The Season is TRINITY</h3>
             <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
