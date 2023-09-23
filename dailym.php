@@ -9,12 +9,12 @@ $id = substr($url, strrpos($url, '/') + 1);
 $extension = '../';
 $description = '';
 
-$query = "SELECT * FROM psalm where id='$id'";
+$query = "SELECT * FROM daily_psalter where day_name='$id' and day_type='Morning'";
 
 $data = $db_handle->runQuery($query);
 $row = $db_handle->numRows($query);
 for ($j = 0; $j < $row; $j++) {
-    $description = $data[$j]["description"];
+    $description = $data[$j]["text"];
 }
 
 if ($row == 0) {
@@ -65,7 +65,7 @@ function numberToWords($number) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Psalm <?php echo ucwords(numberToWords($id)); ?> - Common Prayer Online</title>
+    <title>Day <?php echo ucwords(numberToWords($id)); ?> Morning - Common Prayer Online</title>
     <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -216,7 +216,6 @@ function numberToWords($number) {
         </div>
         <div class="col-lg-12 mt-3">
             <blockquote id="text-container">
-                <h1 class="text-center text-capitalize mt-4">The <?php echo numberToWords($id); ?> Psalm</h1>
                 <?php echo $description; ?>
             </blockquote>
         </div>

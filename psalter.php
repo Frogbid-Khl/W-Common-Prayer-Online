@@ -236,8 +236,12 @@ function convertToRoman($number)
                                     <?php
                                     $pslamArray = explode(",", $data[$i]["pslam"]);
                                     foreach ($pslamArray as $value) {
+
+                                        $link = substr($value, strpos($value, ". ") + 1);
+                                        $link = trim(strtok($link, ':'));
+
                                         ?>
-                                        <a href="#"><?php echo $value . ","; ?></a> &nbsp;
+                                        <a href="psalm/<?php echo $link; ?>"><?php echo $value . ","; ?></a> &nbsp;
                                         <?php
                                     }
                                     ?>
@@ -272,9 +276,9 @@ function convertToRoman($number)
                                 for ($i = 0; $i < 10; $i++) {
                                     ?>
                                     <tr>
-                                        <td><a href="#"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
+                                        <td><a href="dailym/<?php echo $data[$i]["day_name"]; ?>"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
+                                        <td><a href="dailym/<?php echo $data[($i * 2) + 1]["day_name"]; ?>"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
+                                        <td><a href="dailym/<?php echo $data[($i * 3) + 2]["day_name"]; ?>"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -299,9 +303,9 @@ function convertToRoman($number)
                                 for ($i = 0; $i < 10; $i++) {
                                     ?>
                                     <tr>
-                                        <td><a href="#"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
+                                        <td><a href="dailye/<?php echo $data[$i]["day_name"]; ?>"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
+                                        <td><a href="dailye/<?php echo $data[($i * 2) + 1]["day_name"]; ?>"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
+                                        <td><a href="dailye/<?php echo $data[($i * 3) + 2]["day_name"]; ?>"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -329,9 +333,9 @@ function convertToRoman($number)
                                 for ($i = 0; $i < 25; $i++) {
                                     ?>
                                     <tr>
-                                        <td><a href="#"><?php echo "Ps " . $data[$i]["id"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Ps " . $data[($i * 2) + 1]["id"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Ps " . $data[($i * 3) + 2]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[$i]["id"]; ?>"><?php echo "Ps " . $data[$i]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[($i * 2) + 1]["id"]; ?>"><?php echo "Ps " . $data[($i * 2) + 1]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[($i * 3) + 2]["id"]; ?>"><?php echo "Ps " . $data[($i * 3) + 2]["id"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -351,9 +355,9 @@ function convertToRoman($number)
                                 for ($i = 0; $i < 25; $i++) {
                                     ?>
                                     <tr>
-                                        <td><a href="#"><?php echo "Ps " . $data[$i]["id"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Ps " . $data[($i * 2) + 1]["id"]; ?></a></td>
-                                        <td><a href="#"><?php echo "Ps " . $data[($i * 3) + 2]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[$i]["id"]; ?>"><?php echo "Ps " . $data[$i]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[($i * 2) + 1]["id"]; ?>"><?php echo "Ps " . $data[($i * 2) + 1]["id"]; ?></a></td>
+                                        <td><a href="psalm/<?php echo $data[($i * 3) + 2]["id"]; ?>"><?php echo "Ps " . $data[($i * 3) + 2]["id"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }

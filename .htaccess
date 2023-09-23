@@ -16,6 +16,10 @@ RewriteRule ^psalter psalter.php [NE,L]
 
 RewriteRule ^psalm(.*) psalm.php [NE,L]
 
+RewriteRule ^dailym(.*) dailym.php [NE,L]
+
+RewriteRule ^dailye(.*) dailye.php [NE,L]
+
 RewriteRule ^family-prayer family-prayer.php [NE,L]
 
 RewriteRule ^prayers-and-thanksgivings prayers-and-thanksgivings.php [NE,L]
