@@ -273,12 +273,12 @@ function convertToRoman($number)
                                 $query = "SELECT * FROM `daily_psalter` where day_type='Morning'";
                                 $data = $db_handle->runQuery($query);
                                 $row_count = $db_handle->numRows($query);
-                                for ($i = 0; $i < 10; $i++) {
+                                for ($i = 0; $i < 30; $i+=3) {
                                     ?>
                                     <tr>
                                         <td><a href="dailym/<?php echo $data[$i]["day_name"]; ?>"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
-                                        <td><a href="dailym/<?php echo $data[($i * 2) + 1]["day_name"]; ?>"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
-                                        <td><a href="dailym/<?php echo $data[($i * 3) + 2]["day_name"]; ?>"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
+                                        <td><a href="dailym/<?php echo $data[$i + 1]["day_name"]; ?>"><?php echo "Day " . $data[$i + 1]["day_name"]; ?></a></td>
+                                        <td><a href="dailym/<?php echo $data[$i + 2]["day_name"]; ?>"><?php echo "Day " . $data[$i + 2]["day_name"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -300,12 +300,12 @@ function convertToRoman($number)
                                 $query = "SELECT * FROM `daily_psalter` where day_type='Evening'";
                                 $data = $db_handle->runQuery($query);
                                 $row_count = $db_handle->numRows($query);
-                                for ($i = 0; $i < 10; $i++) {
+                                for ($i = 0; $i < 30; $i+=3) {
                                     ?>
                                     <tr>
                                         <td><a href="dailye/<?php echo $data[$i]["day_name"]; ?>"><?php echo "Day " . $data[$i]["day_name"]; ?></a></td>
-                                        <td><a href="dailye/<?php echo $data[($i * 2) + 1]["day_name"]; ?>"><?php echo "Day " . $data[($i * 2) + 1]["day_name"]; ?></a></td>
-                                        <td><a href="dailye/<?php echo $data[($i * 3) + 2]["day_name"]; ?>"><?php echo "Day " . $data[($i * 3) + 2]["day_name"]; ?></a></td>
+                                        <td><a href="dailye/<?php echo $data[$i + 1]["day_name"]; ?>"><?php echo "Day " . $data[$i + 1]["day_name"]; ?></a></td>
+                                        <td><a href="dailye/<?php echo $data[$i + 2]["day_name"]; ?>"><?php echo "Day " . $data[$i + 2]["day_name"]; ?></a></td>
                                     </tr>
                                     <?php
                                 }
