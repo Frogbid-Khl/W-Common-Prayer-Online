@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("America/New_York");
-function calculateEasterDate($year)
+function calculateEasterDates($year)
 {
     $a = $year % 19;
     $b = floor($year / 100);
@@ -20,9 +20,9 @@ function calculateEasterDate($year)
     return date("m/d/Y", mktime(0, 0, 0, $month, $day, $year));
 }
 
-function calculateLiturgicalDates($year)
+function calculateLiturgicalDatess($year)
 {
-    $easterDate = calculateEasterDate($year);
+    $easterDate = calculateEasterDates($year);
     $date_epiphany = $year . '-01-06';
 
     $epiphany = new DateTime("$year-01-06");
@@ -192,8 +192,8 @@ function calculateLiturgicalDates($year)
     return $liturgicalDates;
 }
 
-function getFullYearOccasion($year){
-    $liturgicalDates = calculateLiturgicalDates($year);
+function getFullYearOccasions($year){
+    $liturgicalDates = calculateLiturgicalDatess($year);
 
     foreach ($liturgicalDates as $occasion => $date) {
         echo "$occasion: $date<br/>";
@@ -205,6 +205,4 @@ $year= date('Y');
 if(isset($_GET['year'])){
     $year= $_GET['year'];
 }
-
-getFullYearOccasion($year);
 

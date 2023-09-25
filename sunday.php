@@ -2,6 +2,7 @@
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
+require_once('show-event-list.php');
 
 $db_handle = new DBController();
 
@@ -23,6 +24,13 @@ $description = '';
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
+
+    <style>
+        td{
+            height: 70px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -158,7 +166,7 @@ $description = '';
             </p>
             <h3>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
             </h3>
@@ -167,14 +175,16 @@ $description = '';
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>sunday/<?php echo $id-1; ?>"><?php echo $id-1; ?> Calendar</a>
+                    <a class="btn btn-primary cpo-btn-home w-100"
+                       href="<?php echo $extension; ?>sunday/<?php echo $id - 1; ?>"><?php echo $id - 1; ?> Calendar</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>sunday/<?php echo $id+1; ?>"><?php echo $id+1; ?> Calendar</a>
+                    <a class="btn btn-primary cpo-btn-home w-100"
+                       href="<?php echo $extension; ?>sunday/<?php echo $id + 1; ?>"><?php echo $id + 1; ?> Calendar</a>
                 </div>
             </div>
         </div>
@@ -184,17 +194,42 @@ $description = '';
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12 mt-3">
+            <?php
+            $val = calculateLiturgicalDatess($id);
+            ?>
             <div class="table-responsive">
                 <table class="table">
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php
+                    for ($i = 1; $i <= 12; $i++) {
+                        ?>
+                        <tr>
+                            <td style="font-size: 22px">
+                                <?php
+                                $monthName = date('F', strtotime($i . '/01/' . $id));
+                                echo $monthName;
+                                ?>
+                            </td>
+                            <?php
+                            $j = 1;
+                            $desiredMonth = date('m', strtotime($i . '/01/' . $id));
+                            foreach ($val as $event => $date) {
+                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
+                                    echo '<td><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                    $j += 1;
+                                }
+                            }
+                            if ($j == 4) {
+                                echo '<td></td>';
+                                echo '<td></td>';
+                            } else if ($j == 5) {
+                                echo '<td></td>';
+                            }
+                            ?>
+                        </tr>
+                        <?php
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
@@ -210,10 +245,12 @@ $description = '';
                 <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional
+                    Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>church-year">The Church Year</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>church-year">The Church
+                    Year</a>
             </div>
         </div>
     </div>
@@ -227,7 +264,7 @@ $description = '';
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
