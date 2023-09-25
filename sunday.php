@@ -215,7 +215,7 @@ $description = '';
                             $desiredMonth = date('m', strtotime($i . '/01/' . $id));
                             foreach ($val as $event => $date) {
                                 if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
-                                    echo '<td><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                    echo '<td class="cpo-pink"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
                                     $j += 1;
                                 }
                             }

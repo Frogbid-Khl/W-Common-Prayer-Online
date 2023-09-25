@@ -249,3 +249,19 @@ body {
 .cpo-table > tbody > tr:nth-of-type(odd) > * {
     --bs-table-color-type: var(--text-color);
 }
+
+.cpo-red{
+    background-color: #ff4d73 !important;
+}
+
+.cpo-pink{
+    background-color: #f84596 !important;
+}
+
+.cpo-white{
+    background-color: #ffffff !important;
+}
+
+.cpo-green{
+    background-color: #8AC926 !important;
+}
