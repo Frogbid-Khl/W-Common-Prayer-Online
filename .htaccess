@@ -28,9 +28,11 @@ RewriteRule ^visitation-of-the-sick visitation-of-the-sick.php [NE,L]
 
 RewriteRule ^collects collects.php [NE,L]
 
-RewriteRule ^kallender kallender.php [NE,L]
-
 RewriteRule ^church-year church-year.php [NE,L]
+
+RewriteRule ^sunday(.*) sunday.php [NE,L]
+
+RewriteRule ^kallender kallender.php [NE,L]
 
 RewriteRule ^event-calculation event-calculation.php [NE,L]
 
