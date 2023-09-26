@@ -195,7 +195,81 @@ $description = '';
     <div class="row">
         <div class="col-lg-12 mt-3">
             <?php
-            $val = calculateLiturgicalDatess($id);
+
+
+            // Existing date ranges array
+            $dateRanges = [];
+
+            // Function to add a new date range to the array
+            function addDateRange(&$dateRanges, $start_date, $end_date) {
+                $dateRanges[] = array(
+                    'start_date' => $start_date,
+                    'end_date' => $end_date,
+                );
+            }
+
+
+
+
+            $val_1 = [];
+            $val=[];
+
+
+            foreach (calculateLiturgicalDatess($id-1) as $eventName => $date) {
+                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+
+                if ($dateTime->format('Y') == $id) {
+                    $val_1[$eventName] = $date;
+                }
+            }
+
+            $septuagesimaSunday='';
+            $easterSunday='';
+            $trinity='';
+            $sundayAdvent='';
+
+            foreach (calculateLiturgicalDatess($id) as $eventName => $date) {
+                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+
+                if ($dateTime->format('Y') == $id) {
+
+                    if($eventName=='Septuagesima Sunday'){
+                        $septuagesimaSunday=$date;
+                    }else if($eventName=='Easter'){
+                        $easterSunday=$date;
+                    }else if($eventName=='1st Sunday after Trinity'){
+                        $trinity=$date;
+                    }else if($eventName=='1st Sunday of Advent'){
+                        $sundayAdvent=$date;
+                    }
+
+                    $val[$eventName] = $date;
+                }
+            }
+
+
+            echo '<pre>';
+            echo var_dump($val);
+            echo '</pre>';
+
+
+            addDateRange($dateRanges, $id.'-01-01', $id.'-01-13');
+            addDateRange($dateRanges, $id.'-01-14', date('Y-m-d',strtotime("$septuagesimaSunday -1 day")));
+            addDateRange($dateRanges,date('Y-m-d',strtotime($septuagesimaSunday)), date('Y-m-d',strtotime("$easterSunday -1 day")));
+            addDateRange($dateRanges,date('Y-m-d',strtotime($easterSunday)), date('Y-m-d',strtotime("$trinity -1 day")));
+            addDateRange($dateRanges,date('Y-m-d',strtotime($trinity)), date('Y-m-d',strtotime("$sundayAdvent -1 day")));
+            addDateRange($dateRanges, $id.'-11-01', $id.'-11-08');
+            addDateRange($dateRanges,date('Y-m-d',strtotime($sundayAdvent)), $id.'-12-24');
+            addDateRange($dateRanges, $id.'-12-25', $id.'-12-31');
+
+            // Example of accessing the date ranges
+/*            foreach ($dateRanges as $range) {
+                $start_date = $range['start_date'];
+                $end_date = $range['end_date'];
+
+                echo "Start Date: $start_date, End Date: $end_date<br>";
+            }*/
+
             ?>
             <div class="table-responsive">
                 <table class="table">
@@ -213,9 +287,54 @@ $description = '';
                             <?php
                             $j = 1;
                             $desiredMonth = date('m', strtotime($i . '/01/' . $id));
+                            foreach ($val_1 as $event => $date) {
+                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
+                                    echo '<td class="cpo-white"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                    $j += 1;
+                                }
+                            }
+
                             foreach ($val as $event => $date) {
                                 if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
-                                    echo '<td class="cpo-pink"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+
+
+                                    $color='';
+                                    $condition='';
+
+                                    if($event=='Pentecost (Whitsunday)'){
+                                        $color='cpo-red';
+                                        $condition='0';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[0]['start_date'])&&strtotime($date)<=strtotime($dateRanges[0]['end_date'])){
+                                        $color='cpo-white';
+                                        $condition='1';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[1]['start_date'])&&strtotime($date)<=strtotime($dateRanges[1]['end_date'])){
+                                        $color='cpo-green';
+                                        $condition='2';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[2]['start_date'])&&strtotime($date)<=strtotime($dateRanges[2]['end_date'])){
+                                        $color='cpo-pink';
+                                        $condition='3';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[3]['start_date'])&&strtotime($date)<=strtotime($dateRanges[3]['end_date'])){
+                                        $color='cpo-white';
+                                        $condition='4';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[5]['start_date'])&&strtotime($date)<=strtotime($dateRanges[5]['end_date'])){
+                                        $color='cpo-white';
+                                        $condition='5';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[4]['start_date'])&&strtotime($date)<=strtotime($dateRanges[4]['end_date'])){
+                                        $color='cpo-green';
+                                        $condition='6';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[6]['start_date'])&&strtotime($date)<=strtotime($dateRanges[6]['end_date'])){
+                                        $color='cpo-pink';
+                                        $condition='7';
+                                    }else if(strtotime($date)>=strtotime($dateRanges[7]['start_date'])&&strtotime($date)<=strtotime($dateRanges[7]['end_date'])){
+                                        $color='cpo-white';
+                                        $condition='8';
+                                    }else{
+                                        $color='cpo-white';
+                                        $condition='9';
+                                    }
+
+
+                                    echo '<td class="' . $color . '" title="' . $condition . '"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
                                     $j += 1;
                                 }
                             }
