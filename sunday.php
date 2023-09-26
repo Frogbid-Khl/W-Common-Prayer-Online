@@ -248,9 +248,9 @@ $description = '';
             }
 
 
-            echo '<pre>';
+/*            echo '<pre>';
             echo var_dump($val);
-            echo '</pre>';
+            echo '</pre>';*/
 
 
             addDateRange($dateRanges, $id.'-01-01', $id.'-01-13');
@@ -295,7 +295,7 @@ $description = '';
                             }
 
                             foreach ($val as $event => $date) {
-                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
+                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&(date('l', strtotime($date))=='Sunday')) {
 
 
                                     $color='';
@@ -304,31 +304,40 @@ $description = '';
                                     if($event=='Pentecost (Whitsunday)'){
                                         $color='cpo-red';
                                         $condition='0';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[0]['start_date'])&&strtotime($date)<=strtotime($dateRanges[0]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[0]['start_date'])&&strtotime($date)<=strtotime($dateRanges[0]['end_date'])){
                                         $color='cpo-white';
                                         $condition='1';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[1]['start_date'])&&strtotime($date)<=strtotime($dateRanges[1]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[1]['start_date'])&&strtotime($date)<=strtotime($dateRanges[1]['end_date'])){
                                         $color='cpo-green';
                                         $condition='2';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[2]['start_date'])&&strtotime($date)<=strtotime($dateRanges[2]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[2]['start_date'])&&strtotime($date)<=strtotime($dateRanges[2]['end_date'])){
                                         $color='cpo-pink';
                                         $condition='3';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[3]['start_date'])&&strtotime($date)<=strtotime($dateRanges[3]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[3]['start_date'])&&strtotime($date)<=strtotime($dateRanges[3]['end_date'])){
                                         $color='cpo-white';
                                         $condition='4';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[5]['start_date'])&&strtotime($date)<=strtotime($dateRanges[5]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[5]['start_date'])&&strtotime($date)<=strtotime($dateRanges[5]['end_date'])){
                                         $color='cpo-white';
                                         $condition='5';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[4]['start_date'])&&strtotime($date)<=strtotime($dateRanges[4]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[4]['start_date'])&&strtotime($date)<=strtotime($dateRanges[4]['end_date'])){
                                         $color='cpo-green';
                                         $condition='6';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[6]['start_date'])&&strtotime($date)<=strtotime($dateRanges[6]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[6]['start_date'])&&strtotime($date)<=strtotime($dateRanges[6]['end_date'])){
                                         $color='cpo-pink';
                                         $condition='7';
-                                    }else if(strtotime($date)>=strtotime($dateRanges[7]['start_date'])&&strtotime($date)<=strtotime($dateRanges[7]['end_date'])){
+                                    }
+                                    else if(strtotime($date)>=strtotime($dateRanges[7]['start_date'])&&strtotime($date)<=strtotime($dateRanges[7]['end_date'])){
                                         $color='cpo-white';
                                         $condition='8';
-                                    }else{
+                                    }
+                                    else{
                                         $color='cpo-white';
                                         $condition='9';
                                     }

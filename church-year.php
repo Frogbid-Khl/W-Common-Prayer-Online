@@ -147,7 +147,7 @@ $db_handle = new DBController();
             <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
         <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="#">
+            <a class="text-decoration-none cpo-text" href="Sunday/<?php echo date('Y'); ?>">
                 <p>
                     2023<br/>
                     Sunday Kalendar

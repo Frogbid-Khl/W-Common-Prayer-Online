@@ -105,7 +105,7 @@ function getPreviousLiturgicalOccasion($date)
         '4th Sunday after Easter' => date('Y-m-d', strtotime("$easterDate +4 weeks")),
         '5th Sunday after Easter (Rogation Sunday)' => date('Y-m-d', strtotime("$easterDate +5 weeks")),
         'Ascension' => date('Y-m-d', strtotime("$easterDate +39 days")),
-        'Sunday after the Ascension' => date('Y-m-d', strtotime("$easterDate +40 days")),
+        'Sunday after the Ascension' => date('Y-m-d', strtotime("$easterDate +6 weeks")),
         'Pentecost (Whitsunday)' => date('Y-m-d', strtotime("$easterDate +7 weeks")),
         'Trinity Sunday' => date('Y-m-d', strtotime("$easterDate +8 weeks")),
         '1st Sunday after Trinity' => date('Y-m-d', strtotime("$easterDate +9 weeks")),

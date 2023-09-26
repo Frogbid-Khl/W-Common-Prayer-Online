@@ -88,7 +88,7 @@ function calculateLiturgicalDatess($year)
         '4th Sunday after Easter' => date('m/d/Y', strtotime("$easterDate +4 weeks")),
         '5th Sunday after Easter (Rogation Sunday)' => date('m/d/Y', strtotime("$easterDate +5 weeks")),
         'Ascension' => date('m/d/Y', strtotime("$easterDate +39 days")),
-        'Sunday after the Ascension' => date('m/d/Y', strtotime("$easterDate +40 days")),
+        'Sunday after the Ascension' => date('m/d/Y', strtotime("$easterDate +6 weeks")),
         'Pentecost (Whitsunday)' => date('m/d/Y', strtotime("$easterDate +7 weeks")),
         'Trinity Sunday' => date('m/d/Y', strtotime("$easterDate +8 weeks")),
         '1st Sunday after Trinity' => date('m/d/Y', strtotime("$easterDate +9 weeks")),
