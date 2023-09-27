@@ -262,12 +262,111 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
     <!-- Button End -->
 </section>
 
+
+
+
 <!-- Kalendar Start -->
 <section class="container-fluid cpo-body-padding-top">
-    <div class="row">
+    <div class="row pt-3">
         <div class="col-12 pt-5 text-center">
             <h1>Ordo Kalendar</h1>
         </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-01';
+                       ?>">January</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-02';
+                       ?>">February</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-03';
+                       ?>">March</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-04';
+                       ?>">
+                        April
+                    </a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-05';
+                       ?>">
+                        May
+                    </a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-06';
+                       ?>">June</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-07';
+                       ?>">July</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-08';
+                       ?>">August</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-09';
+                       ?>">September</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 wow fadeInRight" data-wow-duration="0.4s" data-wow-delay="0.4s">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-10';
+                       ?>">October</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-11';
+                       ?>">November</a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                       href="<?php echo $extension;
+                       echo 'kallender/' .$currentYear.'-12';
+                       ?>">December</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3">
         <div class="col-12 mt-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3 class="text-center" id="currentMonth">
