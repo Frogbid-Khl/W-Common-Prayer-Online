@@ -88,6 +88,15 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
     <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
 
     <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        table th, table td {
+            width: 160px;
+        }
+
         td {
             height: 70px;
             border: 1px solid black;
@@ -245,91 +254,93 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
         </div>
     </div>
     <div class="row mt-2" id="calendar">
-        <?php
+        <div class="table-responsive">
+            <?php
 
 
-/*        echo '<pre>';
-        echo var_dump($val);
-        echo '</pre>';*/
+            /*        echo '<pre>';
+                    echo var_dump($val);
+                    echo '</pre>';*/
 
 
-        $firstDay = new DateTime("$currentYear-$currentMonth-01");
-        $lastDay = new DateTime("$currentYear-$currentMonth-" . date('t', strtotime("$currentYear-$currentMonth-01")));
+            $firstDay = new DateTime("$currentYear-$currentMonth-01");
+            $lastDay = new DateTime("$currentYear-$currentMonth-" . date('t', strtotime("$currentYear-$currentMonth-01")));
 
-        $calendarHTML = '<table class="table table-bordered">';
-        $calendarHTML .= '<thead><tr>';
-        $calendarHTML .= '<th>Sun</th>';
-        $calendarHTML .= '<th>Mon</th>';
-        $calendarHTML .= '<th>Tue</th>';
-        $calendarHTML .= '<th>Wed</th>';
-        $calendarHTML .= '<th>Thu</th>';
-        $calendarHTML .= '<th>Fri</th>';
-        $calendarHTML .= '<th>Sat</th>';
-        $calendarHTML .= '</tr></thead>';
-        $calendarHTML .= '<tbody><tr>';
+            $calendarHTML = '<table class="table table-bordered">';
+            $calendarHTML .= '<thead><tr>';
+            $calendarHTML .= '<th>Sun</th>';
+            $calendarHTML .= '<th>Mon</th>';
+            $calendarHTML .= '<th>Tue</th>';
+            $calendarHTML .= '<th>Wed</th>';
+            $calendarHTML .= '<th>Thu</th>';
+            $calendarHTML .= '<th>Fri</th>';
+            $calendarHTML .= '<th>Sat</th>';
+            $calendarHTML .= '</tr></thead>';
+            $calendarHTML .= '<tbody><tr>';
 
-        $dayOfWeek = $firstDay->format('w');
-        for ($i = 0; $i < $dayOfWeek; $i++) {
-            $calendarHTML .= '<td></td>';
-        }
-
-        $currentDay = 1;
-        while ($currentDay <= $lastDay->format('d')) {
-
-            if ($dayOfWeek == 7) {
-                $calendarHTML .= '</tr><tr>';
-                $dayOfWeek = 0;
+            $dayOfWeek = $firstDay->format('w');
+            for ($i = 0; $i < $dayOfWeek; $i++) {
+                $calendarHTML .= '<td></td>';
             }
 
-            $currentDate = "$currentYear-$currentMonth-$currentDay";
+            $currentDay = 1;
+            while ($currentDay <= $lastDay->format('d')) {
 
-            if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
-                $color = 'cpo-white';
-                $condition = '1';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[1]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[1]['end_date'])) {
-                $color = 'cpo-green';
-                $condition = '2';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[2]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[2]['end_date'])) {
-                $color = 'cpo-pink';
-                $condition = '3';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[3]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[3]['end_date'])) {
-                $color = 'cpo-white';
-                $condition = '4';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[5]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[5]['end_date'])) {
-                $color = 'cpo-white';
-                $condition = '5';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[4]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[4]['end_date'])) {
-                $color = 'cpo-green';
-                $condition = '6';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[6]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[6]['end_date'])) {
-                $color = 'cpo-pink';
-                $condition = '7';
-            } else if (strtotime($currentDate) >= strtotime($dateRanges[7]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[7]['end_date'])) {
-                $color = 'cpo-white';
-                $condition = '8';
-            } else {
-                $color = 'cpo-white';
-                $condition = '9';
+                if ($dayOfWeek == 7) {
+                    $calendarHTML .= '</tr><tr>';
+                    $dayOfWeek = 0;
+                }
+
+                $currentDate = "$currentYear-$currentMonth-$currentDay";
+
+                if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
+                    $color = 'cpo-white';
+                    $condition = '1';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[1]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[1]['end_date'])) {
+                    $color = 'cpo-green';
+                    $condition = '2';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[2]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[2]['end_date'])) {
+                    $color = 'cpo-pink';
+                    $condition = '3';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[3]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[3]['end_date'])) {
+                    $color = 'cpo-white';
+                    $condition = '4';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[5]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[5]['end_date'])) {
+                    $color = 'cpo-white';
+                    $condition = '5';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[4]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[4]['end_date'])) {
+                    $color = 'cpo-green';
+                    $condition = '6';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[6]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[6]['end_date'])) {
+                    $color = 'cpo-pink';
+                    $condition = '7';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[7]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[7]['end_date'])) {
+                    $color = 'cpo-white';
+                    $condition = '8';
+                } else {
+                    $color = 'cpo-white';
+                    $condition = '9';
+                }
+
+                $event = getOccasionNameSunday($currentDate);
+
+                $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
+                $currentDay++;
+                $dayOfWeek++;
             }
 
-            $event=getOccasionNameSunday($currentDate);
+            // Fill in remaining cells to ensure a consistent number
+            while ($dayOfWeek < 7) {
+                $calendarHTML .= '<td></td>';
+                $dayOfWeek++;
+            }
 
-            $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center">'.$event.'</p></td>';
-            $currentDay++;
-            $dayOfWeek++;
-        }
+            $calendarHTML .= '</tr></tbody>';
+            $calendarHTML .= '</table>';
 
-        // Fill in remaining cells to ensure a consistent number
-        while ($dayOfWeek < 7) {
-            $calendarHTML .= '<td></td>';
-            $dayOfWeek++;
-        }
-
-        $calendarHTML .= '</tr></tbody>';
-        $calendarHTML .= '</table>';
-
-        echo $calendarHTML;
-        ?>
+            echo $calendarHTML;
+            ?>
+        </div>
     </div>
 </section>
 <!-- Kalendar End -->
