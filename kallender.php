@@ -2,6 +2,7 @@
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
+require_once('show-event-list.php');
 $db_handle = new DBController();
 
 $url = $_SERVER['REQUEST_URI'];
@@ -10,56 +11,68 @@ $id = substr($url, strrpos($url, '/') + 1);
 $extension = '../';
 $description = '';
 
-$currentYear = substr($id,0,4);
-$currentMonth = substr($id,5,2);
+$currentYear = substr($id, 0, 4);
+$currentMonth = substr($id, 5, 2);
 
-// Function to generate the calendar
-function generateCalendar($month, $year) {
-    $firstDay = new DateTime("$year-$month-01");
-    $lastDay = new DateTime("$year-$month-" . date('t', strtotime("$year-$month-01")));
 
-    $calendarHTML = '<table class="table table-bordered">';
-    $calendarHTML .= '<thead><tr>';
-    $calendarHTML .= '<th>Sun</th>';
-    $calendarHTML .= '<th>Mon</th>';
-    $calendarHTML .= '<th>Tue</th>';
-    $calendarHTML .= '<th>Wed</th>';
-    $calendarHTML .= '<th>Thu</th>';
-    $calendarHTML .= '<th>Fri</th>';
-    $calendarHTML .= '<th>Sat</th>';
-    $calendarHTML .= '</tr></thead>';
-    $calendarHTML .= '<tbody><tr>';
+// Existing date ranges array
+$dateRanges = [];
 
-    $dayOfWeek = $firstDay->format('w');
-    for ($i = 0; $i < $dayOfWeek; $i++) {
-        $calendarHTML .= '<td></td>';
+// Function to add a new date range to the array
+function addDateRange(&$dateRanges, $start_date, $end_date)
+{
+    $dateRanges[] = array(
+        'start_date' => $start_date,
+        'end_date' => $end_date,
+    );
+}
+
+
+$val_1 = [];
+$val = [];
+
+
+foreach (calculateLiturgicalDatess((int)$currentYear - 1) as $eventName => $date) {
+    $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+
+    if ($dateTime->format('Y') == $currentYear) {
+        $val_1[$eventName] = $date;
     }
+}
 
-    $currentDay = 1;
-    while ($currentDay <= $lastDay->format('d')) {
-        if ($dayOfWeek == 7) {
-            $calendarHTML .= '</tr><tr>';
-            $dayOfWeek = 0;
+$septuagesimaSunday = '';
+$easterSunday = '';
+$trinity = '';
+$sundayAdvent = '';
+
+foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
+    $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+
+    if ($dateTime->format('Y') == $currentYear) {
+
+        if ($eventName == 'Septuagesima Sunday') {
+            $septuagesimaSunday = $date;
+        } else if ($eventName == 'Easter') {
+            $easterSunday = $date;
+        } else if ($eventName == '1st Sunday after Trinity') {
+            $trinity = $date;
+        } else if ($eventName == '1st Sunday of Advent') {
+            $sundayAdvent = $date;
         }
 
-
-
-        $calendarHTML .= '<td>' . $currentDay . '</td>';
-        $currentDay++;
-        $dayOfWeek++;
+        $val[$eventName] = $date;
     }
-
-    // Fill in remaining cells to ensure a consistent number
-    while ($dayOfWeek < 7) {
-        $calendarHTML .= '<td></td>';
-        $dayOfWeek++;
-    }
-
-    $calendarHTML .= '</tr></tbody>';
-    $calendarHTML .= '</table>';
-
-    return $calendarHTML;
 }
+
+
+addDateRange($dateRanges, $currentYear . '-01-01', $currentYear . '-01-13');
+addDateRange($dateRanges, $currentYear . '-01-14', date('Y-m-d', strtotime("$septuagesimaSunday -1 day")));
+addDateRange($dateRanges, date('Y-m-d', strtotime($septuagesimaSunday)), date('Y-m-d', strtotime("$easterSunday -1 day")));
+addDateRange($dateRanges, date('Y-m-d', strtotime($easterSunday)), date('Y-m-d', strtotime("$trinity -1 day")));
+addDateRange($dateRanges, date('Y-m-d', strtotime($trinity)), date('Y-m-d', strtotime("$sundayAdvent -1 day")));
+addDateRange($dateRanges, $currentYear . '-11-01', $currentYear . '-11-08');
+addDateRange($dateRanges, date('Y-m-d', strtotime($sundayAdvent)), $currentYear . '-12-24');
+addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
 ?>
 <!doctype html>
@@ -73,28 +86,11 @@ function generateCalendar($month, $year) {
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
+
     <style>
-        .table > :not(caption) > * > * {
-            background: #d7d2c8 !important;
-            border: unset;
-        }
-
-        tr{
-            border: unset;
-        }
-
-        th{
-            height: 50px;
-            border: 3px solid #847a68 !important;
-        }
-
-        td{
-            height: 100px;
-            border: 3px solid #847a68 !important;
-        }
-
-        th,td{
-            border: 3px solid #847a68 !important;
+        td {
+            height: 70px;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -226,24 +222,112 @@ function generateCalendar($month, $year) {
                 </h3>
                 <div class="d-flex justify-content-end align-items-end">
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
-                    ?>'" id="prevMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none me-1"><i class="fas fa-chevron-left"></i></button>
+                    echo 'kallender/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    ?>'" id="prevMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none me-1"><i
+                                class="fas fa-chevron-left"></i></button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
-                    ?>'" id="nextMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none ms-1"><i class="fas fa-chevron-right"></i></button>
+                    echo 'kallender/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    ?>'" id="nextMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none ms-1"><i
+                                class="fas fa-chevron-right"></i></button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
-                    ?>'" id="prevMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block me-1"><i class="fas fa-chevron-left"></i> Previous Month</button>
+                    echo 'kallender/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    ?>'" id="prevMonthDesktop"
+                            class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block me-1"><i
+                                class="fas fa-chevron-left"></i> Previous Month
+                    </button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
-                    ?>'" id="nextMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block ms-1">Next Month <i class="fas fa-chevron-right"></i></button>
+                    echo 'kallender/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    ?>'" id="nextMonthDesktop"
+                            class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block ms-1">Next Month <i
+                                class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row mt-2" id="calendar">
         <?php
-        echo generateCalendar($currentMonth, $currentYear);
+
+
+/*        echo '<pre>';
+        echo var_dump($val);
+        echo '</pre>';*/
+
+
+        $firstDay = new DateTime("$currentYear-$currentMonth-01");
+        $lastDay = new DateTime("$currentYear-$currentMonth-" . date('t', strtotime("$currentYear-$currentMonth-01")));
+
+        $calendarHTML = '<table class="table table-bordered">';
+        $calendarHTML .= '<thead><tr>';
+        $calendarHTML .= '<th>Sun</th>';
+        $calendarHTML .= '<th>Mon</th>';
+        $calendarHTML .= '<th>Tue</th>';
+        $calendarHTML .= '<th>Wed</th>';
+        $calendarHTML .= '<th>Thu</th>';
+        $calendarHTML .= '<th>Fri</th>';
+        $calendarHTML .= '<th>Sat</th>';
+        $calendarHTML .= '</tr></thead>';
+        $calendarHTML .= '<tbody><tr>';
+
+        $dayOfWeek = $firstDay->format('w');
+        for ($i = 0; $i < $dayOfWeek; $i++) {
+            $calendarHTML .= '<td></td>';
+        }
+
+        $currentDay = 1;
+        while ($currentDay <= $lastDay->format('d')) {
+
+            if ($dayOfWeek == 7) {
+                $calendarHTML .= '</tr><tr>';
+                $dayOfWeek = 0;
+            }
+
+            $currentDate = "$currentYear-$currentMonth-$currentDay";
+
+            if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
+                $color = 'cpo-white';
+                $condition = '1';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[1]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[1]['end_date'])) {
+                $color = 'cpo-green';
+                $condition = '2';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[2]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[2]['end_date'])) {
+                $color = 'cpo-pink';
+                $condition = '3';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[3]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[3]['end_date'])) {
+                $color = 'cpo-white';
+                $condition = '4';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[5]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[5]['end_date'])) {
+                $color = 'cpo-white';
+                $condition = '5';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[4]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[4]['end_date'])) {
+                $color = 'cpo-green';
+                $condition = '6';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[6]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[6]['end_date'])) {
+                $color = 'cpo-pink';
+                $condition = '7';
+            } else if (strtotime($currentDate) >= strtotime($dateRanges[7]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[7]['end_date'])) {
+                $color = 'cpo-white';
+                $condition = '8';
+            } else {
+                $color = 'cpo-white';
+                $condition = '9';
+            }
+
+
+            $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '</td>';
+            $currentDay++;
+            $dayOfWeek++;
+        }
+
+        // Fill in remaining cells to ensure a consistent number
+        while ($dayOfWeek < 7) {
+            $calendarHTML .= '<td></td>';
+            $dayOfWeek++;
+        }
+
+        $calendarHTML .= '</tr></tbody>';
+        $calendarHTML .= '</table>';
+
+        echo $calendarHTML;
         ?>
     </div>
 </section>
@@ -257,10 +341,12 @@ function generateCalendar($month, $year) {
                 <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>daily-office">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>daily-office">The Daily and
+                    Hourly Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional
+                    Offices</a>
             </div>
         </div>
     </div>
@@ -274,7 +360,7 @@ function generateCalendar($month, $year) {
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -286,8 +372,10 @@ function generateCalendar($month, $year) {
                            href="#">
                             MORNING PRAYER
                         </a>
-                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i class="fa-solid fa-arrow-right"></i></p>
-                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
+                                    class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER
