@@ -45,6 +45,8 @@ $easterSunday = '';
 $trinity = '';
 $sundayAdvent = '';
 
+
+
 foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
     $dateTime = DateTime::createFromFormat('m/d/Y', $date);
 
@@ -94,7 +96,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
         }
 
         table th, table td {
-            width: 160px;
+            width: 200px;
         }
 
         td {
@@ -258,8 +260,8 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <?php
 
 
-            /*        echo '<pre>';
-                    echo var_dump($val);
+                    /*echo '<pre>';
+                    echo var_dump($val_1);
                     echo '</pre>';*/
 
 
@@ -322,9 +324,17 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     $condition = '9';
                 }
 
-                $event = getOccasionNameSunday($currentDate);
 
-                $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
+                if(isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))){
+                    $event = "1st Sunday after Christmas";
+                } elseif(isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))){
+                    $event = "2nd Sunday after Christmas";
+                } else {
+                    $event = getOccasionNameSunday($currentDate);
+                }
+
+
+                $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
                 $currentDay++;
                 $dayOfWeek++;
             }
