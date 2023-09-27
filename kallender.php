@@ -3,18 +3,76 @@ date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
 $db_handle = new DBController();
+
+$url = $_SERVER['REQUEST_URI'];
+$id = substr($url, strrpos($url, '/') + 1);
+
+$extension = '../';
+$description = '';
+
+$currentYear = substr($id,0,4);
+$currentMonth = substr($id,5,2);
+
+// Function to generate the calendar
+function generateCalendar($month, $year) {
+    $firstDay = new DateTime("$year-$month-01");
+    $lastDay = new DateTime("$year-$month-" . date('t', strtotime("$year-$month-01")));
+
+    $calendarHTML = '<table class="table table-bordered">';
+    $calendarHTML .= '<thead><tr>';
+    $calendarHTML .= '<th>Sun</th>';
+    $calendarHTML .= '<th>Mon</th>';
+    $calendarHTML .= '<th>Tue</th>';
+    $calendarHTML .= '<th>Wed</th>';
+    $calendarHTML .= '<th>Thu</th>';
+    $calendarHTML .= '<th>Fri</th>';
+    $calendarHTML .= '<th>Sat</th>';
+    $calendarHTML .= '</tr></thead>';
+    $calendarHTML .= '<tbody><tr>';
+
+    $dayOfWeek = $firstDay->format('w');
+    for ($i = 0; $i < $dayOfWeek; $i++) {
+        $calendarHTML .= '<td></td>';
+    }
+
+    $currentDay = 1;
+    while ($currentDay <= $lastDay->format('d')) {
+        if ($dayOfWeek == 7) {
+            $calendarHTML .= '</tr><tr>';
+            $dayOfWeek = 0;
+        }
+
+
+
+        $calendarHTML .= '<td>' . $currentDay . '</td>';
+        $currentDay++;
+        $dayOfWeek++;
+    }
+
+    // Fill in remaining cells to ensure a consistent number
+    while ($dayOfWeek < 7) {
+        $calendarHTML .= '<td></td>';
+        $dayOfWeek++;
+    }
+
+    $calendarHTML .= '</tr></tbody>';
+    $calendarHTML .= '</table>';
+
+    return $calendarHTML;
+}
+
 ?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
     <title>Ordo Kalendar - Common Prayer Online</title>
-    <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
-    <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
-    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
+    <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
+    <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
     <style>
         .table > :not(caption) > * > * {
             background: #d7d2c8 !important;
@@ -48,7 +106,8 @@ $db_handle = new DBController();
                 <label class="form-check-label" for="darkModeSwitch">Light</label>
             </div>
             <div class="col-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                       style="margin-left: unset;">
             </div>
             <div class="col-4">
                 <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -81,15 +140,15 @@ $db_handle = new DBController();
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="home">Home</a>
+                           href="<?php echo $extension; ?>home">Home</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office">Daily Offices</a>
+                           href="<?php echo $extension; ?>daily-office">Daily Offices</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="<?php echo $extension; ?>psalter">Psalter</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +170,7 @@ $db_handle = new DBController();
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collect</a>
+                           href="<?php echo $extension; ?>collects">Collect</a>
                     </div>
                 </div>
             </div>
@@ -119,15 +178,15 @@ $db_handle = new DBController();
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="penitential-office">Penitential Office</a>
+                           href="<?php echo $extension; ?>penitential-office">Penitential Office</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="<?php echo $extension; ?>family-prayer">Family Prayer</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="<?php echo $extension; ?>psalter">Psalter</a>
                     </div>
                 </div>
             </div>
@@ -135,15 +194,15 @@ $db_handle = new DBController();
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers</a>
+                           href="<?php echo $extension; ?>prayers-and-thanksgivings">Prayers</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="<?php echo $extension; ?>litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender">Kalendar</a>
+                           href="<?php echo $extension; ?>kallender">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -160,17 +219,33 @@ $db_handle = new DBController();
         </div>
         <div class="col-12 mt-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="text-center" id="currentMonth"></h3>
+                <h3 class="text-center" id="currentMonth">
+                    <?php
+                    echo date('F Y', strtotime("$currentYear-$currentMonth-01"));
+                    ?>
+                </h3>
                 <div class="d-flex justify-content-end align-items-end">
-                    <button id="prevMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none me-1"><i class="fas fa-chevron-left"></i></button>
-                    <button id="nextMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none ms-1"><i class="fas fa-chevron-right"></i></button>
-                    <button id="prevMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block me-1"><i class="fas fa-chevron-left"></i> Previous Month</button>
-                    <button id="nextMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block ms-1">Next Month <i class="fas fa-chevron-right"></i></button>
+                    <button onclick="window.location.href='<?php echo $extension;
+                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    ?>'" id="prevMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none me-1"><i class="fas fa-chevron-left"></i></button>
+                    <button onclick="window.location.href='<?php echo $extension;
+                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    ?>'" id="nextMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none ms-1"><i class="fas fa-chevron-right"></i></button>
+                    <button onclick="window.location.href='<?php echo $extension;
+                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    ?>'" id="prevMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block me-1"><i class="fas fa-chevron-left"></i> Previous Month</button>
+                    <button onclick="window.location.href='<?php echo $extension;
+                    echo 'kallender/'.date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    ?>'" id="nextMonthDesktop" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block ms-1">Next Month <i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mt-2" id="calendar"></div>
+    <div class="row mt-2" id="calendar">
+        <?php
+        echo generateCalendar($currentMonth, $currentYear);
+        ?>
+    </div>
 </section>
 <!-- Kalendar End -->
 
@@ -179,13 +254,13 @@ $db_handle = new DBController();
     <div class="card mt-4 cpo-card-btn wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>daily-office">The Daily and Hourly Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional Offices</a>
             </div>
         </div>
     </div>
@@ -227,94 +302,10 @@ $db_handle = new DBController();
 
 <button onclick="topFunction()" id="cpo-scroll-to-top" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-<script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
-<script src="assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
-<script src="assets/vendor/Wow/wow.js"></script>
-<script src="assets/js/main.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const calendar = document.getElementById("calendar");
-        const prevMonthBtn = document.getElementById("prevMonth");
-        const nextMonthBtn = document.getElementById("nextMonth");
-        const prevMonthBtnDesktop = document.getElementById("prevMonthDesktop");
-        const nextMonthBtnDesktop = document.getElementById("nextMonthDesktop");
-        const currentMonthLabel = document.getElementById("currentMonth");
-
-        let currentMonth = new Date();
-
-        function generateCalendar() {
-            const year = currentMonth.getFullYear();
-            const month = currentMonth.getMonth();
-
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-
-            const daysInMonth = lastDay.getDate();
-
-            let calendarHTML = '<table class="table table-bordered">';
-            calendarHTML += '<thead><tr>';
-            calendarHTML += '<th>Sun</th>';
-            calendarHTML += '<th>Mon</th>';
-            calendarHTML += '<th>Tue</th>';
-            calendarHTML += '<th>Wed</th>';
-            calendarHTML += '<th>Thu</th>';
-            calendarHTML += '<th>Fri</th>';
-            calendarHTML += '<th>Sat</th>';
-            calendarHTML += '</tr></thead>';
-            calendarHTML += '<tbody><tr>';
-
-            let dayOfWeek = firstDay.getDay();
-
-            for (let i = 0; i < dayOfWeek; i++) {
-                calendarHTML += '<td></td>';
-            }
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                if (dayOfWeek === 7) {
-                    calendarHTML += '</tr><tr>';
-                    dayOfWeek = 0;
-                }
-
-                calendarHTML += `<td>${day}</td>`;
-
-                dayOfWeek++;
-            }
-
-            calendarHTML += '</tr></tbody>';
-            calendarHTML += '</table>';
-
-            calendar.innerHTML = calendarHTML;
-        }
-
-        function updateCalendar() {
-            generateCalendar();
-            currentMonthLabel.textContent = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentMonth);
-        }
-
-        generateCalendar();
-        updateCalendar();
-
-        prevMonthBtn.addEventListener("click", function () {
-            currentMonth.setMonth(currentMonth.getMonth() - 1);
-            updateCalendar();
-        });
-
-        nextMonthBtn.addEventListener("click", function () {
-            currentMonth.setMonth(currentMonth.getMonth() + 1);
-            updateCalendar();
-        });
-
-        prevMonthBtnDesktop.addEventListener("click", function () {
-            currentMonth.setMonth(currentMonth.getMonth() - 1);
-            updateCalendar();
-        });
-
-        nextMonthBtnDesktop.addEventListener("click", function () {
-            currentMonth.setMonth(currentMonth.getMonth() + 1);
-            updateCalendar();
-        });
-    });
-</script>
+<script src="<?php echo $extension; ?>assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/Wow/wow.js"></script>
+<script src="<?php echo $extension; ?>assets/js/main.js"></script>
 </body>
 </html>

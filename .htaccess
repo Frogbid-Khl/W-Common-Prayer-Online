@@ -32,7 +32,7 @@ RewriteRule ^church-year church-year.php [NE,L]
 
 RewriteRule ^sunday(.*) sunday.php [NE,L]
 
-RewriteRule ^kallender kallender.php [NE,L]
+RewriteRule ^kallender(.*) kallender.php [NE,L]
 
 RewriteRule ^event-calculation event-calculation.php [NE,L]
 
