@@ -5,6 +5,8 @@ require_once('event-calculation.php');
 
 $db_handle = new DBController();
 
+$currentMonthKallender = date('Y-m');
+
 function convertToRoman($number)
 {
     if ($number < 1 || $number > 3999) {
@@ -153,7 +155,7 @@ function convertToRoman($number)
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender">Kalendar</a>
+                            href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

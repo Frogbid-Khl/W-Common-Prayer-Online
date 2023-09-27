@@ -6,6 +6,8 @@ require_once('show-event-list.php');
 
 $db_handle = new DBController();
 
+$currentMonthKallender = date('Y-m');
+
 $url = $_SERVER['REQUEST_URI'];
 $id = substr($url, strrpos($url, '/') + 1);
 

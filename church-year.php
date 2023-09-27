@@ -3,6 +3,8 @@ date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
 $db_handle = new DBController();
+
+$currentMonthKallender = date('Y-m');
 ?>
 <!doctype html>
 <html lang="en">
@@ -119,7 +121,7 @@ $db_handle = new DBController();
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender">Kalendar</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +137,7 @@ $db_handle = new DBController();
             <h1>Ordo Kalendar and The Church Year</h1>
         </div>
         <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="#">
+            <a class="text-decoration-none cpo-text" href="kallender/<?php echo $currentMonthKallender; ?>">
                 <h5>
                     2023 Monthly Kalendar
                 </h5>
