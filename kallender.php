@@ -67,9 +67,10 @@ $septuagesimaSunday = '';
 $easterSunday = '';
 $trinity = '';
 $sundayAdvent = '';
-$pentecost='';
 
-$emberDays = array();;
+$pentecostWeek= array();
+
+$emberDays = array();
 
 
 foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
@@ -90,7 +91,13 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
             array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
             array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
 
-            $pentecost=$date;
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +1 days")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +2 days")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +3 days")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +4 days")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +5 days")));
+            array_push($pentecostWeek, date('Y-m-d', strtotime("$date +6 days")));
         } else if ($eventName == '1st Sunday in Lent') {
             array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
             array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
@@ -437,7 +444,8 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 }
 
                 $currentDate = "$currentYear-$currentMonth-$currentDay";
-                if(date('Y-m-d', strtotime($currentDate))==date('Y-m-d', strtotime($pentecost))){
+
+                if(in_array(date('Y-m-d', strtotime($currentDate)),$pentecostWeek)){
                     $color='cpo-red';
                     $condition='0';
                 }
@@ -478,14 +486,17 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 } else {
                     if (in_array(date('Y-m-d', strtotime($currentDate)),$emberDays)) {
                         $event = 'Ember Days';
-                        $color = 'cpo-pink';
+
+                        if($condition!='0'){
+                            $color = 'cpo-pink';
+                        }
                     }else{
                         $event = getOccasionNameSunday($currentDate);
                     }
                 }
 
 
-                $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
+                $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
                 $currentDay++;
                 $dayOfWeek++;
             }

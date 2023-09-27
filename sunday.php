@@ -343,7 +343,7 @@ $description = '';
                                     }
 
 
-                                    echo '<td class="' . $color . '" title="' . $condition . '"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                    echo '<td class="' . $color . '"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
                                     $j += 1;
                                 }
                             }
