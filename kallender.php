@@ -312,8 +312,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 $condition = '9';
             }
 
+            $event=getOccasionNameSunday($currentDate);
 
-            $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '</td>';
+            $calendarHTML .= '<td class="' . $color . '" title="' . $condition . '">' . $currentDay . '<br/> <p class="text-center">'.$event.'</p></td>';
             $currentDay++;
             $dayOfWeek++;
         }

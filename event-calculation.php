@@ -269,6 +269,28 @@ function getOccasionName($today)
     }
 }
 
+
+function getOccasionNameSunday($today)
+{
+
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
+    if ($occasionForLastSunday) {
+        $dayOfWeek = getDayOfWeekName($today);
+
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
+
+        } else {
+            return $occasionForLastSunday;
+        }
+    }
+}
+
 $today = date('Y-m-d');
 
 if (isset($_GET['today'])) {
