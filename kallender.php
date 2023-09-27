@@ -27,6 +27,29 @@ function addDateRange(&$dateRanges, $start_date, $end_date)
     );
 }
 
+function getThirdSundayDateInSeptember($year)
+{
+    $sundays=0;
+    for ($day = 1; $day <= 30; $day++) { // Loop through the days of September
+        $currentDate = strtotime("$year-09-$day");
+        $dayOfWeek = date('w', $currentDate);
+
+        if ($dayOfWeek === '0') {
+            // If it's a Sunday, increment the Sunday counter
+            $sundays++;
+        }
+
+        if ($sundays === 3) {
+            // If it's the third Sunday, return the date
+            return date('Y-m-d', $currentDate);
+        }
+    }
+
+    return false; // Third Sunday in September not found in the given year
+}
+
+
+$thirdSunday = getThirdSundayDateInSeptember($currentYear);
 
 $val_1 = [];
 $val = [];
@@ -44,7 +67,9 @@ $septuagesimaSunday = '';
 $easterSunday = '';
 $trinity = '';
 $sundayAdvent = '';
+$pentecost='';
 
+$emberDays = array();;
 
 
 foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
@@ -60,11 +85,30 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
             $trinity = $date;
         } else if ($eventName == '1st Sunday of Advent') {
             $sundayAdvent = $date;
+        } else if ($eventName == 'Pentecost (Whitsunday)') {
+            array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+
+            $pentecost=$date;
+        } else if ($eventName == '1st Sunday in Lent') {
+            array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+        } else if ($eventName == '3rd Sunday of Advent') {
+            array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+            array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
         }
 
         $val[$eventName] = $date;
     }
 }
+
+
+array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +3 days")));
+array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +5 days")));
+array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +6 days")));
 
 
 addDateRange($dateRanges, $currentYear . '-01-01', $currentYear . '-01-13');
@@ -260,9 +304,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <?php
 
 
-                    /*echo '<pre>';
-                    echo var_dump($val_1);
-                    echo '</pre>';*/
+/*            echo '<pre>';
+            echo var_dump($emberDays);
+            echo '</pre>';*/
 
 
             $firstDay = new DateTime("$currentYear-$currentMonth-01");
@@ -294,8 +338,11 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 }
 
                 $currentDate = "$currentYear-$currentMonth-$currentDay";
-
-                if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
+                if(date('Y-m-d', strtotime($currentDate))==date('Y-m-d', strtotime($pentecost))){
+                    $color='cpo-red';
+                    $condition='0';
+                }
+                else if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
                     $color = 'cpo-white';
                     $condition = '1';
                 } else if (strtotime($currentDate) >= strtotime($dateRanges[1]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[1]['end_date'])) {
@@ -325,12 +372,17 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 }
 
 
-                if(isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))){
+                if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "1st Sunday after Christmas";
-                } elseif(isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))){
+                } elseif (isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "2nd Sunday after Christmas";
                 } else {
-                    $event = getOccasionNameSunday($currentDate);
+                    if (in_array(date('Y-m-d', strtotime($currentDate)),$emberDays)) {
+                        $event = 'Ember Days';
+                        $color = 'cpo-pink';
+                    }else{
+                        $event = getOccasionNameSunday($currentDate);
+                    }
                 }
 
 
