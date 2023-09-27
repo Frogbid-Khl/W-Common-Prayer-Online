@@ -280,7 +280,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
         </div>
     </div>
     <div class="row pt-5">
-        <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">
+        <div class="col-lg-3 wow fadeInLeft">
             <div class="row">
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -302,7 +302,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
+        <div class="col-lg-3 wow fadeInLeft">
             <div class="row">
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -328,7 +328,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.5s">
+        <div class="col-lg-3 wow fadeInRight">
             <div class="row">
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -350,7 +350,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 wow fadeInRight" data-wow-duration="0.4s" data-wow-delay="0.4s">
+        <div class="col-lg-3 wow fadeInRight">
             <div class="row">
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
