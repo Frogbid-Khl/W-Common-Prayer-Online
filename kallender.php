@@ -32,22 +32,20 @@ function addDateRange(&$dateRanges, $start_date, $end_date)
 function getThirdSundayDateInSeptember($year)
 {
     $sundays=0;
-    for ($day = 1; $day <= 30; $day++) { // Loop through the days of September
+    for ($day = 1; $day <= 30; $day++) {
         $currentDate = strtotime("$year-09-$day");
         $dayOfWeek = date('w', $currentDate);
 
         if ($dayOfWeek === '0') {
-            // If it's a Sunday, increment the Sunday counter
             $sundays++;
         }
 
         if ($sundays === 3) {
-            // If it's the third Sunday, return the date
             return date('Y-m-d', $currentDate);
         }
     }
 
-    return false; // Third Sunday in September not found in the given year
+    return false;
 }
 
 
@@ -503,7 +501,6 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 $dayOfWeek++;
             }
 
-            // Fill in remaining cells to ensure a consistent number
             while ($dayOfWeek < 7) {
                 $calendarHTML .= '<td></td>';
                 $dayOfWeek++;
