@@ -68,9 +68,23 @@ $easterSunday = '';
 $trinity = '';
 $sundayAdvent = '';
 
-$pentecostWeek= array();
+$eventList= array();
 
+$pentecostWeek= array();
 $emberDays = array();
+
+$epiphany="01-06-".$currentYear;
+
+$eventList[date('Y-m-d', strtotime("$epiphany"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +1 day"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +2 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +3 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +4 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +5 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +6 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +7 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("01-25-".$currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("02-02-".$currentYear))] = array('event' => 'Presentation of Christ (Purification of BVM)', 'color' => 'cpo-red');
 
 
 foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
