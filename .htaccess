@@ -34,6 +34,10 @@ RewriteRule ^sunday(.*) sunday.php [NE,L]
 
 RewriteRule ^kallender(.*) kallender.php [NE,L]
 
+RewriteRule ^morn-pray(.*) morn-pray.php [NE,L]
+
+RewriteRule ^even-pray(.*) even-pray.php [NE,L]
+
 RewriteRule ^event-calculation event-calculation.php [NE,L]
 
 RewriteRule ^show-event-list show-event-list.php [NE,L]
