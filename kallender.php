@@ -229,12 +229,30 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
         }
 
         table th, table td {
-            width: 200px;
+            width: 240px;
         }
 
         td {
+            position: relative;
             height: 140px;
             border: 1px solid black;
+        }
+
+        tr td .row{
+            overflow: unset;
+            width: 100%;
+        }
+
+        .pray-btn{
+            height: 35px;
+            width: 100px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .pray-sec{
+            position: absolute;
+            bottom: 5px;
         }
     </style>
 </head>
@@ -593,7 +611,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 }
 
 
-                $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p></td>';
+                $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="#">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="#">EVEN PRY</a></div></div></td>';
                 $currentDay++;
                 $dayOfWeek++;
             }
