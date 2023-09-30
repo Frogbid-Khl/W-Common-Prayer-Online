@@ -31,7 +31,7 @@ function addDateRange(&$dateRanges, $start_date, $end_date)
 
 function getThirdSundayDateInSeptember($year)
 {
-    $sundays=0;
+    $sundays = 0;
     for ($day = 1; $day <= 30; $day++) {
         $currentDate = strtotime("$year-09-$day");
         $dayOfWeek = date('w', $currentDate);
@@ -68,23 +68,55 @@ $easterSunday = '';
 $trinity = '';
 $sundayAdvent = '';
 
-$eventList= array();
+$eventList = array();
 
-$pentecostWeek= array();
+$pentecostWeek = array();
 $emberDays = array();
 
-$epiphany="01-06-".$currentYear;
+$epiphany = "06-01-" . $currentYear;
 
-$eventList[date('Y-m-d', strtotime("$epiphany"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +1 day"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +2 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +3 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +4 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +5 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +6 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("$epiphany +7 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("01-25-".$currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-red');
-$eventList[date('Y-m-d', strtotime("02-02-".$currentYear))] = array('event' => 'Presentation of Christ (Purification of BVM)', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("$epiphany"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +1 day"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +2 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +3 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +4 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +5 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +6 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("$epiphany +7 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("25-01-" . $currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("02-02-" . $currentYear))] = array('event' => 'Presentation of Christ (Purification of BVM)', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("24-02-" . $currentYear))] = array('event' => 'St. Matthias the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("25-03-" . $currentYear))] = array('event' => 'Annunciation of the B. V. M.', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("25-04-" . $currentYear))] = array('event' => 'St. Mark the Evangelist', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("01-05-" . $currentYear))] = array('event' => 'St. Philip & St. James, Apostles', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("11-06-" . $currentYear))] = array('event' => 'St. Barnabas the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("24-06-" . $currentYear))] = array('event' => 'St. John the Baptist', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("29-06-" . $currentYear))] = array('event' => 'St. Peter the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("04-07-" . $currentYear))] = array('event' => 'Independence Day', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("25-07-" . $currentYear))] = array('event' => 'St. James the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("06-08-" . $currentYear))] = array('event' => 'Transfiguration of Our Lord', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("24-08-" . $currentYear))] = array('event' => 'St. Bartholomew the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("21-09-" . $currentYear))] = array('event' => 'St. Matthew, Apostle & Evangelist', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("29-09-" . $currentYear))] = array('event' => 'St. Michael & All Angels', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("18-10-" . $currentYear))] = array('event' => 'St. Luke the Evangelist', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("28-10-" . $currentYear))] = array('event' => 'St. Simon & St. Jude Apostles', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("01-11-" . $currentYear))] = array('event' => 'All Saints Day', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("02-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("03-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("04-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("05-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("06-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("07-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("08-11-" . $currentYear))] = array('event' => 'of the Octave<br/>of All Saints', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("30-11-" . $currentYear))] = array('event' => 'St. Andrew the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("21-12-" . $currentYear))] = array('event' => 'St. Thomas the Apostle', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("24-12-" . $currentYear))] = array('event' => 'Christmas Eve', 'color' => 'cpo-pink');
+$eventList[date('Y-m-d', strtotime("26-12-" . $currentYear))] = array('event' => 'St. Stephen, Deacon & Martyr<br/>(of the Octave)', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("27-12-" . $currentYear))] = array('event' => 'St. John the Evangelist<br/>(of the Octave)', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("28-12-" . $currentYear))] = array('event' => 'The Holy Innocents<br/>(of the Octave)', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("29-12-" . $currentYear))] = array('event' => 'of the Octave<br/>of Christmas', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("30-12-" . $currentYear))] = array('event' => 'of the Octave<br/>of Christmas', 'color' => 'cpo-white');
+$eventList[date('Y-m-d', strtotime("31-12-" . $currentYear))] = array('event' => 'of the Octave<br/>of Christmas', 'color' => 'cpo-white');
 
 
 foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
@@ -96,6 +128,14 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
             $septuagesimaSunday = $date;
         } else if ($eventName == 'Easter') {
             $easterSunday = $date;
+
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Easter Monday<br/>of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Easter Tuesday<br/>of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +7 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
         } else if ($eventName == '1st Sunday after Trinity') {
             $trinity = $date;
         } else if ($eventName == '1st Sunday of Advent') {
@@ -112,6 +152,11 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
             array_push($pentecostWeek, date('Y-m-d', strtotime("$date +4 days")));
             array_push($pentecostWeek, date('Y-m-d', strtotime("$date +5 days")));
             array_push($pentecostWeek, date('Y-m-d', strtotime("$date +6 days")));
+
+
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Whitsun Monday', 'color' => 'cpo-red');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Whitsun Tuesday', 'color' => 'cpo-red');
+
         } else if ($eventName == '1st Sunday in Lent') {
             array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
             array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
@@ -120,6 +165,29 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
             array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
             array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
             array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+        } else if ($eventName == 'Quinquagesima Sunday') {
+            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Ash Wednesday', 'color' => 'cpo-pink');
+        } else if ($eventName == 'Palm Sunday') {
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Monday in<br/>Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Tuesday in<br/>Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Wednesday in<br/>Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'Maundy Thursday', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'Good Friday', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'Holy Saturday', 'color' => 'cpo-pink');
+        } else if ($eventName == '5th Sunday after Easter (Rogation Sunday)') {
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Rogation Monday', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Rogation Tuesday', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Rogation Wednesday', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'Ascension Day', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +7 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +8 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +9 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +10 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +11 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-white');
+        } else if ($eventName == 'Sunday next before Advent') {
+            $eventList[date('Y-m-d', strtotime("$date -3 days"))] = array('event' => 'Thanksgiving', 'color' => 'cpo-white');
         }
 
         $val[$eventName] = $date;
@@ -165,7 +233,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
         }
 
         td {
-            height: 70px;
+            height: 140px;
             border: 1px solid black;
         }
     </style>
@@ -284,8 +352,6 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 </section>
 
 
-
-
 <!-- Kalendar Start -->
 <section class="container-fluid cpo-body-padding-top">
     <div class="row pt-3">
@@ -299,19 +365,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-01';
+                       echo 'kallender/' . $currentYear . '-01';
                        ?>">January</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-02';
+                       echo 'kallender/' . $currentYear . '-02';
                        ?>">February</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-03';
+                       echo 'kallender/' . $currentYear . '-03';
                        ?>">March</a>
                 </div>
             </div>
@@ -321,7 +387,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-04';
+                       echo 'kallender/' . $currentYear . '-04';
                        ?>">
                         April
                     </a>
@@ -329,7 +395,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-05';
+                       echo 'kallender/' . $currentYear . '-05';
                        ?>">
                         May
                     </a>
@@ -337,7 +403,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-06';
+                       echo 'kallender/' . $currentYear . '-06';
                        ?>">June</a>
                 </div>
             </div>
@@ -347,19 +413,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-07';
+                       echo 'kallender/' . $currentYear . '-07';
                        ?>">July</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-08';
+                       echo 'kallender/' . $currentYear . '-08';
                        ?>">August</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-09';
+                       echo 'kallender/' . $currentYear . '-09';
                        ?>">September</a>
                 </div>
             </div>
@@ -369,19 +435,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-10';
+                       echo 'kallender/' . $currentYear . '-10';
                        ?>">October</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-11';
+                       echo 'kallender/' . $currentYear . '-11';
                        ?>">November</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'kallender/' .$currentYear.'-12';
+                       echo 'kallender/' . $currentYear . '-12';
                        ?>">December</a>
                 </div>
             </div>
@@ -424,9 +490,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <?php
 
 
-/*            echo '<pre>';
-            echo var_dump($emberDays);
-            echo '</pre>';*/
+/*                        echo '<pre>';
+                        echo var_dump($eventList);
+                        echo '</pre>';*/
 
 
             $firstDay = new DateTime("$currentYear-$currentMonth-01");
@@ -446,7 +512,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
             $dayOfWeek = $firstDay->format('w');
             for ($i = 0; $i < $dayOfWeek; $i++) {
-                $calendarHTML .= '<td></td>';
+                $calendarHTML .= '<td class="bg-secondary"></td>';
             }
 
             $currentDay = 1;
@@ -459,11 +525,10 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
                 $currentDate = "$currentYear-$currentMonth-$currentDay";
 
-                if(in_array(date('Y-m-d', strtotime($currentDate)),$pentecostWeek)){
-                    $color='cpo-red';
-                    $condition='0';
-                }
-                else if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
+                if (in_array(date('Y-m-d', strtotime($currentDate)), $pentecostWeek)) {
+                    $color = 'cpo-red';
+                    $condition = '0';
+                } else if (strtotime($currentDate) >= strtotime($dateRanges[0]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[0]['end_date'])) {
                     $color = 'cpo-white';
                     $condition = '1';
                 } else if (strtotime($currentDate) >= strtotime($dateRanges[1]['start_date']) && strtotime($currentDate) <= strtotime($dateRanges[1]['end_date'])) {
@@ -491,22 +556,40 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     $color = 'cpo-white';
                     $condition = '9';
                 }
-
+                $event='';
 
                 if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "1st Sunday after Christmas";
                 } elseif (isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "2nd Sunday after Christmas";
                 } else {
-                    if (in_array(date('Y-m-d', strtotime($currentDate)),$emberDays)) {
+                    if (in_array(date('Y-m-d', strtotime($currentDate)), $emberDays)) {
                         $event = 'Ember Days';
 
-                        if($condition!='0'){
+                        if ($condition != '0') {
                             $color = 'cpo-pink';
                         }
-                    }else{
+                    } else {
                         $event = getOccasionNameSunday($currentDate);
                     }
+                }
+
+                if (isset($eventList[date('Y-m-d', strtotime($currentDate))])) {
+                    if($event==''){
+                        $event .= $eventList[date('Y-m-d', strtotime($currentDate))]['event'];
+
+                    }else{
+
+                        $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
+
+                        if($parts[0]=='of the octave'){
+                            $event .= '<br/>(of the octave)';
+                        }else{
+                            $event .= '<br/>'.$parts[0];
+                        }
+
+                    }
+                    $color = $eventList[date('Y-m-d', strtotime($currentDate))]['color'];
                 }
 
 
@@ -516,7 +599,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             }
 
             while ($dayOfWeek < 7) {
-                $calendarHTML .= '<td></td>';
+                $calendarHTML .= '<td class="bg-secondary"></td>';
                 $dayOfWeek++;
             }
 
