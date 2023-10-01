@@ -13,17 +13,17 @@ $id = substr($url, strrpos($url, '/') + 1);
 $extension = '../';
 $description = '';
 
-$query = "SELECT * FROM daily_psalter where day_name='$id' and day_type='Evening'";
+$query = "SELECT * FROM evening_pray where id='$id'";
 
 $data = $db_handle->runQuery($query);
 $row = $db_handle->numRows($query);
 for ($j = 0; $j < $row; $j++) {
-    $description = $data[$j]["text"];
+    $description = $data[$j]["description"];
 }
 
 if ($row == 0) {
     echo "<script>
-                window.location.href='../psalter';
+                window.location.href='../home';
                 </script>";
 }
 
@@ -191,7 +191,23 @@ function numberToWords($number) {
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">DAILY PSALTER, EVENING</h1>
+            <h1 class="cpo-content-page-title">
+                <?php
+
+                $dayOfYear = $id;
+
+
+                $startDate = new DateTime(date('Y') . '-01-01');
+
+
+                $endDate = clone $startDate;
+                $endDate->modify('+' . $dayOfYear . ' days');
+
+                $formattedDate = $endDate->format('jS F');
+
+                echo $formattedDate." Evening Prayer";
+                ?>
+            </h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
