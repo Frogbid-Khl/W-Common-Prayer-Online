@@ -133,21 +133,21 @@ function numberToWords($number) {
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson1">
                             1st<br/>
                             Lesson
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson2">
                             2nd<br/>
                             Lesson
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>collects">Collect</a>
+                           href="#collect">Collect</a>
                     </div>
                 </div>
             </div>
