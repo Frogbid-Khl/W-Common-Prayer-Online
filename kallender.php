@@ -238,19 +238,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             border: 1px solid black;
         }
 
-        tr td .row{
+        tr td .row {
             overflow: unset;
             width: 100%;
         }
 
-        .pray-btn{
+        .pray-btn {
             height: 35px;
             width: 100px;
             font-size: 12px;
             letter-spacing: 1px;
         }
 
-        .pray-sec{
+        .pray-sec {
             position: absolute;
             bottom: 5px;
         }
@@ -508,9 +508,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <?php
 
 
-/*                        echo '<pre>';
-                        echo var_dump($eventList);
-                        echo '</pre>';*/
+            /*                        echo '<pre>';
+                                    echo var_dump($eventList);
+                                    echo '</pre>';*/
 
 
             $firstDay = new DateTime("$currentYear-$currentMonth-01");
@@ -574,7 +574,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     $color = 'cpo-white';
                     $condition = '9';
                 }
-                $event='';
+                $event = '';
 
                 if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "1st Sunday after Christmas";
@@ -592,28 +592,41 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     }
                 }
 
+                $c = 0;
                 if (isset($eventList[date('Y-m-d', strtotime($currentDate))])) {
-                    if($event==''){
-                        $event .= $eventList[date('Y-m-d', strtotime($currentDate))]['event'];
+                    if ($event == '') {
+                        $event = $eventList[date('Y-m-d', strtotime($currentDate))]['event'];
 
-                    }else{
+                        $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
+                        if ($parts[0] == 'of the Octave') {
+                            $c = 1;
+                            $event = '<small>' . $eventList[date('Y-m-d', strtotime($currentDate))]['event'] . '</small>';
+                        }
+
+                    } else {
 
                         $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
 
-                        if($parts[0]=='of the octave'){
-                            $event .= '<br/>(of the octave)';
-                        }else{
-                            $event .= '<br/>'.$parts[0];
+                        if ($parts[0] == 'of the Octave') {
+                            $event .= '<br/><small>(of the octave)</small>';
+                        } else {
+                            $event .= '<br/><small>' . $parts[0] . '</small>';
+                            $c = 1;
                         }
-
                     }
                     $color = $eventList[date('Y-m-d', strtotime($currentDate))]['color'];
                 }
 
 
-                $dayOfYear = (int)date('z', strtotime($currentDate))+1;
+                $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
 
-                $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/'.$dayOfYear.'">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/'.$dayOfYear.'">EVEN PRY</a></div></div></td>';
+
+                if ($c == 0) {
+                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
+                }else{
+                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2">' . $event . '</p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
+                }
+
                 $currentDay++;
                 $dayOfWeek++;
             }
