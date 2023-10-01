@@ -194,7 +194,7 @@ function numberToWords($number) {
             <h1 class="cpo-content-page-title">
                 <?php
 
-                $dayOfYear = $id;
+                $dayOfYear = $id-1;
 
 
                 $startDate = new DateTime(date('Y') . '-01-01');
@@ -208,6 +208,12 @@ function numberToWords($number) {
                 echo $formattedDate." Evening Prayer";
                 ?>
             </h1>
+            <h3>
+                <?php
+                $day= $endDate->format('Y-m-d');
+                getOccasionName($day);
+                ?>
+            </h3>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
@@ -226,7 +232,7 @@ function numberToWords($number) {
             <h3>
                 <?php
                 $day=date('Y-m-d');
-                getOccasionName($day);
+                getOccasionNamePray($day);
                 ?>
             </h3>
             <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>

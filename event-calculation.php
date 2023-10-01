@@ -269,6 +269,49 @@ function getOccasionName($today)
     }
 }
 
+function getOccasionNamePray($today)
+{
+
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
+    if ($occasionForLastSunday) {
+        $dayOfWeek = getDayOfWeekName($today);
+
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
+
+            $found_number = '';
+
+            $text = $occasionForLastSunday;
+
+            $pattern = '/\b(\d+)(?:st|nd|rd|th)?\b/';
+
+            if (preg_match($pattern, $text, $matches)) {
+                $found_number = $matches[1];
+            }
+
+            $lastSpacePos = strrpos($occasionForLastSunday, ' ');
+
+
+            if ($lastSpacePos !== false && $found_number != '') {
+                $lastWord = substr($occasionForLastSunday, $lastSpacePos + 1);
+            } else {
+                $lastWord = $occasionForLastSunday;
+            }
+
+            echo "<span class='cpo-event-color'>$dayOfWeek after $lastWord $found_number</span><br/>";
+            echo "Season of <span class='cpo-event-color'>$lastWord</span><br/>";
+
+        } else {
+            echo "<span class='cpo-event-color'>$occasionForLastSunday</span><br/>";
+        }
+    }
+}
+
 
 function getOccasionNameSunday($today)
 {
