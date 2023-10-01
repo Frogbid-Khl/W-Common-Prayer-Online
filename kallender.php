@@ -575,20 +575,25 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     $condition = '9';
                 }
                 $event = '';
+                $url = '';
 
                 if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "1st Sunday after Christmas";
+                    $url = $event;
                 } elseif (isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "2nd Sunday after Christmas";
+                    $url = $event;
                 } else {
                     if (in_array(date('Y-m-d', strtotime($currentDate)), $emberDays)) {
                         $event = 'Ember Days';
+                        $url = $event;
 
                         if ($condition != '0') {
                             $color = 'cpo-pink';
                         }
                     } else {
                         $event = getOccasionNameSunday($currentDate);
+                        $url = $event;
                     }
                 }
 
@@ -596,6 +601,8 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 if (isset($eventList[date('Y-m-d', strtotime($currentDate))])) {
                     if ($event == '') {
                         $event = $eventList[date('Y-m-d', strtotime($currentDate))]['event'];
+
+                        $url=$event;
 
                         $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
                         if ($parts[0] == 'of the Octave') {
@@ -620,10 +627,16 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
                 $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
 
+                $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                $url = str_replace('  ', '-', $url);
+                $url = str_replace(' ', '-', $url);
+
+                $url='#';
+
 
                 if ($c == 0) {
-                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="#" style="color: #000000">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
-                }else{
+                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="../event/'.$url.'" style="color: #000000">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
+                } else {
                     $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2">' . $event . '</p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
                 }
 
