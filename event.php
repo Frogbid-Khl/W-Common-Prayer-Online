@@ -13,53 +13,18 @@ $id = substr($url, strrpos($url, '/') + 1);
 $extension = '../';
 $description = '';
 
-$query = "SELECT * FROM daily_psalter where day_name='$id' and day_type='Evening'";
+$query = "SELECT * FROM event where name='$id'";
 
 $data = $db_handle->runQuery($query);
 $row = $db_handle->numRows($query);
 for ($j = 0; $j < $row; $j++) {
-    $description = $data[$j]["text"];
+    $description = $data[$j]["description"];
 }
 
 if ($row == 0) {
     echo "<script>
                 window.location.href='../psalter';
                 </script>";
-}
-
-function numberToWords($number) {
-    $units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-    $teens = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-    $tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
-
-    if ($number == 0) {
-        return 'zero';
-    }
-
-    $words = [];
-
-    // Convert the number to an array of digits
-    $digits = str_split(strrev($number));
-
-    for ($i = 0; $i < count($digits); $i++) {
-        $digit = (int) $digits[$i];
-
-        if ($i % 3 === 0) {
-            $words[] = $units[$digit];
-        } elseif ($i % 3 === 1) {
-            if ($digit == 1) {
-                $words[] = $teens[$digits[$i - 1]];
-            } else {
-                $words[] = $tens[$digit];
-            }
-        } elseif ($i % 3 === 2) {
-            if ($digit > 0) {
-                $words[] = $units[$digit] . ' hundred';
-            }
-        }
-    }
-
-    return implode(' ', array_reverse($words));
 }
 ?>
 
@@ -69,7 +34,7 @@ function numberToWords($number) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Day <?php echo ucwords(numberToWords($id)); ?> Evening - Common Prayer Online</title>
+    <title>Day <?php echo ucwords($id); ?> - Common Prayer Online</title>
     <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -191,11 +156,11 @@ function numberToWords($number) {
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">DAILY PSALTER, EVENING</h1>
+            <h1 class="cpo-content-page-title"><?php echo $id; ?></h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
-            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <img alt="" class="img-fluid cpo-logo" src="<?php echo $extension; ?>assets/images/book.webp"/>
             <p class="mt-4">Presented By the</p>
             <h5 style="max-width: 500px;margin: auto;line-height: 2rem;">
                 ANGLICAN PROVINCE OF AMERICA

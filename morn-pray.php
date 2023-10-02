@@ -217,7 +217,7 @@ function numberToWords($number) {
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
-            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <img alt="" class="img-fluid cpo-logo" src="<?php echo $extension; ?>assets/images/book.webp"/>
             <p class="mt-4">Presented By the</p>
             <h5 style="max-width: 500px;margin: auto;line-height: 2rem;">
                 ANGLICAN PROVINCE OF AMERICA
