@@ -129,8 +129,8 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
         } else if ($eventName == 'Easter') {
             $easterSunday = $date;
 
-            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Easter Monday<br/>of the Octave<br/>of Easter', 'color' => 'cpo-white');
-            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Easter Tuesday<br/>of the Octave<br/>of Easter', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Easter Monday<br/>(of the Octave)', 'color' => 'cpo-white');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Easter Tuesday<br/>(of the Octave)', 'color' => 'cpo-white');
             $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
             $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
             $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-white');
@@ -168,9 +168,9 @@ foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
         } else if ($eventName == 'Quinquagesima Sunday') {
             $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Ash Wednesday', 'color' => 'cpo-pink');
         } else if ($eventName == 'Palm Sunday') {
-            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Monday in<br/>Holy Week', 'color' => 'cpo-pink');
-            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Tuesday in<br/>Holy Week', 'color' => 'cpo-pink');
-            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Wednesday in<br/>Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Monday in Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Tuesday in Holy Week', 'color' => 'cpo-pink');
+            $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Wednesday in Holy Week', 'color' => 'cpo-pink');
             $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'Maundy Thursday', 'color' => 'cpo-pink');
             $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'Good Friday', 'color' => 'cpo-pink');
             $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'Holy Saturday', 'color' => 'cpo-pink');
@@ -250,7 +250,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             letter-spacing: 1px;
         }
 
-        a.pray-btn{
+        a.pray-btn {
             color: black !important;
         }
 
@@ -581,16 +581,36 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 $event = '';
                 $url = '';
 
+                $text = '';
+
                 if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "1st Sunday after Christmas";
                     $url = $event;
+
+                    $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                    $url = str_replace('  ', '-', $url);
+                    $url = str_replace(' ', '-', $url);
+
+                    $text .= '<a href="../event/' . $url . '">' . $event . '</a>';
                 } elseif (isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($currentDate))) {
                     $event = "2nd Sunday after Christmas";
                     $url = $event;
+
+                    $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                    $url = str_replace('  ', '-', $url);
+                    $url = str_replace(' ', '-', $url);
+
+                    $text .= '<a href="../event/' . $url . '">' . $event . '</a>';
                 } else {
                     if (in_array(date('Y-m-d', strtotime($currentDate)), $emberDays)) {
                         $event = 'Ember Days';
                         $url = $event;
+
+                        $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                        $url = str_replace('  ', '-', $url);
+                        $url = str_replace(' ', '-', $url);
+
+                        $text .= '<a href="../event/' . $url . '">' . $event . '</a>';
 
                         if ($condition != '0') {
                             $color = 'cpo-pink';
@@ -598,31 +618,70 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     } else {
                         $event = getOccasionNameSunday($currentDate);
                         $url = $event;
+
+                        $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                        $url = str_replace('  ', '-', $url);
+                        $url = str_replace(' ', '-', $url);
+
+                        $text .= '<a href="../event/' . $url . '">' . $event . '</a>';
                     }
                 }
 
-                $c = 0;
                 if (isset($eventList[date('Y-m-d', strtotime($currentDate))])) {
                     if ($event == '') {
                         $event = $eventList[date('Y-m-d', strtotime($currentDate))]['event'];
 
-                        $url=$event;
+                        $url = $event;
+
+                        $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
+                        $url = str_replace('  ', '-', $url);
+                        $url = str_replace(' ', '-', $url);
+
 
                         $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
                         if ($parts[0] == 'of the Octave') {
-                            $c = 1;
                             $event = '<small>' . $eventList[date('Y-m-d', strtotime($currentDate))]['event'] . '</small>';
+                            $text .= $event;
+                        } else {
+                            if (isset($parts[1]) && $parts[1] == '(of the Octave)') {
+
+                                $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $parts[0]);
+                                $url = str_replace('  ', '-', $url);
+                                $url = str_replace(' ', '-', $url);
+
+                                $text .= '<a href="../event/' . $url . '">' . $parts[0] . '</a><br/><small>(of the Octave)</small>';
+                            } else {
+                                $text .= '<a href="../event/' . $url . '">' . $event . '</a>';
+                            }
                         }
+
 
                     } else {
 
                         $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($currentDate))]['event']);
 
                         if ($parts[0] == 'of the Octave') {
-                            $event .= '<br/><small>(of the octave)</small>';
+                            $event = '<br/><small>(of the octave)</small>';
+                            $text .= $event;
                         } else {
-                            $event .= '<br/><small>' . $parts[0] . '</small>';
-                            $c = 1;
+                            if (isset($parts[1]) && $parts[1] == '(of the Octave)') {
+                                $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $parts[0]);
+                                $url = str_replace('  ', '-', $url);
+                                $url = str_replace(' ', '-', $url);
+
+                                $text .= '<a href="../event/' . $url . '">' . $parts[0] . '</a><br/><small>(of the Octave)</small>';
+                            } else {
+                                if ($parts[0] == 'of the Octave') {
+                                    $event = '<br/><small>' . $parts[0] . '</small>';
+                                    $text .= $event;
+                                } else {
+                                    $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $parts[0]);
+                                    $url = str_replace('  ', '-', $url);
+                                    $url = str_replace(' ', '-', $url);
+
+                                    $text .= '<br/><a href="../event/' . $url . '">' . $parts[0] . '</a>';
+                                }
+                            }
                         }
                     }
                     $color = $eventList[date('Y-m-d', strtotime($currentDate))]['color'];
@@ -631,18 +690,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
                 $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
 
-                $url = preg_replace('/[^A-Za-z0-9\- ]/', '', $url);
-                $url = str_replace('  ', '-', $url);
-                $url = str_replace(' ', '-', $url);
 
-                $url='#';
+                $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2">' . $text . '</p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
 
-
-                if ($c == 0) {
-                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2"><a href="../event/'.$url.'">' . $event . '</a></p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
-                } else {
-                    $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2">' . $event . '</p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
-                }
 
                 $currentDay++;
                 $dayOfWeek++;
