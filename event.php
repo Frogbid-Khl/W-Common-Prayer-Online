@@ -19,7 +19,11 @@ $data = $db_handle->runQuery($query);
 $row = $db_handle->numRows($query);
 for ($j = 0; $j < $row; $j++) {
     $description = $data[$j]["description"];
+
+    $id=$data[$j]["o_name"];
 }
+
+
 
 if ($row == 0) {
     echo "<script>
@@ -34,7 +38,7 @@ if ($row == 0) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Day <?php echo ucwords($id); ?> - Common Prayer Online</title>
+    <title><?php echo ucwords($id); ?> - Common Prayer Online</title>
     <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
