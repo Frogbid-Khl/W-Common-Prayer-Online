@@ -37,7 +37,7 @@ $currentMonthKallender = date('Y-m');
 <!-- Banner Start -->
 <section class="container-fluid">
     <div class="row pt-5">
-        <div class="col-lg-3 d-lg-block d-none wow fadeInLeft" data-wow-delay="0.1s"
+        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInLeft" data-wow-delay="0.1s"
              style="visibility: visible; -webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
             <img alt="" class="img-fluid cpo-home-image" src="assets/images/home/image_1.webp"/>
         </div>
@@ -45,18 +45,22 @@ $currentMonthKallender = date('Y-m');
              style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.1s;">
             <div class="card cpo-card d-flex justify-content-center align-items-center h-100 pt-4 pb-4">
                 <div class="text-center">
-                    <img alt="" class="img-fluid cpo-logo" src="assets/images/logo.webp"/>
+                    <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
                     <h1 class="mt-4 cpo-title">COMMON PRAYER ONLINE</h1>
                     <img alt="" class="img-fluid mt-3" src="assets/images/home/pattern.webp"/>
                     <h5 class="mt-3 fst-italic" style="max-width: 500px;margin: auto;line-height: 2rem;">
-                        "so yet here you have an order for prayer much
-                        agreeable to the mind and purpose of the fathers."
+                        As Written in the 1928 Book of Common Prayer
                     </h5>
-                    <p class="mt-4">From the preface of the first book of common prayer, 1549</p>
+                    <img alt="" class="img-fluid cpo-logo mt-3" src="assets/images/logo.webp"/>
+                    <p class="mt-4">Presented By the</p>
+                    <h5 style="max-width: 500px;margin: auto;line-height: 2rem;">
+                        ANGLICAN PROVINCE OF AMERICA
+                    </h5>
+                    <p>www.anglicanprovince.org</p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 d-lg-block d-none wow fadeInRight" data-wow-delay="0.3s"
+        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInRight" data-wow-delay="0.3s"
              style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.1s;">
             <img alt="" class="img-fluid cpo-home-image" src="assets/images/home/image_2.webp"/>
         </div>

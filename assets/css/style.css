@@ -251,17 +251,29 @@ body {
 }
 
 .cpo-red{
-    background-color: #ff1849 !important;
+    background-color: #800000 !important;
+    color: white !important;
 }
 
 .cpo-pink{
-    background-color: #f84596 !important;
+    background-color: #6C3461 !important;
+    color: white !important;
 }
 
 .cpo-white{
-    background-color: #ffffff !important;
+    background-color: #f8f8ff !important;
+    color: black !important;
 }
 
 .cpo-green{
-    background-color: #8AC926 !important;
+    background-color: #0B4008 !important;
+    color: white !important;
+}
+
+.cpo-red a,.cpo-green a,.cpo-pink a{
+    color: white !important;
+}
+
+.cpo-white a{
+    color: black !important;
 }
