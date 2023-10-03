@@ -30,16 +30,16 @@
     --link-color: #7373ff;
 }
 
-a{
+a {
     color: var(--link-color);
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-ul li{
+ul li {
     list-style: none;
 }
 
@@ -163,7 +163,7 @@ body {
     margin: auto;
 }
 
-.cpo-content-page-title{
+.cpo-content-page-title {
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: 3px solid var(--text-color);
@@ -173,25 +173,25 @@ body {
     font-size: 16px;
 }
 
-.cpo-text{
+.cpo-text {
     color: var(--text-color);
 }
 
 
-.cpo-dynamic-bg{
+.cpo-dynamic-bg {
     background: var(--dynamic-background-color);
 }
 
-.cpo-bg{
+.cpo-bg {
     background: var(--background-color);
     border-bottom: 3px solid var(--text-color);
 }
 
-.cpo-body-padding-top{
+.cpo-body-padding-top {
     padding-top: 9rem;
 }
 
-.cpo-range{
+.cpo-range {
     width: 95%;
 }
 
@@ -205,16 +205,16 @@ body {
         cursor: pointer;
     }
 
-    .cpo-range{
+    .cpo-range {
         width: 85%;
     }
 
-    .cpo-body-padding-top{
+    .cpo-body-padding-top {
         padding-top: 6rem;
     }
 }
 
-.cpo-event-color{
+.cpo-event-color {
     color: #03671f;
 }
 
@@ -232,16 +232,16 @@ body {
     width: 50px;
     border-radius: 25px;
     border: 1px solid #847a68 !important;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.75);
 }
 
 #cpo-scroll-to-top:hover {
     background-color: #847a68;
 }
 
-.cpo-table{
+.cpo-table {
     --bs-table-color: var(--text-color);
     --bs-table-bg: #fff0;
 }
@@ -250,30 +250,41 @@ body {
     --bs-table-color-type: var(--text-color);
 }
 
-.cpo-red{
+.cpo-red {
     background-color: #800000 !important;
     color: white !important;
 }
 
-.cpo-pink{
+.cpo-pink {
     background-color: #6C3461 !important;
     color: white !important;
 }
 
-.cpo-white{
+.cpo-white {
     background-color: #f8f8ff !important;
     color: black !important;
 }
 
-.cpo-green{
+.cpo-green {
     background-color: #0B4008 !important;
     color: white !important;
 }
 
-.cpo-red a,.cpo-green a,.cpo-pink a{
+.cpo-red a, .cpo-green a, .cpo-pink a {
     color: white !important;
 }
 
-.cpo-white a{
+.cpo-white a {
     color: black !important;
+}
+
+.cpo-angelina-title {
+    max-width: 500px;
+    margin: auto;
+    line-height: 2rem;
+    letter-spacing: 2px;
+}
+
+.cpo-angli-url{
+    color: black;
 }

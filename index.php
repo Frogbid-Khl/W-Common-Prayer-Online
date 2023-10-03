@@ -53,10 +53,10 @@ $currentMonthKallender = date('Y-m');
                     </h5>
                     <img alt="" class="img-fluid cpo-logo mt-3" src="assets/images/logo.webp"/>
                     <p class="mt-4">Presented By the</p>
-                    <h5 style="max-width: 500px;margin: auto;line-height: 2rem;">
+                    <h5 class="cpo-angelina-title">
                         ANGLICAN PROVINCE OF AMERICA
                     </h5>
-                    <p>www.anglicanprovince.org</p>
+                    <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
                 </div>
             </div>
         </div>

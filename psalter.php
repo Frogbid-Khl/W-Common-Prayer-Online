@@ -177,10 +177,10 @@ function convertToRoman($number)
         <div class="col-lg-12 text-center mt-3">
             <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
             <p class="mt-4">Presented By the</p>
-            <h5 style="max-width: 500px;margin: auto;line-height: 2rem;">
+            <h5 class="cpo-angelina-title">
                 ANGLICAN PROVINCE OF AMERICA
             </h5>
-            <p>www.anglicanprovince.org</p>
+            <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
             <p>
                 <?php
                 $dateString = date("l, F j, Y");
