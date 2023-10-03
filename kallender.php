@@ -512,6 +512,11 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <?php
 
 
+            function isLeapYear($year)
+            {
+                return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
+            }
+
             /*                        echo '<pre>';
                                     echo var_dump($eventList);
                                     echo '</pre>';*/
@@ -689,6 +694,10 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
 
                 $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
+
+                if (isLeapYear($currentYear) && $dayOfYear > 60) {
+                    $dayOfYear -= 1;
+                }
 
 
                 $calendarHTML .= '<td class="' . $color . '">' . $currentDay . '<br/> <p class="text-center pt-2">' . $text . '</p><div class="row pray-sec"><div class="col-6 text-start"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../morn-pray/' . $dayOfYear . '">MORN PRY</a></div><div class="col-6 text-end"><a class="btn btn-primary cpo-footer-btn pray-btn" href="../even-pray/' . $dayOfYear . '">EVEN PRY</a></div></div></td>';
