@@ -286,5 +286,5 @@ body {
 }
 
 .cpo-angli-url{
-    color: black;
+    color: var(--text-color);
 }
