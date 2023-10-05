@@ -383,7 +383,9 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     ?>">Anglo-Catholic</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">1928 ECUSA</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension;
+                    echo 'bcpcal/' . $currentYear . '-'.$currentMonth;
+                    ?>">1928 ECUSA</a>
                 </div>
             </div>
         </div>

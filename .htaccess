@@ -36,6 +36,8 @@ RewriteRule ^kallender(.*) kallender.php [NE,L]
 
 RewriteRule ^catholic(.*) catholic.php [NE,L]
 
+RewriteRule ^bcpcal(.*) bcpcal.php [NE,L]
+
 RewriteRule ^morn-pray(.*) morn-pray.php [NE,L]
 
 RewriteRule ^even-pray(.*) even-pray.php [NE,L]
