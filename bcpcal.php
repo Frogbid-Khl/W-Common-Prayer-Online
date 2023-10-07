@@ -420,19 +420,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-01';
+                       echo 'bcpcal/' . $currentYear . '-01';
                        ?>">January</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-02';
+                       echo 'bcpcal/' . $currentYear . '-02';
                        ?>">February</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-03';
+                       echo 'bcpcal/' . $currentYear . '-03';
                        ?>">March</a>
                 </div>
             </div>
@@ -442,7 +442,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-04';
+                       echo 'bcpcal/' . $currentYear . '-04';
                        ?>">
                         April
                     </a>
@@ -450,7 +450,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-05';
+                       echo 'bcpcal/' . $currentYear . '-05';
                        ?>">
                         May
                     </a>
@@ -458,7 +458,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-06';
+                       echo 'bcpcal/' . $currentYear . '-06';
                        ?>">June</a>
                 </div>
             </div>
@@ -468,19 +468,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-07';
+                       echo 'bcpcal/' . $currentYear . '-07';
                        ?>">July</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-08';
+                       echo 'bcpcal/' . $currentYear . '-08';
                        ?>">August</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-09';
+                       echo 'bcpcal/' . $currentYear . '-09';
                        ?>">September</a>
                 </div>
             </div>
@@ -490,19 +490,19 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-10';
+                       echo 'bcpcal/' . $currentYear . '-10';
                        ?>">October</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-11';
+                       echo 'bcpcal/' . $currentYear . '-11';
                        ?>">November</a>
                 </div>
                 <div class="col-4 mb-3">
                     <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                        href="<?php echo $extension;
-                       echo 'catholic/' . $currentYear . '-12';
+                       echo 'bcpcal/' . $currentYear . '-12';
                        ?>">December</a>
                 </div>
             </div>
@@ -518,21 +518,21 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                 </h3>
                 <div class="d-flex justify-content-end align-items-end">
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'catholic/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    echo 'bcpcal/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
                     ?>'" id="prevMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none me-1"><i
                                 class="fas fa-chevron-left"></i></button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'catholic/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    echo 'bcpcal/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
                     ?>'" id="nextMonth" class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-block d-md-none ms-1"><i
                                 class="fas fa-chevron-right"></i></button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'catholic/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
+                    echo 'bcpcal/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 -1 month"));
                     ?>'" id="prevMonthDesktop"
                             class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block me-1"><i
                                 class="fas fa-chevron-left"></i> Previous Month
                     </button>
                     <button onclick="window.location.href='<?php echo $extension;
-                    echo 'catholic/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
+                    echo 'bcpcal/' . date('Y-m', strtotime("$currentYear-$currentMonth-01 +1 month"));
                     ?>'" id="nextMonthDesktop"
                             class="btn btn-primary cpo-home-btn btn-sm ps-3 pe-3 d-none d-md-block ms-1">Next Month <i
                                 class="fas fa-chevron-right"></i></button>
