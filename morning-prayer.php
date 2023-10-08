@@ -5,6 +5,81 @@ require_once('event-calculation.php');
 $db_handle = new DBController();
 
 $currentMonthKallender = date('Y-m');
+
+$currentYear = date('Y');
+
+$currentDate = date('Y-m-d');
+
+function isLeapYear($year)
+{
+    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
+}
+
+$dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
+
+if (isLeapYear($currentYear) && $dayOfYear > 60) {
+    $dayOfYear -= 1;
+}
+
+
+$description = '';
+
+$query = "SELECT * FROM morning_pray where id='1'";
+
+$data = $db_handle->runQuery($query);
+$row = $db_handle->numRows($query);
+for ($j = 0; $j < $row; $j++) {
+    $description = $data[$j]["description"];
+}
+
+$doc = new DOMDocument();
+$doc->loadHTML($description);
+
+
+// Initialize variables to store the extracted text
+$firstLesson = "";
+$psalm = "";
+$secondLesson = "";
+
+// Find the elements using XPath
+$xpath = new DOMXPath($doc);
+
+// First Lesson (Deuteronomy 30:1-10)
+$firstLessonNodeList = $xpath->query('//h2[text()="The First Lesson"]/following-sibling::blockquote/p');
+foreach ($firstLessonNodeList as $node) {
+    $firstLesson .= $node->textContent;
+}
+
+// Extract Psalm based on the pattern "Psalm [Psalm Number]"
+$psalmPattern = '/^Psalm (\d+)$/i'; // Regular expression to match Psalm pattern
+$psalmNumber = "";  // Initialize $psalmNumber
+
+$psalmNodes = $xpath->query('//h3');
+foreach ($psalmNodes as $psalmNode) {
+    if (preg_match($psalmPattern, $psalmNode->textContent, $matches)) {
+        $psalmNumber = $matches[1];
+        $psalmNodeList = $psalmNode->parentNode->getElementsByTagName('p');
+        foreach ($psalmNodeList as $node) {
+            $psalm .= $node->textContent;
+        }
+        break; // Exit the loop after the first matching Psalm is found
+    }
+}
+
+// Second Lesson (Ephesians 2:11-22)
+$secondLessonNodeList = $xpath->query('//h2[text()="The Second Lesson"]/following-sibling::blockquote/p');
+foreach ($secondLessonNodeList as $node) {
+    $secondLesson .= $node->textContent;
+}
+
+
+/*echo "<br>$description<br><br>";
+// Output the extracted text
+echo "First Lesson:<br>$firstLesson<br><br>";
+echo "Psalm $psalmNumber:<br>$psalm<br><br>";
+echo "Second Lesson:<br>$secondLesson";*/
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,7 +101,8 @@ $currentMonthKallender = date('Y-m');
                 <label class="form-check-label" for="darkModeSwitch">Light</label>
             </div>
             <div class="col-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                       style="margin-left: unset;">
             </div>
             <div class="col-4">
                 <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -121,7 +197,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                            href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -153,7 +229,7 @@ $currentMonthKallender = date('Y-m');
             </p>
             <h3>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
             </h3>
@@ -211,9 +287,9 @@ $currentMonthKallender = date('Y-m');
                         Minister may, after the Sentences, pass to the
                         <a href="#versicles"><b> Versicles,</b></a></i> O Lord,
                     open thou our lips,<i> etc., in which case the Lord's Prayer shall be
-                    said with the other prayers, immediately after </i> The Lord be with you,<i>
-                    etc., and before the Versicles and Responses which follow, or, in the
-                    Litany, as there appointed. </i><br/>
+                        said with the other prayers, immediately after </i> The Lord be with you,<i>
+                        etc., and before the Versicles and Responses which follow, or, in the
+                        Litany, as there appointed. </i><br/>
                     <br/>
                 </small>
                 <b>
@@ -534,7 +610,7 @@ $currentMonthKallender = date('Y-m');
                         <a href="#">Psalm 95</a> may be used in this place.</i><br/>
                     <br/>
                     <i>But </i>NOTE,<i> That on Ash Wednesday and Good Friday the
-                    <a href="#venite"><b> Venite</b></a> may be omitted.</i><br/>
+                        <a href="#venite"><b> Venite</b></a> may be omitted.</i><br/>
                     <br/>
                     <i>On the days hereafter named, immediately before the Venite may
                         be sung or said,</i><br/>
@@ -542,44 +618,44 @@ $currentMonthKallender = date('Y-m');
 
                 <br/>
                 <i>On the Sundays in Advent. </i><b>Our King and Saviour draweth nigh; *
-                O come, let us adore him.<br/>
-            </b>
+                    O come, let us adore him.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On Christmas Day and until the Epiphany. </i><b>Alleluia. Unto us a child
-                is born; * O come, let us adore him. Alleluia.<br/>
-            </b>
+                    is born; * O come, let us adore him. Alleluia.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On the Epiphany and seven days after, and on the Feast of the
                     Transfiguration. </i><b>The Lord hath manifested forth his glory; * O come,
-                let us adore him.<br/>
-            </b>
+                    let us adore him.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On Monday in Easter Week and until Ascension Day. </i><b>Alleluia. The Lord
-                is risen indeed; * O come, let us adore him. Alleluia.<br/>
-            </b>
+                    is risen indeed; * O come, let us adore him. Alleluia.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On Ascension Day and until Whitsunday. </i><b>Alleluia. Christ the Lord
-                ascendeth into heaven; * O come, let us adore him. Alleluia.<br/>
-            </b>
+                    ascendeth into heaven; * O come, let us adore him. Alleluia.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On Whitsunday and six days after. </i><b>Alleluia. The Spirit of the Lord
-                filleth the world; * O come, let us adore him. Alleluia.<br/>
-            </b>
+                    filleth the world; * O come, let us adore him. Alleluia.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On Trinity Sunday. </i><b>Father, Son, and Holy Ghost, one God; * O come,
-                let us adore him.<br/>
-            </b>
+                    let us adore him.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On the Purification, and the Annunciation. </i><b>The Word was made flesh,
-                and dwelt among us; * O come, let us adore him.<br/>
-            </b>
+                    and dwelt among us; * O come, let us adore him.<br/>
+                </b>
                 <small size="-2">&nbsp; <br/></small>
 
                 <i>On other Festivals for which a proper Epistle and Gospel are ordered.
@@ -592,7 +668,7 @@ $currentMonthKallender = date('Y-m');
                     <hr>
 
                     <small size="-1"><i>
-                        Seasonal substitute the Venite</i><br/>
+                            Seasonal substitute the Venite</i><br/>
                         <a href="#">Easter</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
                                 href="#">Thanksgiving</a>
                     </small>
@@ -647,8 +723,8 @@ $currentMonthKallender = date('Y-m');
                 <div class="text-center">
                     <br/>
                     <h3><i>
-                        Psalm 39
-                    </i></h3><br/>
+                            Psalm 39
+                        </i></h3><br/>
                 </div>
 
 
@@ -795,16 +871,16 @@ $currentMonthKallender = date('Y-m');
                     <i class="fa-solid fa-circle-arrow-down"></i><a href="#benedictuses"> Go to <i>Benedictus es</i></a>&nbsp;
                     &nbsp; &nbsp; &nbsp;
                     <i class="fa-solid fa-circle-arrow-down"></i><a href="#benedicite"> Go to <i>Benedicite,
-                    omnia</i></a><br/>
+                            omnia</i></a><br/>
                 </div>
 
                 <br/>
                 <small size="-1">
                     <i>Here Shall be said or sung the following Hymn.<br/>
                         But </i>NOTE,<i> That on any day when the Holy Communion is immediately
-                    to follow, the Minister at his discretion, after any one of the following
-                    Canticles of Morning Prayer has been said or sung, may pass at once to
-                    the Communion Service.</i><br/>
+                        to follow, the Minister at his discretion, after any one of the following
+                        Canticles of Morning Prayer has been said or sung, may pass at once to
+                        the Communion Service.</i><br/>
                 </small>
                 <br/>
 
@@ -852,9 +928,9 @@ $currentMonthKallender = date('Y-m');
                 </b>
 
                 <div class="text-center"><h3>
-                    <i class="fa-solid fa-book-bible"></i> <a href="#lesson2">Go to the Scripture Readings for
-                    the Second Lesson</a><br/>
-                </h3></div>
+                        <i class="fa-solid fa-book-bible"></i> <a href="#lesson2">Go to the Scripture Readings for
+                            the Second Lesson</a><br/>
+                    </h3></div>
 
                 <br/>
                 <div class="text-center">
@@ -884,9 +960,9 @@ $currentMonthKallender = date('Y-m');
                 </b>
 
                 <div class="text-center"><h3>
-                    <i class="fa-solid fa-book-bible"></i> <a href="#lesson2">Go to the Scripture Readings for
-                    the Second Lesson</a><br/>
-                </h3></div>
+                        <i class="fa-solid fa-book-bible"></i> <a href="#lesson2">Go to the Scripture Readings for
+                            the Second Lesson</a><br/>
+                    </h3></div>
 
                 <div class="text-center">
                     <small size="-1">
@@ -979,7 +1055,7 @@ $currentMonthKallender = date('Y-m');
                         New Testament, according to the Table or Calendar.<br/>
                         And after that shall be sung or said the Hymn following.<br/>
                         But </i>NOTE,<i> That, save on the Sundays in Advent, the latter portion thereof
-                    may be omitted.</i>
+                        may be omitted.</i>
                 </small>
                 <br/>
                 <br/>
@@ -1020,7 +1096,7 @@ $currentMonthKallender = date('Y-m');
 
                 <div class="text-center">
                     <i class="fa-solid fa-circle-arrow-down"></i> <a href="#jubilate"> Go to <i>Jubilate,
-                    Deo</i></a><br/>
+                            Deo</i></a><br/>
                 </div>
                 <br/>
 
@@ -1060,7 +1136,7 @@ $currentMonthKallender = date('Y-m');
 
                 </b>
                 <div class="text-center"><i class="fa-solid fa-circle-arrow-down"></i> <a href="#creed"> Go to the
-                    Creed</a><br/>
+                        Creed</a><br/>
                 </div>
 
                 <br/>
@@ -1093,7 +1169,7 @@ $currentMonthKallender = date('Y-m');
                         standing. And any Churches may, instead of the words, </i>He descended
                     into hell,<i> use the words, </i>He went into the place of departed
                     spirits,<i> which are considered as words of the same meaning in
-                    the Creed.</i>
+                        the Creed.</i>
                 </small>
                 <br/>
                 <br/>
@@ -1256,16 +1332,16 @@ $currentMonthKallender = date('Y-m');
                         and may be omitted when the Holy Communion is to follow.<br/>
                         <br/>
                         And </i>Note,<i> That the Minister may here end the Morning Prayer with
-                    such general <a href="#"><b>intercessions</b></a> taken out of this Book, as he shall think
-                    fit,
-                    or with the Grace.</i>
+                        such general <a href="#"><b>intercessions</b></a> taken out of this Book, as he shall think
+                        fit,
+                        or with the Grace.</i>
                 </small>
                 <br/>
                 <br/>
 
                 <br/>
                 <div class="text-center"><i><b>A Prayer for The President of the United States,<br/>
-                    and all in Civil Authority.</b></i></div>
+                            and all in Civil Authority.</b></i></div>
                 <br/>
 
                 <b>
@@ -1331,7 +1407,7 @@ $currentMonthKallender = date('Y-m');
                     faith in unity of spirit, in the bond of peace, and in righteousness of
                     life. Finally, we commend to thy fatherly goodness all those who are any
                     ways afflicted, or distressed, in mind, body, or estate; <i>[* especially
-                    those for whom our prayers are desired;]</i> that it may please thee to
+                        those for whom our prayers are desired;]</i> that it may please thee to
                     comfort and relieve them, according to their several necessities; giving
                     them patience under their sufferings, and a happy issue out of all their
                     afflictions. And this we beg for Jesus Christ's sake. <i> Amen.</i><br/>
@@ -1351,8 +1427,8 @@ $currentMonthKallender = date('Y-m');
                     Almighty God, Father of all mercies, we, thine unworthy servants, do give
                     thee most humble and hearty thanks for all thy goodness and
                     lovingkindness to us, and to all men; <i>[* particularly to those who desire
-                    now to offer up their praises and thanksgivings for thy late mercies
-                    vouchsafed unto them.]</i> We bless thee for our creation, preservation, and
+                        now to offer up their praises and thanksgivings for thy late mercies
+                        vouchsafed unto them.]</i> We bless thee for our creation, preservation, and
                     all the blessings of this life; but above all, for thine inestimable love
                     in the redemption of the world by our Lord Jesus Christ; for the means of
                     grace, and for the hope of glory. And, we beseech thee, give us that due
@@ -1427,7 +1503,7 @@ $currentMonthKallender = date('Y-m');
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -1440,9 +1516,9 @@ $currentMonthKallender = date('Y-m');
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER
