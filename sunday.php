@@ -405,7 +405,7 @@ $description = '';
                 <div class="col-lg-6 mx-auto">
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="<?php echo $extension; ?>morning-prayer-brief">
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
@@ -413,7 +413,7 @@ $description = '';
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
                                     class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="<?php echo $extension; ?>evening-prayer-brief">
                             EVENING PRAYER
                         </a>
                     </div>
