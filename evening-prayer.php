@@ -5,6 +5,10 @@ require_once('event-calculation.php');
 $db_handle = new DBController();
 
 $currentMonthKallender = date('Y-m');
+
+$currentYear = date('Y');
+
+$currentDate = date('Y-m-d');
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,7 +16,7 @@ $currentMonthKallender = date('Y-m');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Daily Offices - Common Prayer Online</title>
+    <title>Morning Prayer - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -26,7 +30,8 @@ $currentMonthKallender = date('Y-m');
                 <label class="form-check-label" for="darkModeSwitch">Light</label>
             </div>
             <div class="col-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                       style="margin-left: unset;">
             </div>
             <div class="col-4">
                 <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -121,7 +126,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                            href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -130,68 +135,133 @@ $currentMonthKallender = date('Y-m');
     <!-- Button End -->
 </section>
 
-<section class="container-fluid cpo-body-padding-top">
+<section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">The Daily and Hourly Offices</h1>
+            <h1 class="cpo-content-page-title">THE ORDER FOR MORNING PRAYER</h1>
+            <p>As Written in the 1928 Book of Common Prayer</p>
+        </div>
+        <div class="col-lg-6 text-center mt-3">
+            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <p class="mt-4">Presented By the</p>
+            <h5 class="cpo-angelina-title">
+                ANGLICAN PROVINCE OF AMERICA
+            </h5>
+            <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
+        </div>
+        <div class="col-lg-6 text-center mt-3">
+            <p>
+                <?php
+                $dateString = date("l, F j, Y");
+                echo "Today is " . $dateString;
+                ?>
+            </p>
+            <h3>
+                <?php
+                $day = date('Y-m-d');
+                getOccasionName($day);
+                ?>
+            </h3>
+            <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="morning-prayer">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Morning Prayer
-                </h3>
-            </a>
-            <p>
-                The Order for Morning Prayer, complete with all rubrics; with the Psalter, Scripture Lessons, and
-                Collect appointed for the Day incorporated in the text in their proper places.
-            </p>
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Concerning the Service of the Church</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Miscellaneous Rubrics from the 1928 BCP</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Information about the BCP and Lectionary</a>
+                </div>
+            </div>
         </div>
         <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="morning-prayer-brief">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Morning Prayer (Brief)
-                </h3>
-            </a>
-            <p>
-                The Order for Morning Prayer, in brief form, as commonly used for private recitation; with only those
-                rubrics and prayers included as are needed for the basic Order. The Psalter, Scripture Lessons, and
-                Collect appointed for the Day are incorporated in the text in their proper places.
-            </p>
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Today's Readings/Propers</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Tomorrow's Readings/Propers</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Yesterday's Readings/Propers</a>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="evening-prayer">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Evening Prayer
-                </h3>
-            </a>
-            <p>
-                The Order for Evening Prayer, complete with all rubrics; with the Psalter, Scripture Lessons, and
-                Collect appointed for the Day incorporated in the text in their proper places.
-            </p>
+        <div class="col-lg-12 mt-3">
+            <div>
+                <span>Aa</span>
+                <input type="range" id="fontSizeRange" class="cpo-range" min="10" max="40" step="1" value="16"/>
+                <span>Aa</span>
+            </div>
         </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="evening-prayer-brief">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Evening Prayer (Brief)
-                </h3>
-            </a>
-            <p>
-                The Order for Evening Prayer, in brief form, as commonly used for private recitation; with only those
-                rubrics and prayers included as are needed for the basic Order. The Psalter, Scripture Lessons, and
-                Collect appointed for the Day are incorporated in the text in their proper places.
-            </p>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <a class="text-decoration-none cpo-text" href="hourly-office">
-                <h3>
-                    <i class="fa-solid fa-cross fa-2x"></i> Hourly Offices
-                </h3>
-            </a>
-            <p>
-                The Hourly Prayer Offices for the Day, including Matins, Lauds, Prime, Terce, Sext, None, Vespers, and
-                Compline. A single order for each Hour is used (rather than daily options), with typical selections of
-                Antiphons, Psalms, and Hymns. Hymns are included with words and tune using standard musical notation.
-            </p>
+        <div class="col-lg-12 mt-3">
+            <blockquote id="text-container">
+
+                <?php
+
+                function isLeapYear($year)
+                {
+                    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
+                }
+
+                $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
+
+                if (isLeapYear($currentYear) && $dayOfYear > 60) {
+                    $dayOfYear -= 1;
+                }
+
+
+                $description = '';
+
+                $query = "SELECT * FROM morning_pray where id='$dayOfYear'";
+
+                $data = $db_handle->runQuery($query);
+                $row = $db_handle->numRows($query);
+                for ($j = 0; $j < $row; $j++) {
+                    $description = $data[$j]["description"];
+                }
+
+
+                $psalm_pattern = '/<div class="text-center"><h2>The Psalter<\/h2><\/div>.*?<div class="text-center"><h2>The First Lesson<\/h2><\/div>/s';
+                $first_lesson_pattern = '/<a id="lesson1">(.*?)<a id="lesson2">/s';
+                $second_lesson_pattern = '/<a id="lesson2">(.*?)<a id="collect">/s';
+                $collect_pattern = '/<a id="collect">(.*?)<\/blockquote>/s';
+
+                $psalm='';
+                $first_lesson='';
+                $second_lesson='';
+                $collect='';
+
+                // Use preg_match to find the matching content
+                if (preg_match($psalm_pattern, $description, $psalm_matches)) {
+                    $psalm = $psalm_matches[0];
+
+                    // Remove the specified text from the end
+                    $psalm = preg_replace('/<a id="lesson1"> &nbsp; <\/a>/', '', $psalm);
+
+                    // Remove the additional text
+                    $psalm = preg_replace('/<div class="text-center"><h2>The First Lesson<\/h2><\/div>/', '', $psalm);
+                }
+
+                // Extract First Lesson
+                if (preg_match($first_lesson_pattern, $description, $first_lesson_matches)) {
+                    $first_lesson = $first_lesson_matches[1];
+                }
+
+                // Extract Second Lesson
+                if (preg_match($second_lesson_pattern, $description, $second_lesson_matches)) {
+                    $second_lesson = $second_lesson_matches[1];
+                }
+
+                // Extract Collect
+                if (preg_match($collect_pattern, $description, $collect_matches)) {
+                    $collect = $collect_matches[1];
+                }
+                ?>
+            </blockquote>
         </div>
     </div>
 </section>
@@ -221,7 +291,7 @@ $currentMonthKallender = date('Y-m');
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -233,8 +303,10 @@ $currentMonthKallender = date('Y-m');
                            href="#">
                             MORNING PRAYER
                         </a>
-                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i class="fa-solid fa-arrow-right"></i></p>
-                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
+                                class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
+                                class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="#">
                             EVENING PRAYER

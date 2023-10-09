@@ -6,6 +6,14 @@ RewriteRule ^daily-office daily-office.php [NE,L]
 
 RewriteRule ^morning-prayer morning-prayer.php [NE,L]
 
+RewriteRule ^morning-prayer-brief morning-prayer-brief.php [NE,L]
+
+RewriteRule ^evening-prayer evening-prayer.php [NE,L]
+
+RewriteRule ^evening-prayer-brief evening-prayer-brief.php [NE,L]
+
+RewriteRule ^hourly-office hourly-office.php [NE,L]
+
 RewriteRule ^occasional-office occasional-office.php [NE,L]
 
 RewriteRule ^litany litany.php [NE,L]
