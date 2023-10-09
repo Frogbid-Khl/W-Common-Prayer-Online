@@ -9,77 +9,6 @@ $currentMonthKallender = date('Y-m');
 $currentYear = date('Y');
 
 $currentDate = date('Y-m-d');
-
-function isLeapYear($year)
-{
-    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
-}
-
-$dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
-
-if (isLeapYear($currentYear) && $dayOfYear > 60) {
-    $dayOfYear -= 1;
-}
-
-
-$description = '';
-
-$query = "SELECT * FROM morning_pray where id='1'";
-
-$data = $db_handle->runQuery($query);
-$row = $db_handle->numRows($query);
-for ($j = 0; $j < $row; $j++) {
-    $description = $data[$j]["description"];
-}
-
-$doc = new DOMDocument();
-$doc->loadHTML($description);
-
-
-// Initialize variables to store the extracted text
-$firstLesson = "";
-$psalm = "";
-$secondLesson = "";
-
-// Find the elements using XPath
-$xpath = new DOMXPath($doc);
-
-// First Lesson (Deuteronomy 30:1-10)
-$firstLessonNodeList = $xpath->query('//h2[text()="The First Lesson"]/following-sibling::blockquote/p');
-foreach ($firstLessonNodeList as $node) {
-    $firstLesson .= $node->textContent;
-}
-
-// Extract Psalm based on the pattern "Psalm [Psalm Number]"
-$psalmPattern = '/^Psalm (\d+)$/i'; // Regular expression to match Psalm pattern
-$psalmNumber = "";  // Initialize $psalmNumber
-
-$psalmNodes = $xpath->query('//h3');
-foreach ($psalmNodes as $psalmNode) {
-    if (preg_match($psalmPattern, $psalmNode->textContent, $matches)) {
-        $psalmNumber = $matches[1];
-        $psalmNodeList = $psalmNode->parentNode->getElementsByTagName('p');
-        foreach ($psalmNodeList as $node) {
-            $psalm .= $node->textContent;
-        }
-        break; // Exit the loop after the first matching Psalm is found
-    }
-}
-
-// Second Lesson (Ephesians 2:11-22)
-$secondLessonNodeList = $xpath->query('//h2[text()="The Second Lesson"]/following-sibling::blockquote/p');
-foreach ($secondLessonNodeList as $node) {
-    $secondLesson .= $node->textContent;
-}
-
-
-/*echo "<br>$description<br><br>";
-// Output the extracted text
-echo "First Lesson:<br>$firstLesson<br><br>";
-echo "Psalm $psalmNumber:<br>$psalm<br><br>";
-echo "Second Lesson:<br>$secondLesson";*/
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -270,6 +199,68 @@ echo "Second Lesson:<br>$secondLesson";*/
         </div>
         <div class="col-lg-12 mt-3">
             <blockquote id="text-container">
+
+                <?php
+
+                function isLeapYear($year)
+                {
+                    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
+                }
+
+                $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
+
+                if (isLeapYear($currentYear) && $dayOfYear > 60) {
+                    $dayOfYear -= 1;
+                }
+
+
+                $description = '';
+
+                $query = "SELECT * FROM morning_pray where id='$dayOfYear'";
+
+                $data = $db_handle->runQuery($query);
+                $row = $db_handle->numRows($query);
+                for ($j = 0; $j < $row; $j++) {
+                    $description = $data[$j]["description"];
+                }
+
+
+                $psalm_pattern = '/<div class="text-center"><h2>The Psalter<\/h2><\/div>.*?<div class="text-center"><h2>The First Lesson<\/h2><\/div>/s';
+                $first_lesson_pattern = '/<a id="lesson1">(.*?)<a id="lesson2">/s';
+                $second_lesson_pattern = '/<a id="lesson2">(.*?)<a id="collect">/s';
+                $collect_pattern = '/<a id="collect">(.*?)<\/blockquote>/s';
+
+                $psalm='';
+                $first_lesson='';
+                $second_lesson='';
+                $collect='';
+
+                // Use preg_match to find the matching content
+                if (preg_match($psalm_pattern, $description, $psalm_matches)) {
+                    $psalm = $psalm_matches[0];
+
+                    // Remove the specified text from the end
+                    $psalm = preg_replace('/<a id="lesson1"> &nbsp; <\/a>/', '', $psalm);
+
+                    // Remove the additional text
+                    $psalm = preg_replace('/<div class="text-center"><h2>The First Lesson<\/h2><\/div>/', '', $psalm);
+                }
+
+                // Extract First Lesson
+                if (preg_match($first_lesson_pattern, $description, $first_lesson_matches)) {
+                    $first_lesson = $first_lesson_matches[1];
+                }
+
+                // Extract Second Lesson
+                if (preg_match($second_lesson_pattern, $description, $second_lesson_matches)) {
+                    $second_lesson = $second_lesson_matches[1];
+                }
+
+                // Extract Collect
+                if (preg_match($collect_pattern, $description, $collect_matches)) {
+                    $collect = $collect_matches[1];
+                }
+                ?>
 
                 <small>
                     <i>The Minister shall begin the Morning Prayer by reading one or more of
@@ -717,74 +708,10 @@ echo "Second Lesson:<br>$secondLesson";*/
 
                 <a href="#">Today's Psalms from the Daily Psalter</a><br/>
 
-                <div class="text-center"><h2>The Psalter</h2></div>
 
-
-                <div class="text-center">
-                    <br/>
-                    <h3><i>
-                            Psalm 39
-                        </i></h3><br/>
-                </div>
-
-
-                <div class="text-center"><h3>The Thirty-Ninth Psalm</h3></div>
-                <div class="text-center"><h4><i>Dixi, Custodiam.</i></h4></div>
-                <hr>
-
-
-                <blockquote>
-                    <p>
-                        <b>
-                            I SAID, I will take heed to my ways,
-                            * that I offend not in my tongue<br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            I will keep my mouth as it were with a bridle,
-                            * while the ungodly is in my sight. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            I held my tongue, and spake nothing:
-                            * I kept silence, yea, even from good words; but it was pain and grief to me. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            My heart was hot within me: and while I was thus musing the fire kindled,
-                            *and at the last I spake with my tongue: <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            LORD, let me know mine end, and the number of my days;
-                            * that I may be certified how long I have to live. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            Behold, thou hast made my days as it were a span long, and mine age is even as nothing in
-                            respect of thee;
-                            * and verily every man living is altogether vanity. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            For man walketh in a vain shadow, and disquieteth himself in vain;
-                            * he heapeth up riches, and cannot tell who shall gather them. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            And now, Lord, what is my hope?
-                            * truly my hope is even in thee. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            Deliver me from all mine offences;
-                            * and make me not a rebuke unto the foolish. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            I became dumb, and opened not my mouth;
-                            * for it was thy doing. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            Take thy plague away from me:
-                            * I am even consumed by the means of thy heavy hand. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            When thou with rebukes dost chasten man for sin, thou makest his beauty to consume away,
-                            like as it were a moth fretting a garment:
-                            * every man therefore is but vanity. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            Hear my prayer, O LORD, and with thine ears consider my calling;
-                            * hold not thy peace at my tears; <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            For I am a stranger with thee, and a sojourner,
-                            * as all my fathers were. <br/>
-                            <small size="-2">&nbsp;<br/></small>
-                            O spare me a little, that I may recover my strength,
-                            * before I go hence, and be no more seen.
-                        </b>
-                    </p>
-                </blockquote>
+                <?php
+                    echo $psalm;
+                ?>
                 <br/>
 
                 <b>
@@ -806,65 +733,9 @@ echo "Second Lesson:<br>$secondLesson";*/
 
                 <br/>
 
-                <div class="text-center"><h2>The First Lesson</h2></div>
-                <div class="text-center"><br/>
-                    <h3><i>II Samuel 16:23 - 17:14</i></h3><br/></div>
-
-
-                <blockquote>
-                    <p>
-                        <b>
-                            And the counsel of Ahithophel, which he counselled in those days, was as if a man had
-                            inquired at the
-                            oracle of God: so was all the counsel of Ahithophel both with David and with Absalom.
-                            Moreover,
-                            Ahithophel said unto Absalom, Let me now choose out twelve thousand men, and I will arise
-                            and pursue
-                            after David this night: And I will come upon him while he is weary and weak handed, and will
-                            make him
-                            afraid: and all the people that are with him shall flee; and I will smite the king only: And
-                            I will bring
-                            back all the people unto thee: the man whom thou seekest is as if all returned: so all the
-                            people shall be in
-                            peace. And the saying pleased Absalom well, and all the elders of Israel. Then said Absalom,
-                            Call now
-                            Hushai the Archite also, and let us hear likewise what he saith. And when Hushai was come to
-                            Absalom,
-                            Absalom spake unto him, saying, Ahithophel hath spoken after this manner: shall we do after
-                            his saying?
-                            if not; speak thou. And Hushai said unto Absalom, The counsel that Ahithophel hath given is
-                            not good at
-                            this time. For, said Hushai, thou knowest thy father and his men, that they be mighty men,
-                            and they be
-                            chafed in their minds, as a bear robbed of her whelps in the field: and thy father is a man
-                            of war, and will
-                            not lodge with the people. Behold, he is hid now in some pit, or in some other place: and it
-                            will come to
-                            pass, when some of them be overthrown at the first, that whosoever heareth it will say,
-                            There is a
-                            slaughter among the people that follow Absalom. And he also that is valiant, whose heart is
-                            as the heart
-                            of a lion, shall utterly melt: for all Israel knoweth that thy father is a mighty man, and
-                            they which be with
-                            him are valiant men. Therefore, I counsel that all Israel be generally gathered unto thee,
-                            from Dan even to
-                            Beersheba, as the sand that is by the sea for multitude; and that thou go to battle in thine
-                            own person. So
-                            shall we come upon him in some place where he shall be found, and we will light upon him as
-                            the dew
-                            falleth on the ground: and of him and of all the men that are with him there shall not be
-                            left so much as
-                            one. Moreover, if he be gotten into a city, then shall all Israel bring ropes to that city,
-                            and we will draw it
-                            into the river, until there be not one small stone found there. And Absalom and all the men
-                            of Israel said,
-                            The counsel of Hushai the Archite is better than the counsel of Ahithophel. For the Lord had
-                            appointed to
-                            defeat the good counsel of Ahithophel, to the intent that the Lord might bring evil upon
-                            Absalom.
-                        </b>
-                    </p>
-                </blockquote>
+                <?php
+                echo $first_lesson;
+                ?>
 
 
                 <div class="text-center">
@@ -1061,37 +932,9 @@ echo "Second Lesson:<br>$secondLesson";*/
                 <br/>
 
 
-                <div class="text-center"><h2>The Second Lesson</h2></div>
-                <div class="text-center"><h3><i>II Corinthians 6:1-10</i></h3></div>
-
-
-                <blockquote>
-                    <p>
-                        <b>
-                            We then, as workers together with him, beseech you also that ye receive not the grace of God
-                            in vain.
-                            (For he saith, I have heard thee in a time accepted, and in the day of salvation have I
-                            succoured thee:
-                            behold, now is the accepted time; behold, now is the day of salvation.) Giving no offence in
-                            any thing,
-                            that the ministry be not blamed: But in all things approving ourselves as the ministers of
-                            God, in much
-                            patience, in afflictions, in necessities, in distresses, In stripes, in imprisonments, in
-                            tumults, in labours, in
-                            watchings, in fastings; By pureness, by knowledge, by longsuffering, by kindness, by the
-                            Holy Ghost, by
-                            love unfeigned, By the word of truth, by the power of God, by the armour of righteousness on
-                            the right
-                            hand and on the left, By honour and dishonour, by evil report and good report: as deceivers,
-                            and yet true;
-                            As unknown, and yet well known; as dying, and, behold, we live; as chastened, and not
-                            killed; As
-                            sorrowful, yet alway rejoicing; as poor, yet making many rich; as having nothing, and yet
-                            possessing all
-                            things.
-                        </b>
-                    </p>
-                </blockquote>
+                <?php
+                echo $second_lesson;
+                ?>
 
 
                 <div class="text-center">
@@ -1277,21 +1120,9 @@ echo "Second Lesson:<br>$secondLesson";*/
                 </small>
                 <br/>
 
-                <div class="text-center"><h2>The Collect for the Day<br/></h2></div>
-
-
-                <div class="text-center"><h4><i>Fourteenth Sunday after Trinity</i></h4></div>
-
-                <blockquote>
-                    <p>
-                        <b>
-                            ALMIGHTY and everlasting God, give unto us the increase of faith,
-                            hope, and charity; and, that we may obtain that which thou dost
-                            promise, make us to love that which thou dost command; through
-                            Jesus Christ our Lord. Amen.
-                        </b>
-                    </p>
-                </blockquote>
+                <?php
+                echo $collect;
+                ?>
 
 
                 <br/>
