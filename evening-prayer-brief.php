@@ -16,7 +16,7 @@ $currentDate = date('Y-m-d');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Morning Prayer - Common Prayer Online</title>
+    <title>Evening Prayer - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -138,7 +138,7 @@ $currentDate = date('Y-m-d');
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">THE ORDER FOR MORNING PRAYER</h1>
+            <h1 class="cpo-content-page-title">THE ORDER FOR EVENING PRAYER</h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
