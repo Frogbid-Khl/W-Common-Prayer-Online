@@ -230,10 +230,10 @@ $currentDate = date('Y-m-d');
                 $second_lesson_pattern = '/<a id="lesson2">(.*?)<a id="collect">/s';
                 $collect_pattern = '/<a id="collect">(.*?)<\/blockquote>/s';
 
-                $psalm='';
-                $first_lesson='';
-                $second_lesson='';
-                $collect='';
+                $psalm = '';
+                $first_lesson = '';
+                $second_lesson = '';
+                $collect = '';
 
                 // Use preg_match to find the matching content
                 if (preg_match($psalm_pattern, $description, $psalm_matches)) {
@@ -261,6 +261,306 @@ $currentDate = date('Y-m-d');
                     $collect = $collect_matches[1];
                 }
                 ?>
+
+                <div class="text-center"><i><b>Sentences of Scripture.</b></i></div>
+                <br/>
+
+                <b>
+                    O worship the LORD in the beauty of holiness; let the whole earth stand
+                    in awe of him.</b> <i>Psalm xcvi. 9.</i><br/>
+                <small>&nbsp; <br/></small>
+
+                <b>
+                    Let the words of my mouth, and the meditation of my heart, be alway
+                    acceptable in thy sight, O LORD, my strength and my redeemer.</b>
+                <i>Psalm xix. 14.</i><br/>
+                <br/>
+
+                <a id="absol">&nbsp;</a>
+                <a href="#">General Confession &amp; Absolution</a><br/>
+                <br/>
+
+                <b>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O Lord, open thou our lips.<br/>
+                    <i>Answer.</i> And our mouth shall show forth thy praise.<br/>
+                </b>
+                <br/>
+
+                <b>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Glory be to the Father, and to the Son, and to the
+                    Holy Ghost;<br/>
+                    <br/>
+
+                    <i>Answer.</i> As it was in the beginning, is now, and ever shall be,
+                    world without end. Amen.<br/>
+                    <i>Minister.</i> Praise ye the Lord.<br/>
+                    <i>Answer.</i> The Lord's Name be praised.<br/>
+                </b>
+
+
+                <a id="psalm">&nbsp;</a>
+
+
+                <?php
+                echo $first_lesson;
+                ?>
+
+
+                <a id="psalter">&nbsp;</a>
+
+                <br/>
+                <div class="text-center"><i><b>Gloria in excelsis.</b></i></div>
+                <br/>
+
+                <b>
+                    GLORY be to God on high, and on earth peace, good will towards men. We
+                    praise thee, we bless thee, we worship thee, we glorify thee, we give
+                    thanks to thee for thy great glory, O Lord God, heavenly King, God the
+                    Father Almighty.<br/>
+                    <br/>
+
+                    O Lord, the only-begotten Son, Jesus Christ; O Lord God, Lamb of God, Son
+                    of the Father, that takest away the sins of the world, have mercy upon
+                    us. Thou that takest away the sins of the world, receive our prayer.
+                    Thou that sittest at the right hand of God the Father, have mercy upon
+                    us. For thou only art holy; thou only art the Lord; thou only, O Christ,
+                    with the Holy Ghost, art most high in the glory of God the Father. Amen.<br/>
+                </b>
+
+
+                <a id="lesson1">&nbsp;</a>
+
+
+                <?php
+                echo $psalm;
+                ?>
+
+
+                <br/>
+
+                <div class="text-center"><i><b>Magnificat.</b></i> St. Luke i. 46.</div>
+                <br/>
+
+                <b>
+                    MY soul doth magnify the Lord, * and my spirit hath rejoiced in God my
+                    Saviour.<br/>
+                    For he hath regarded * the lowliness of his handmaiden.<br/>
+                    For behold, from henceforth * all generations shall call me blessed.<br/>
+                    For he that is mighty hath magnified me; * and holy is his Name.<br/>
+                    And his mercy is on them that fear him * throughout all generations.<br/>
+                    He hath showed strength with his arm; * he hath scattered the proud in
+                    the imagination of their hearts.<br/>
+                    He hath put down the mighty from their seat, * and hath exalted the
+                    humble and meek.<br/>
+                    He hath filled the hungry with good things; * and the rich he hath sent
+                    empty away.<br/>
+                    He remembering his mercy hath holpen his servant Israel; * as he
+                    promised to our forefathers,<br/>
+                    Abraham and his seed, for ever.<br/>
+                </b>
+                <br/>
+
+                <a id="less1gl">&nbsp;</a>
+                <a href="#">Cantate Domino</a>
+                &nbsp; &nbsp; &nbsp;
+                <a href="#">Bonum est confiteri</a><br/>
+                <br/>
+
+                <b>Glory be to the Father, and to the Son, and to the Holy Ghost;<br/>
+                    As it was in the beginning, is now, and ever shall be, world without end. Amen.
+                </b><br/>
+                <br/>
+
+                <a id="lesson2">&nbsp;</a>
+
+
+                <?php
+                echo $second_lesson;
+                ?>
+
+
+                <br/>
+
+                <div class="text-center"><i><b>Nunc Dimittis.</b></i> St. Luke ii. 29.</div>
+                <br/>
+
+                <b>
+                    LORD, now lettest thou thy servant depart in peace, * according to thy
+                    word.<br/>
+                    For mine eyes have seen * thy salvation,<br/>
+                    Which thou hast prepared * before the face of all people;<br/>
+                    To be a light to lighten the Gentiles, * and to be the glory of thy
+                    people Israel.<br/>
+                </b>
+                <br/>
+
+                <a id="less2gl">&nbsp;</a>
+                <a href="#">Deus misereatur</a>
+                &nbsp; &nbsp; &nbsp;
+                <a href="#">Benedic, anima mea</a><br/>
+                <br/>
+
+                <b>Glory be to the Father, and to the Son, and to the Holy Ghost;<br/>
+                    As it was in the beginning, is now, and ever shall be, world without end. Amen.
+                </b><br/>
+
+                <br/>
+                <br/>
+                <a id="creed">&nbsp;</a>
+
+                <div class="text-center"><i><b>The Apostles' Creed.</b></i></div>
+                <br/>
+
+
+                <b>
+                    I BELIEVE in God the Father Almighty, Maker of heaven and earth:<br/>
+                    <small>&nbsp; <br/></small>
+
+                    And in Jesus Christ his only Son our Lord: Who was conceived by the Holy
+                    Ghost, Born of the Virgin Mary: Suffered under Pontius Pilate, Was
+                    crucified, dead, and buried: He descended into hell; The third day he
+                    rose again from the dead: He ascended into heaven, And sitteth on the
+                    right hand of God the Father Almighty: From thence he shall come to judge
+                    the quick and the dead.<br/>
+                    <small>&nbsp; <br/></small>
+
+                    I believe in the Holy Ghost: The holy Catholic Church; The Communion of
+                    Saints: The Forgiveness of sins: The Resurrection of the body: And the
+                    Life everlasting. Amen.<br/>
+                </b>
+                <br/>
+
+
+                <b>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The Lord be with you.<br/>
+                    <i>Answer.</i> And with thy spirit.<br/>
+                    <i>Minister.</i> Let us pray.<br/>
+                </b>
+
+
+                <div class="text-center"><i><b>The Lord's Prayer.</b></i></div>
+                <br/>
+
+
+                <b>
+                    OUR Father, who art in heaven, Hallowed be thy Name. Thy kingdom come.
+                    Thy will be done, On earth as it is in heaven. Give us this day our
+                    daily bread. And forgive us our trespasses, As we forgive those who
+                    trespass against us. And lead us not into temptation, But deliver us
+                    from evil. For thine is the kingdom, and the power, and the glory, for
+                    ever and ever. Amen.<br/>
+                </b>
+                <br/>
+
+                <b>
+                    <i>Minister.</i> O Lord, show thy mercy upon us.<br/>
+                    <i>Answer.</i> And grant us thy salvation.<br/>
+                    <i>Minister.</i> O Lord, save the State.<br/>
+                    <i>Answer.</i> And mercifully hear us when we call upon thee.<br/>
+                    <i>Minister.</i> Endue thy Ministers with righteousness.<br/>
+                    <i>Answer.</i> And make thy chosen people joyful.<br/>
+                    <i>Minister.</i> O Lord, save thy people.<br/>
+                    <i>Answer.</i> And bless thine inheritance.<br/>
+                    <i>Minister.</i> Give peace in our time, O Lord.<br/>
+                    <i>Answer.</i> For it is thou, Lord, only, that makest us dwell in safety.<br/>
+                    <i>Minister.</i> O God, make clean our hearts within us.<br/>
+                    <i>Answer.</i> And take not thy Holy Spirit from us.<br/>
+                </b>
+
+                <a id="collect">&nbsp;</a>
+                <?php
+                echo $collect;
+                ?>
+
+
+                <br/>
+
+
+                <div class="text-center"><i><b>A Collect for Peace.</b></i></div>
+                <br/>
+
+                <b>
+                    O GOD, from whom all holy desires, all good counsels, and all just works
+                    do proceed; Give unto thy servants that peace which the world cannot
+                    give; that our hearts may be set to obey thy commandments, and also that
+                    by thee, we, being defended from the fear of our enemies, may pass our
+                    time in rest and quietness; through the merits of Jesus Christ our
+                    Saviour. <i> Amen.</i><br/>
+                </b>
+                <br/>
+                <br/>
+
+                <div class="text-center"><i><b>A Collect for Aid against Perils.</b></i></div>
+                <br/>
+
+                <b>
+                    LIGHTEN our darkness, we beseech thee, O Lord; and by thy great mercy
+                    defend us from all perils and dangers of this night; for the love of thy
+                    only Son, our Saviour, Jesus Christ. <i> Amen.</i><br/>
+                </b>
+                <br/>
+                <br/>
+
+                <a id="presidev">&nbsp;</a>
+                <a href="#">A Prayer for the President of the United States</a><br/>
+                <br/>
+
+                <div class="text-center"><i><b>A Prayer for the Clergy and People.</b></i></div>
+                <br/>
+
+                <b>
+                    Almighty and everlasting God, from whom cometh every good and perfect
+                    gift; Send down upon our Bishops, and other Clergy, and upon the
+                    Congregations committed to their charge, the healthful Spirit of thy
+                    grace; and, that they may truly please thee, pour upon them the continual
+                    dew of thy blessing. Grant this, O Lord, for the honour of our Advocate
+                    and Mediator, Jesus Christ. <i>Amen.</i><br/>
+                </b>
+                <br/>
+                <br/>
+
+                <div class="text-center"><i><b>A Prayer for All Conditions of Men.</b></i></div>
+                <br/>
+
+                <b>
+                    O God, the Creator and Preserver of all mankind, we humbly beseech thee
+                    for all sorts and conditions of men; that thou wouldest be pleased to
+                    make thy ways known unto them, thy saving health unto all nations. More
+                    especially we pray for thy holy Church universal; that it may be so
+                    guided and governed by thy good Spirit, that all who profess and call
+                    themselves Christians may be led into the way of truth, and hold the
+                    faith in unity of spirit, in the bond of peace, and in righteousness of
+                    life. Finally, we commend to thy fatherly goodness all those who are any
+                    ways afflicted, or distressed, in mind, body, or estate; <i>[* especially
+                        those for whom our prayers are desired;]</i> that it may please thee to
+                    comfort and relieve them, according to their several necessities; giving
+                    them patience under their sufferings, and a happy issue out of all their
+                    afflictions. And this we beg for Jesus Christ's sake. <i> Amen.</i>
+                </b>
+                <br/>
+                <br/>
+
+                <a id="prymen">&nbsp;</a>
+                <a href="#">A General Thanksgiving</a>
+                &nbsp; &nbsp; &nbsp;
+                <a href="#">A Prayer of St. Chrysostom</a><br/>
+                <br/>
+
+                <div class="text-center"><i><b>2 Cor. xiii. 14.</b></i></div>
+                <br/>
+
+                <b>
+                    The grace of our Lord Jesus Christ, and the love of God, and the
+                    fellowship of the Holy Ghost, be with us all evermore. <i> Amen.</i><br/>
+                </b>
+
+
+                <div class="text-center">
+                    <small>
+                        <i>Here endeth the Order of Evening Prayer.</i>
+                    </small></div>
+                <br/>
+                
             </blockquote>
         </div>
     </div>
