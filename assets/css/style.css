@@ -79,7 +79,7 @@ body {
 }
 
 .cpo-title {
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .cpo-home-image {
@@ -195,24 +195,6 @@ body {
     width: 95%;
 }
 
-@media (max-width: 768px) {
-    #menu-items {
-        display: none;
-    }
-
-    #mobile-menu-button {
-        display: block;
-        cursor: pointer;
-    }
-
-    .cpo-range {
-        width: 85%;
-    }
-
-    .cpo-body-padding-top {
-        padding-top: 6rem;
-    }
-}
 
 .cpo-event-color {
     color: #03671f;
@@ -287,4 +269,39 @@ body {
 
 .cpo-angli-url{
     color: var(--text-color);
+}
+
+
+.pray-btn {
+    height: 35px;
+    width: 100px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+a.pray-btn {
+    color: black !important;
+}
+
+@media (max-width: 768px) {
+    #menu-items {
+        display: none;
+    }
+
+    #mobile-menu-button {
+        display: block;
+        cursor: pointer;
+    }
+
+    .cpo-range {
+        width: 85%;
+    }
+
+    .cpo-body-padding-top {
+        padding-top: 6rem;
+    }
+
+    .pray-btn{
+        font-size: 10px;
+    }
 }

@@ -166,7 +166,7 @@ $eventList[date('Y-m-d', strtotime("14-09-". $currentYear))] = array('event' => 
 $eventList[date('Y-m-d', strtotime("19-09-". $currentYear))] = array('event' => 'St. Theodore', 'color' => '');
 $eventList[date('Y-m-d', strtotime("21-09-". $currentYear))] = array('event' => 'St. Matthew, Apostle & Evangelist', 'color' => 'cpo-red');
 $eventList[date('Y-m-d', strtotime("29-09-". $currentYear))] = array('event' => 'St. Michael & All Angels', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("30-09-". $currentYear))] = array('event' => 'St. Aidan', 'color' => '');
+$eventList[date('Y-m-d', strtotime("30-09-". $currentYear))] = array('event' => 'St. Jerome the Priest', 'color' => '');
 $eventList[date('Y-m-d', strtotime("04-10-". $currentYear))] = array('event' => 'St. Francis of Assisi', 'color' => '');
 $eventList[date('Y-m-d', strtotime("06-10-". $currentYear))] = array('event' => 'William Tyndale, Priest', 'color' => '');
 $eventList[date('Y-m-d', strtotime("13-10-". $currentYear))] = array('event' => 'St. Edward the Confessor', 'color' => '');

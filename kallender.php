@@ -243,17 +243,6 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             width: 100%;
         }
 
-        .pray-btn {
-            height: 35px;
-            width: 100px;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
-
-        a.pray-btn {
-            color: black !important;
-        }
-
         .pray-sec {
             position: absolute;
             bottom: 5px;
