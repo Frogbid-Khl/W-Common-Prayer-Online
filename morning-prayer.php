@@ -9,18 +9,27 @@ $currentMonthKallender = date('Y-m');
 $currentYear = date('Y');
 
 $currentDate = date('Y-m-d');
+
+$extension='';
+
+$url = $_SERVER['REQUEST_URI'];
+$id = substr($url, strrpos($url, '/') + 1);
+
+if((int)$id>0){
+    $extension = '../';
+}
 ?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
     <title>Morning Prayer - Common Prayer Online</title>
-    <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
-    <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
-    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
+    <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
+    <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -64,15 +73,15 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="home">Home</a>
+                           href="<?php echo $extension; ?>home">Home</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office">Daily Offices</a>
+                           href="<?php echo $extension; ?>daily-office">Daily Offices</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="<?php echo $extension; ?>psalter">Psalter</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +103,7 @@ $currentDate = date('Y-m-d');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collect</a>
+                           href="<?php echo $extension; ?>collects">Collect</a>
                     </div>
                 </div>
             </div>
@@ -102,15 +111,15 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="penitential-office">Penitential Office</a>
+                           href="<?php echo $extension; ?>penitential-office">Penitential Office</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="<?php echo $extension; ?>family-prayer">Family Prayer</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="<?php echo $extension; ?>psalter">Psalter</a>
                     </div>
                 </div>
             </div>
@@ -118,15 +127,15 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers</a>
+                           href="<?php echo $extension; ?>prayers-and-thanksgivings">Prayers</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="<?php echo $extension; ?>litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="<?php echo $extension; ?>kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -142,7 +151,7 @@ $currentDate = date('Y-m-d');
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
-            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <img alt="" class="img-fluid cpo-logo" src="<?php echo $extension; ?>assets/images/book.webp"/>
             <p class="mt-4">Presented By the</p>
             <h5 class="cpo-angelina-title">
                 ANGLICAN PROVINCE OF AMERICA
@@ -177,16 +186,35 @@ $currentDate = date('Y-m-d');
                 </div>
             </div>
         </div>
+        <?php
+
+        function isLeapYear($year)
+        {
+            return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
+        }
+
+        $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
+
+        if (isLeapYear($currentYear) && $dayOfYear > 60) {
+            $dayOfYear -= 1;
+        }
+
+
+        if((int)$id>0){
+            $dayOfYear=$id;
+        }
+
+        ?>
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Today's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer">Today's Readings/Propers</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Tomorrow's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear+1; ?>">Tomorrow's Readings/Propers</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Yesterday's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear-1; ?>">Yesterday's Readings/Propers</a>
                 </div>
             </div>
         </div>
@@ -199,20 +227,7 @@ $currentDate = date('Y-m-d');
         </div>
         <div class="col-lg-12 mt-3">
             <blockquote id="text-container">
-
                 <?php
-
-                function isLeapYear($year)
-                {
-                    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
-                }
-
-                $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
-
-                if (isLeapYear($currentYear) && $dayOfYear > 60) {
-                    $dayOfYear -= 1;
-                }
-
 
                 $description = '';
 
@@ -1314,13 +1329,13 @@ $currentDate = date('Y-m-d');
     <div class="card mt-4 cpo-card-btn wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="church-year">The Church Year</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>church-year">The Church Year</a>
             </div>
         </div>
     </div>
@@ -1343,7 +1358,7 @@ $currentDate = date('Y-m-d');
                 <div class="col-lg-6 mx-auto">
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
-                           href="morning-prayer-brief">
+                           href="<?php echo $extension; ?>morning-prayer-brief">
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
@@ -1351,7 +1366,7 @@ $currentDate = date('Y-m-d');
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
                                     class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
-                           href="evening-prayer-brief">
+                           href="<?php echo $extension; ?>evening-prayer-brief">
                             EVENING PRAYER
                         </a>
                     </div>
@@ -1364,10 +1379,10 @@ $currentDate = date('Y-m-d');
 
 <button onclick="topFunction()" id="cpo-scroll-to-top" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-<script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
-<script src="assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
-<script src="assets/vendor/Wow/wow.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/jQuery/jquery-3.6.4.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/OwlCarousel/js/owl.carousel.min.js"></script>
+<script src="<?php echo $extension; ?>assets/vendor/Wow/wow.js"></script>
+<script src="<?php echo $extension; ?>assets/js/main.js"></script>
 </body>
 </html>

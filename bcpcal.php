@@ -228,8 +228,13 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             width: 100%;
         }
 
-        table th, table td {
-            width: 240px;
+        table th{
+            width: 250px;
+        }
+        
+        table td {
+            width: 250px;
+            height: 170px;
         }
 
         td {
@@ -243,21 +248,26 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             width: 100%;
         }
 
-        .pray-btn {
-            height: 35px;
-            width: 100px;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
-
-        a.pray-btn {
-            color: black !important;
-        }
-
         .pray-sec {
             position: absolute;
             bottom: 5px;
         }
+
+        /* Custom CSS to always show scrollbar */
+        .table-responsive {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch; /* Optional: For smooth scrolling on iOS devices */
+        }
+
+
+        /* Custom CSS to show scrollbar on mobile */
+        @media (max-width: 767.98px) {
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* Optional: For smooth scrolling on iOS devices */
+            }
+        }
+
     </style>
 </head>
 <body>
