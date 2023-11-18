@@ -43,7 +43,7 @@ $currentMonthKallender = date('Y-m');
 <!-- Banner Start -->
 <section class="container-fluid">
     <div class="row pt-5">
-        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInLeft" data-wow-delay="0.1s"
+        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInLeft justify-content-lg-center align-items-lg-center" data-wow-delay="0.1s"
              style="visibility: visible; -webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
             <img alt="" class="img-fluid cpo-home-image" src="assets/images/home/image_1.webp"/>
         </div>
@@ -66,7 +66,7 @@ $currentMonthKallender = date('Y-m');
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInRight" data-wow-delay="0.3s"
+        <div class="col-lg-3 d-lg-flex h-auto d-none wow fadeInRight justify-content-lg-center align-items-lg-center" data-wow-delay="0.3s"
              style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.1s;">
             <img alt="" class="img-fluid cpo-home-image" src="assets/images/home/image_2.webp"/>
         </div>
