@@ -60,9 +60,20 @@ $currentMonthKallender = date('Y-m');
 
     <!-- Button Start -->
     <section class="container-fluid" id="menu-items">
-        <div class="row mt-5">
+        <div class="row pt-5">
             <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">
                 <div class="row">
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="home">Home</a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="daily-office">
+                            Daily <br/>
+                            Offices
+                        </a>
+                    </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="morning-prayer">
@@ -70,6 +81,10 @@ $currentMonthKallender = date('Y-m');
                             Prayer
                         </a>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="evening-prayer">
@@ -81,25 +96,7 @@ $currentMonthKallender = date('Y-m');
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="hourly-office">
                             Hourly <br/>
-                            office
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                <div class="row">
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">
-                            Ordo <br/>
-                            Kalender
-                        </a>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            Readings for<br/>
-                            Church Year
+                            Offices
                         </a>
                     </div>
                     <div class="col-4 mb-3">
@@ -115,11 +112,17 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="visitation-of-the-sick">
+                            Visitation <br/>
+                            of Sick
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="visitation-of-the-sick">Visitation of the Sick</a>
+                           href="family-prayer">
+                            Family <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -131,15 +134,15 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collects</a>
+                           href="prayers-and-thanksgivings">Prayers</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers & Thanksgivings</a>
+                           href="litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

@@ -74,6 +74,12 @@ function numberToWords($number) {
     <link href="<?php echo $extension; ?>assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='<?php echo $extension; ?>assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
+
+    <style>
+        .cpo-home-btn {
+            height: 105px;
+        }
+    </style>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -121,11 +127,17 @@ function numberToWords($number) {
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>daily-office">Daily Offices</a>
+                           href="<?php echo $extension; ?>daily-office">
+                            Daily <br/>
+                            Offices
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>psalter">Psalter</a>
+                           href="<?php echo $extension; ?>morning-prayer">
+                            Morning <br/>
+                            Prayer
+                        </a>
                     </div>
                 </div>
             </div>
@@ -133,21 +145,24 @@ function numberToWords($number) {
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            1st<br/>
-                            Lesson
+                           href="<?php echo $extension; ?>evening-prayer">
+                            Evening <br/>
+                            Prayer
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            2nd<br/>
-                            Lesson
+                           href="<?php echo $extension; ?>hourly-office">
+                            Hourly <br/>
+                            Offices
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>collects">Collect</a>
+                           href="<?php echo $extension; ?>penitential-office">
+                            Penitential <br/>
+                            Office
+                        </a>
                     </div>
                 </div>
             </div>
@@ -155,11 +170,17 @@ function numberToWords($number) {
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>penitential-office">Penitential Office</a>
+                           href="<?php echo $extension; ?>visitation-of-the-sick">
+                            Visitation <br/>
+                            of Sick
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>family-prayer">Family Prayer</a>
+                           href="<?php echo $extension; ?>family-prayer">
+                            Family <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
