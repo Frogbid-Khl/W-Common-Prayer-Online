@@ -89,14 +89,14 @@ if((int)$id>0){
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson1">
                             1st<br/>
                             Lesson
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson2">
                             2nd<br/>
                             Lesson
                         </a>
@@ -176,13 +176,13 @@ if((int)$id>0){
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Concerning the Service of the Church</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>services">Concerning the Service of the Church</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Miscellaneous Rubrics from the 1928 BCP</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>rubrics">Miscellaneous Rubrics from the 1928 BCP</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Information about the BCP and Lectionary</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>info">Information about the BCP and Lectionary</a>
                 </div>
             </div>
         </div>
@@ -301,24 +301,24 @@ if((int)$id>0){
                 <b>
                     THE LORD is in his holy temple: let all the earth
                     keep silence before him.</b> <i>Hab. ii. 20.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     I was glad when they said unto me, We will go into
                     the house of the LORD.</b> <i>Psalm cxxii. 1.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Let the words of my mouth, and the meditation of my
                     heart, be alway acceptable in thy sight, O LORD, my
                     strength and my redeemer.</b> <i>Psalm xix. 14.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     O send out thy light and thy truth, that they may lead
                     me, and bring me unto thy holy hill, and to thy dwelling.</b>
                 <i>Psalm xliii. 3.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Thus, saith the high and lofty One that inhabiteth
@@ -327,13 +327,13 @@ if((int)$id>0){
                     and humble spirit, to revive the spirit of the humble,
                     and to revive the heart of the contrite ones.</b>
                 <i>Isaiah Ivii. 15.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     The hour cometh, and now is, when the true worshippers
                     shall worship the Father in spirit and in truth: for the
                     Father seeketh such to worship him.</b> <i>St. John iv. 23.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Grace be unto you, and peace, from God our Father, and
@@ -344,7 +344,7 @@ if((int)$id>0){
                 <b>
                     Repent ye, for the Kingdom of heaven is at hand.</b>
                 <i>St. Matt. iii. 2.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Prepare ye the way of the LORD, make straight in the
@@ -367,7 +367,7 @@ if((int)$id>0){
                     unto my Name, and a pure offering: for my Name shall
                     be great among the heathen, saith the LORD of hosts.</b>
                 <i>Mal. i. 11.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Awake, awake; put on thy strength, O Zion; put on thy
@@ -380,12 +380,12 @@ if((int)$id>0){
                     the LORD your God: for he is gracious and merciful, slow
                     to anger, and of great kindness, and repenteth him of
                     the evil.</b> <i>Joel ii. 13.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     The sacrifices of God are a broken spirit: a broken and a
                     contrite heart, O God, thou wilt not despise.</b> <i>Psalm li. 17.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     I will arise and go to my father, and will say unto him,
@@ -399,7 +399,7 @@ if((int)$id>0){
                     and see if there be any sorrow like unto my sorrow
                     which is done unto me, wherewith the LORD hath
                     afflicted me.</b> <i>Lam. i. I 2.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     In whom we have redemption through his blood, the
@@ -411,7 +411,7 @@ if((int)$id>0){
                 <b>
                     He is risen. The Lord is risen indeed.</b>
                 <i>St. Mark xvi. 6; St. Luke xxiv. 34.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     This is the day which the LORD hath made;
@@ -433,7 +433,7 @@ if((int)$id>0){
                     is come upon you: and ye shall be witnesses unto me
                     both in Jerusalem, and in all Judaea, and in Samaria,
                     and unto the uttermost part of the earth.</b> <i> Acts i. 8.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     Because ye are sons, God hath sent forth the Spirit of
@@ -452,7 +452,7 @@ if((int)$id>0){
                     first-fruits of all thine increase: so shall thy
                     barns be filled with plenty, and thy presses shall
                     burst out with new wine.</b> <i>Prov. iii. 9, 10.</i><br/>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <b>
                     The LORD by wisdom hath founded the earth; by
@@ -463,7 +463,7 @@ if((int)$id>0){
 
                 <br/>
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Then the Minister shall say,</i>
                     </small>
                 </div>
@@ -489,7 +489,7 @@ if((int)$id>0){
 
                 <br/>
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or he shall say, </i>
                     </small>
                 </div>
@@ -504,7 +504,7 @@ if((int)$id>0){
                 <br/>
 
                 <div class="text-center">>
-                    <small size="-1">
+                    <small>
                         <i>To be said by the whole Congregation, after the Minister,
                             all kneeling.</i>
                     </small>
@@ -530,7 +530,7 @@ if((int)$id>0){
                 <div class="text-center"><i><b>The Declaration of Absolution, or Remission of Sins.</b></i></div>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>To be made by the Priest alone, standing; the People still
                         kneeling. But NOTE, That the Priest, at his discretion, may use,
                         instead of what follows, the Absolution from the Order for Holy
@@ -557,7 +557,7 @@ if((int)$id>0){
 
                 </b>
                 <br/>
-                <small size="-1">
+                <small>
                     <i>Then the Minister shall kneel, and say the Lord's Prayer;
                         the People still kneeling, and repeating it with him, both here and
                         wheresoever else it is used in Divine Service.</i>
@@ -578,7 +578,7 @@ if((int)$id>0){
 
 
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Then likewise he shall say,</i>
                     </small>
                 </div>
@@ -592,7 +592,7 @@ if((int)$id>0){
                 </div>
 
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Here, all standing up, the Minister shall say,</i>
                     </small>
                 </div>
@@ -609,7 +609,7 @@ if((int)$id>0){
                     <br/>
                 </b>
 
-                <small size="-1">
+                <small>
 
                     <i>Then shall be said or sung the following Canticle; except on those
                         days for which other Canticles are appointed; and except also, that
@@ -626,43 +626,43 @@ if((int)$id>0){
                 <i>On the Sundays in Advent. </i><b>Our King and Saviour draweth nigh; *
                     O come, let us adore him.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On Christmas Day and until the Epiphany. </i><b>Alleluia. Unto us a child
                     is born; * O come, let us adore him. Alleluia.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On the Epiphany and seven days after, and on the Feast of the
                     Transfiguration. </i><b>The Lord hath manifested forth his glory; * O come,
                     let us adore him.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On Monday in Easter Week and until Ascension Day. </i><b>Alleluia. The Lord
                     is risen indeed; * O come, let us adore him. Alleluia.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On Ascension Day and until Whitsunday. </i><b>Alleluia. Christ the Lord
                     ascendeth into heaven; * O come, let us adore him. Alleluia.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On Whitsunday and six days after. </i><b>Alleluia. The Spirit of the Lord
                     filleth the world; * O come, let us adore him. Alleluia.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On Trinity Sunday. </i><b>Father, Son, and Holy Ghost, one God; * O come,
                     let us adore him.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On the Purification, and the Annunciation. </i><b>The Word was made flesh,
                     and dwelt among us; * O come, let us adore him.<br/>
                 </b>
-                <small size="-2">&nbsp; <br/></small>
+                <small>&nbsp; <br/></small>
 
                 <i>On other Festivals for which a proper Epistle and Gospel are ordered.
                 </i>
@@ -673,7 +673,7 @@ if((int)$id>0){
                 <div class="text-center">
                     <hr>
 
-                    <small size="-1"><i>
+                    <small><i>
                             Seasonal substitute the Venite</i><br/>
                         <a href="#">Easter</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
                                 href="#">Thanksgiving</a>
@@ -710,7 +710,7 @@ if((int)$id>0){
                 </b>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>Then shall follow a Portion of the Psalms, according to the Use
                         of this Church. And at the end of every Psalm, and likewise at the end
                         of the Venite, Benedictus es, Benedictus, Jubilate, may be, and at the
@@ -738,7 +738,7 @@ if((int)$id>0){
                 <br/>
 
 
-                <small size="-1">
+                <small>
                     <i>Then shall be read the First Lesson, according to the Table or Calendar.
                         And </i>NOTE,<i> That before every Lesson, the Minister shall say, </i>Here
                     beginneth <i>such a</i> Chapter (<i>or</i> Verse of <i>such a</i> Chapter) of
@@ -747,7 +747,7 @@ if((int)$id>0){
                 </small>
 
                 <br/>
-
+                <a id="lesson1">&nbsp;</a>
                 <?php
                 echo $first_lesson;
                 ?>
@@ -761,7 +761,7 @@ if((int)$id>0){
                 </div>
 
                 <br/>
-                <small size="-1">
+                <small>
                     <i>Here Shall be said or sung the following Hymn.<br/>
                         But </i>NOTE,<i> That on any day when the Holy Communion is immediately
                         to follow, the Minister at his discretion, after any one of the following
@@ -820,7 +820,7 @@ if((int)$id>0){
 
                 <br/>
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or this Canticle.</i>
                     </small>
                 </div>
@@ -851,7 +851,7 @@ if((int)$id>0){
                     </h3></div>
 
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or this Canticle.</i>
                     </small>
                 </div>
@@ -936,7 +936,7 @@ if((int)$id>0){
                 </b>
 
                 <br/>
-                <small size="-1">
+                <small>
                     <i>Then shall be read, in like manner, the Second Lesson, taken out of the
                         New Testament, according to the Table or Calendar.<br/>
                         And after that shall be sung or said the Hymn following.<br/>
@@ -946,6 +946,7 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
+                <a id="lesson2">&nbsp;</a>
 
                 <?php
                 echo $second_lesson;
@@ -999,7 +1000,7 @@ if((int)$id>0){
 
                 <br/>
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or this Psalm.</i>
                     </small>
                 </div>
@@ -1022,7 +1023,7 @@ if((int)$id>0){
                     <br/>
                 </b>
                 <br/>
-                <small size="-1">
+                <small>
                     <i>Then shall be said the Apostles' Creed by the Minister and the People,
                         standing. And any Churches may, instead of the words, </i>He descended
                     into hell,<i> use the words, </i>He went into the place of departed
@@ -1034,7 +1035,7 @@ if((int)$id>0){
 
                 <b>
                     I BELIEVE in God the Father Almighty, Maker of heaven and earth:<br/>
-                    <small size="-2">&nbsp; <br/></small>
+                    <small>&nbsp; <br/></small>
 
                     And in Jesus Christ his only Son our Lord: Who was conceived by the Holy
                     Ghost, Born of the Virgin Mary: Suffered under Pontius Pilate, Was
@@ -1042,7 +1043,7 @@ if((int)$id>0){
                     rose again from the dead: He ascended into heaven, And sitteth on the
                     right hand of God the Father Almighty: From thence he shall come to judge
                     the quick and the dead.<br/>
-                    <small size="-2">&nbsp; <br/></small>
+                    <small>&nbsp; <br/></small>
 
                     I believe in the Holy Ghost: The holy Catholic Church; The Communion of
                     Saints: The Forgiveness of sins: The Resurrection of the body: And the
@@ -1056,7 +1057,7 @@ if((int)$id>0){
 
                 <br/>
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or the Creed commonly called the Nicene.</i>
                     </small>
                 </div>
@@ -1066,7 +1067,7 @@ if((int)$id>0){
                 <b>
                     I BELIEVE in one God the Father Almighty, Maker of heaven and earth, And
                     of all things visible and invisible:<br/>
-                    <small size="-2">&nbsp; <br/></small>
+                    <small>&nbsp; <br/></small>
 
                     And in one Lord Jesus Christ, the only-begotten Son of God; Begotten of
                     his Father before all worlds, God of God, Light of Light, Very God of
@@ -1078,7 +1079,7 @@ if((int)$id>0){
                     Scriptures: And ascended into heaven, And sitteth on the right hand of
                     the Father: And he shall come again, with glory, to judge both the quick
                     and the dead; Whose kingdom shall have no end.<br/>
-                    <small size="-2">&nbsp; <br/></small>
+                    <small>&nbsp; <br/></small>
 
                     And I believe in the Holy
                     Ghost, The Lord, and Giver of Life, Who proceedeth from the Father and
@@ -1093,7 +1094,7 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>And after that, these Prayers following, the People devoutly kneeling;
                         the Minister first pronouncing,</i>
                 </small>
@@ -1110,7 +1111,7 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>Here, if it hath not already been said, shall follow
                         the <a href="#lordsprayer"><b> Lord's Prayer</b></a>.</i>
                 </small>
@@ -1128,7 +1129,7 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>Then shall be said the Collect for the Day, except when the
                         Communion Service is read; and then the Collect for the Day shall be
                         omitted here.</i>
@@ -1172,7 +1173,7 @@ if((int)$id>0){
 
 
                 <br/>
-                <small size="-1">
+                <small>
                     <i>The following Prayers shall be omitted here when the
                         <a href="#"><b>Litany</b></a> is said,
                         and may be omitted when the Holy Communion is to follow.<br/>
@@ -1204,7 +1205,7 @@ if((int)$id>0){
                 </b>
 
                 <div class="text-center">
-                    <small size="-1">
+                    <small>
                         <i>Or this.</i>
                     </small>
                 </div>
@@ -1260,7 +1261,7 @@ if((int)$id>0){
                 </b>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>* This may be said when any desire the prayers of the Congregation.</i>
                 </small><br/>
                 <br/>
@@ -1287,7 +1288,7 @@ if((int)$id>0){
                 </b>
                 <br/>
 
-                <small size="-1">
+                <small>
                     <i>* This may be said when any desire to return thanks for mercies
                         vouchsafed to them.</i><br/>
                     <br/>

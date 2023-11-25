@@ -12,6 +12,12 @@ RewriteRule ^evening\-prayer-brief(.*) evening-prayer-brief.php [NE,L]
 
 RewriteRule ^evening-prayer(.*) evening-prayer.php [NE,L]
 
+RewriteRule ^services services.php [NE,L]
+
+RewriteRule ^rubrics rubrics.php [NE,L]
+
+RewriteRule ^info info.php [NE,L]
+
 RewriteRule ^hourly-office hourly-office.php [NE,L]
 
 RewriteRule ^occasional-office occasional-office.php [NE,L]

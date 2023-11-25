@@ -89,14 +89,14 @@ if((int)$id>0){
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson1">
                             1st<br/>
                             Lesson
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="#lesson2">
                             2nd<br/>
                             Lesson
                         </a>
@@ -176,13 +176,13 @@ if((int)$id>0){
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Concerning the Service of the Church</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>services">Concerning the Service of the Church</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Miscellaneous Rubrics from the 1928 BCP</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>rubrics">Miscellaneous Rubrics from the 1928 BCP</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Information about the BCP and Lectionary</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>info">Information about the BCP and Lectionary</a>
                 </div>
             </div>
         </div>
