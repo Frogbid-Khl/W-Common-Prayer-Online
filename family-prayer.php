@@ -17,6 +17,12 @@ $currentMonthKallender = date('Y-m');
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href="assets/css/style.css" rel="stylesheet"/>
+
+    <style>
+        .cpo-home-btn {
+            height: 105px;
+        }
+    </style>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -64,11 +70,17 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office">Daily Offices</a>
+                           href="daily-office">
+                            Daily <br/>
+                            Offices
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="morning-prayer">
+                            Morning <br/>
+                            Prayer
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,21 +88,24 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            1st<br/>
-                            Lesson
+                           href="evening-prayer">
+                            Evening <br/>
+                            Prayer
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            2nd<br/>
-                            Lesson
+                           href="hourly-office">
+                            Hourly <br/>
+                            Offices
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collect</a>
+                           href="penitential-office">
+                            Penitential <br/>
+                            Office
+                        </a>
                     </div>
                 </div>
             </div>
@@ -98,11 +113,17 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="penitential-office">Penitential Office</a>
+                           href="visitation-of-the-sick">
+                            Visitation <br/>
+                            of Sick
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="family-prayer">
+                            Family <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -122,7 +143,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                            href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

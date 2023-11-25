@@ -186,6 +186,10 @@ $currentMonthKallender = date('Y-m');
     <div class="container-fluid pb-4">
         <div class="card cpo-footer-card mt-4 text-center pt-4 pb-3 wow fadeInDown" data-wow-duration="1s"
              data-wow-delay="0.5s">
+            <p class="text-danger">
+                <?php echo date("l, F j, Y"); ?><br/>
+                Web Server Time is <?php echo date('h:i A'); ?>
+            </p>
             <p>
                 <?php
                 $day=date('Y-m-d');
