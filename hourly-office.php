@@ -16,11 +16,17 @@ $currentDate = date('Y-m-d');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Morning Prayer - Common Prayer Online</title>
+    <title>Hourly Office - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
     <link href="assets/css/style.css" rel="stylesheet"/>
+
+    <style>
+        .cpo-home-btn {
+            height: 105px;
+        }
+    </style>
 </head>
 <body>
 <section class="fixed-top cpo-bg">
@@ -59,20 +65,29 @@ $currentDate = date('Y-m-d');
 
     <!-- Button Start -->
     <section class="container-fluid" id="menu-items">
-        <div class="row pt-5">
+        <div class="row mt-5">
             <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="home">Home</a>
+                           href="morning-prayer">
+                            Morning <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office">Daily Offices</a>
+                           href="evening-prayer">
+                            Evening <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="hourly-office">
+                            Hourly <br/>
+                            office
+                        </a>
                     </div>
                 </div>
             </div>
@@ -80,21 +95,21 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            1st<br/>
-                            Lesson
+                           href="#matins">
+                            Matins
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            2nd<br/>
-                            Lesson
+                           href="#lauds">
+                            Lauds
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collect</a>
+                           href="#prime">
+                            Prime
+                        </a>
                     </div>
                 </div>
             </div>
@@ -102,15 +117,15 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="penitential-office">Penitential Office</a>
+                           href="#terce">Terce</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="#sext">Sext</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="psalter">Psalter</a>
+                           href="#none">None</a>
                     </div>
                 </div>
             </div>
@@ -118,15 +133,15 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers</a>
+                           href="#vespers">Vespers</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="#compline">Compline</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="family-prayer">Family Prayer</a>
                     </div>
                 </div>
             </div>
@@ -138,8 +153,23 @@ $currentDate = date('Y-m-d');
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1 class="cpo-content-page-title">THE ORDER FOR MORNING PRAYER</h1>
+            <h1 class="cpo-content-page-title">THE ORDER FOR THE HOURLY OFFICES</h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
+            <p>
+                The Customary times for saying the hours are as follows:<br/><br/>
+
+                Matins - Upon Waking/Arising for the day<br/>
+                Lauds -   Dawn/Sunrise<br/>
+                Prime -   6:00 A.M. (Start of the day)<br/>
+                Terce -   9:00 A.M. (Third Hour of the day)<br/>
+                Sext -   12:00 Noon (Sixth Hour of the Day<br/>
+                None -   3:00 P.M. (Ninth Hour of the day)<br/>
+                Vespers - Dusk/Sunset<br/>
+                Compline - Just prior to retiring for the day
+            </p>
+            <p class="text-danger">
+                Web Server Time is <?php echo date('h:i A'); ?>
+            </p>
         </div>
         <div class="col-lg-6 text-center mt-3">
             <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
@@ -149,6 +179,7 @@ $currentDate = date('Y-m-d');
             </h5>
             <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
+
         <div class="col-lg-6 text-center mt-3">
             <p>
                 <?php
@@ -167,26 +198,32 @@ $currentDate = date('Y-m-d');
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Concerning the Service of the Church</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#matins">Matins</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Miscellaneous Rubrics from the 1928 BCP</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#lauds">Lauds</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Information about the BCP and Lectionary</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#prime">Prime</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#terce">Terce</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Today's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#sext">Sext</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Tomorrow's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#none">None</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Yesterday's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#vespers">Vespers</a>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <a class="btn btn-primary cpo-btn-home w-100" href="#compline">Compline</a>
                 </div>
             </div>
         </div>
@@ -199,72 +236,9 @@ $currentDate = date('Y-m-d');
         </div>
         <div class="col-lg-12 mt-3">
             <blockquote id="text-container">
-
-                <?php
-
-                function isLeapYear($year)
-                {
-                    return ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400 == 0));
-                }
-
-                $dayOfYear = (int)date('z', strtotime($currentDate)) + 1;
-
-                if (isLeapYear($currentYear) && $dayOfYear > 60) {
-                    $dayOfYear -= 1;
-                }
-
-
-                $description = '';
-
-                $query = "SELECT * FROM morning_pray where id='$dayOfYear'";
-
-                $data = $db_handle->runQuery($query);
-                $row = $db_handle->numRows($query);
-                for ($j = 0; $j < $row; $j++) {
-                    $description = $data[$j]["description"];
-                }
-
-
-                $psalm_pattern = '/<div class="text-center"><h2>The Psalter<\/h2><\/div>.*?<div class="text-center"><h2>The First Lesson<\/h2><\/div>/s';
-                $first_lesson_pattern = '/<a id="lesson1">(.*?)<a id="lesson2">/s';
-                $second_lesson_pattern = '/<a id="lesson2">(.*?)<a id="collect">/s';
-                $collect_pattern = '/<a id="collect">(.*?)<\/blockquote>/s';
-
-                $psalm = '';
-                $first_lesson = '';
-                $second_lesson = '';
-                $collect = '';
-
-                // Use preg_match to find the matching content
-                if (preg_match($psalm_pattern, $description, $psalm_matches)) {
-                    $psalm = $psalm_matches[0];
-
-                    // Remove the specified text from the end
-                    $psalm = preg_replace('/<a id="lesson1"> &nbsp; <\/a>/', '', $psalm);
-
-                    // Remove the additional text
-                    $psalm = preg_replace('/<div class="text-center"><h2>The First Lesson<\/h2><\/div>/', '', $psalm);
-                }
-
-                // Extract First Lesson
-                if (preg_match($first_lesson_pattern, $description, $first_lesson_matches)) {
-                    $first_lesson = $first_lesson_matches[1];
-                }
-
-                // Extract Second Lesson
-                if (preg_match($second_lesson_pattern, $description, $second_lesson_matches)) {
-                    $second_lesson = $second_lesson_matches[1];
-                }
-
-                // Extract Collect
-                if (preg_match($collect_pattern, $description, $collect_matches)) {
-                    $collect = $collect_matches[1];
-                }
-                ?>
-
                 <a id="matins">&nbsp;</A>
                 <div class="text-center">
-                    <small><b>Matins</b></small>
+                    <h3><b>Matins</b></h3>
                 </div>
                 <br/>
                 <blockquote>
@@ -814,7 +788,7 @@ $currentDate = date('Y-m-d');
                 <hr>
                 <a id="lauds">&nbsp;</A>
                 <div class="text-center">
-                    <small><b>Lauds</b></small>
+                    <h3><b>Lauds</b></h3>
                 </div>
                 <br/>
                 <blockquote>
@@ -1476,7 +1450,7 @@ $currentDate = date('Y-m-d');
 
                     <a id="prime">&nbsp;</A>
                     <div class="text-center">
-                        <small><b>Prime</b></small>
+                        <h3><b>Prime</b></h3>
                     </div>
 
                     <blockquote>
@@ -1523,9 +1497,9 @@ $currentDate = date('Y-m-d');
                     <br/>
 
                     <div class="text-center">
-                        <b>
+                        <h3>
                             Hymn.<br/>
-                        </b>
+                        </h3>
                     </div>
 
                     <br/>
@@ -1800,7 +1774,7 @@ $currentDate = date('Y-m-d');
 
                     <a id="terce">&nbsp;</A>
                     <div class="text-center">
-                        <small><b>Terce</b></small>
+                        <h3><b>Terce</b></h3>
                     </div>
 
                     <blockquote>
@@ -1844,9 +1818,9 @@ $currentDate = date('Y-m-d');
                     <br/>
 
                     <div class="text-center">
-                        <b>
+                        <h3>
                             Hymn.<br/>
-                        </b>
+                        </h3>
                     </div>
                     <br/>
                     <blockquote>
@@ -2054,7 +2028,7 @@ $currentDate = date('Y-m-d');
 
                     <a id="sext">&nbsp;</A>
                     <div class="text-center">
-                        <small><b>Sext</b></small>
+                        <h3><b>Sext</b></h3>
                     </div>
 
                     <blockquote>
@@ -2096,9 +2070,9 @@ $currentDate = date('Y-m-d');
                     <br/>
 
                     <div class="text-center">
-                        <b>
+                        <h3>
                             Hymn.<br/>
-                        </b>
+                        </h3>
                     </div>
                     <br/>
                     <blockquote>
@@ -2323,7 +2297,7 @@ $currentDate = date('Y-m-d');
 
                     <a id="none">&nbsp;</A>
                     <div class="text-center">
-                        <small><b>None</b></small>
+                        <h3><b>None</b></h3>
                     </div>
 
                     <blockquote>
@@ -2368,9 +2342,9 @@ $currentDate = date('Y-m-d');
 
 
                     <div class="text-center">
-                        <b>
+                        <h3>
                             Hymn.<br/>
-                        </b>
+                        </h3>
                     </div>
                     <br/>
                     <blockquote>
@@ -2580,7 +2554,7 @@ $currentDate = date('Y-m-d');
 
                     <a id="vespers">&nbsp;</A>
                     <div class="text-center">
-                        <small><b>Vespers</b></small>
+                        <h3><b>Vespers</b></h3>
                     </div>
 
                     <br/>
@@ -2846,9 +2820,9 @@ $currentDate = date('Y-m-d');
                         <br/>
 
                         <div class="text-center">
-                            <b>
+                            <h3>
                                 <b>Hymn.</b> <i>Lucis Creator optime.</i><br/>
-                            </b>
+                            </h3>
                         </div>
 
                         <br/>
@@ -3047,7 +3021,7 @@ $currentDate = date('Y-m-d');
 
                         <a id="compline">&nbsp;</A>
                         <div class="text-center">
-                            <small><b>Compline</b></small>
+                            <h3><b>Compline</b></h3>
                         </div>
 
                         <blockquote>
@@ -3236,9 +3210,9 @@ $currentDate = date('Y-m-d');
 
 
                         <div class="text-center">
-                            <b>
+                            <h3>
                                 Hymn.<br/>
-                            </b>
+                            </h3>
                         </div>
                         <br/>
                         <blockquote>
