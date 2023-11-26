@@ -28,9 +28,13 @@ $description = '';
     <link href="<?php echo $extension; ?>assets/css/style.css" rel="stylesheet"/>
 
     <style>
-        td{
+        td {
             height: 70px;
             border: 1px solid black;
+        }
+
+        .cpo-home-btn {
+            height: 105px;
         }
     </style>
 </head>
@@ -80,11 +84,17 @@ $description = '';
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>daily-office">Daily Offices</a>
+                           href="<?php echo $extension; ?>daily-office">
+                            Daily <br/>
+                            Offices
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>psalter">Psalter</a>
+                           href="<?php echo $extension; ?>morning-prayer">
+                            Morning <br/>
+                            Prayer
+                        </a>
                     </div>
                 </div>
             </div>
@@ -92,21 +102,24 @@ $description = '';
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            1st<br/>
-                            Lesson
+                           href="<?php echo $extension; ?>evening-prayer">
+                            Evening <br/>
+                            Prayer
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            2nd<br/>
-                            Lesson
+                           href="<?php echo $extension; ?>hourly-office">
+                            Hourly <br/>
+                            Offices
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>collects">Collect</a>
+                           href="<?php echo $extension; ?>penitential-office">
+                            Penitential <br/>
+                            Office
+                        </a>
                     </div>
                 </div>
             </div>
@@ -114,11 +127,17 @@ $description = '';
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>penitential-office">Penitential Office</a>
+                           href="<?php echo $extension; ?>visitation-of-the-sick">
+                            Visitation <br/>
+                            of Sick
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>family-prayer">Family Prayer</a>
+                           href="<?php echo $extension; ?>family-prayer">
+                            Family <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -154,27 +173,29 @@ $description = '';
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-6 text-center mt-3">
-            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <img alt="" class="img-fluid cpo-logo" src="<?php echo $extension; ?>assets/images/book.webp"/>
             <p class="mt-4">Presented By the</p>
             <h5 class="cpo-angelina-title">
                 ANGLICAN PROVINCE OF AMERICA
             </h5>
             <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
-        <div class="col-lg-6 text-center mt-3">
-            <p>
-                <?php
-                $dateString = date("l, F j, Y");
-                echo "Today is " . $dateString;
-                ?>
-            </p>
-            <h3>
-                <?php
-                $day = date('Y-m-d');
-                getOccasionName($day);
-                ?>
-            </h3>
-            <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
+        <div class="col-lg-6 text-center mt-3 d-flex justify-content-center align-items-center">
+            <div>
+                <p>
+                    <?php
+                    $dateString = date("l, F j, Y");
+                    echo "Today is " . $dateString;
+                    ?>
+                </p>
+                <h3>
+                    <?php
+                    $day = date('Y-m-d');
+                    getOccasionName($day);
+                    ?>
+                </h3>
+                <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
+            </div>
         </div>
         <div class="col-lg-6 mt-3">
             <div class="row">
@@ -205,7 +226,8 @@ $description = '';
             $dateRanges = [];
 
             // Function to add a new date range to the array
-            function addDateRange(&$dateRanges, $start_date, $end_date) {
+            function addDateRange(&$dateRanges, $start_date, $end_date)
+            {
                 $dateRanges[] = array(
                     'start_date' => $start_date,
                     'end_date' => $end_date,
@@ -213,13 +235,11 @@ $description = '';
             }
 
 
-
-
             $val_1 = [];
-            $val=[];
+            $val = [];
 
 
-            foreach (calculateLiturgicalDatess($id-1) as $eventName => $date) {
+            foreach (calculateLiturgicalDatess($id - 1) as $eventName => $date) {
                 $dateTime = DateTime::createFromFormat('m/d/Y', $date);
 
                 if ($dateTime->format('Y') == $id) {
@@ -227,24 +247,24 @@ $description = '';
                 }
             }
 
-            $septuagesimaSunday='';
-            $easterSunday='';
-            $trinity='';
-            $sundayAdvent='';
+            $septuagesimaSunday = '';
+            $easterSunday = '';
+            $trinity = '';
+            $sundayAdvent = '';
 
             foreach (calculateLiturgicalDatess($id) as $eventName => $date) {
                 $dateTime = DateTime::createFromFormat('m/d/Y', $date);
 
                 if ($dateTime->format('Y') == $id) {
 
-                    if($eventName=='Septuagesima Sunday'){
-                        $septuagesimaSunday=$date;
-                    }else if($eventName=='Easter'){
-                        $easterSunday=$date;
-                    }else if($eventName=='1st Sunday after Trinity'){
-                        $trinity=$date;
-                    }else if($eventName=='1st Sunday of Advent'){
-                        $sundayAdvent=$date;
+                    if ($eventName == 'Septuagesima Sunday') {
+                        $septuagesimaSunday = $date;
+                    } else if ($eventName == 'Easter') {
+                        $easterSunday = $date;
+                    } else if ($eventName == '1st Sunday after Trinity') {
+                        $trinity = $date;
+                    } else if ($eventName == '1st Sunday of Advent') {
+                        $sundayAdvent = $date;
                     }
 
                     $val[$eventName] = $date;
@@ -252,27 +272,27 @@ $description = '';
             }
 
 
-/*            echo '<pre>';
-            echo var_dump($val);
-            echo '</pre>';*/
+            /*            echo '<pre>';
+                        echo var_dump($val);
+                        echo '</pre>';*/
 
 
-            addDateRange($dateRanges, $id.'-01-01', $id.'-01-13');
-            addDateRange($dateRanges, $id.'-01-14', date('Y-m-d',strtotime("$septuagesimaSunday -1 day")));
-            addDateRange($dateRanges,date('Y-m-d',strtotime($septuagesimaSunday)), date('Y-m-d',strtotime("$easterSunday -1 day")));
-            addDateRange($dateRanges,date('Y-m-d',strtotime($easterSunday)), date('Y-m-d',strtotime("$trinity -1 day")));
-            addDateRange($dateRanges,date('Y-m-d',strtotime($trinity)), date('Y-m-d',strtotime("$sundayAdvent -1 day")));
-            addDateRange($dateRanges, $id.'-11-01', $id.'-11-08');
-            addDateRange($dateRanges,date('Y-m-d',strtotime($sundayAdvent)), $id.'-12-24');
-            addDateRange($dateRanges, $id.'-12-25', $id.'-12-31');
+            addDateRange($dateRanges, $id . '-01-01', $id . '-01-13');
+            addDateRange($dateRanges, $id . '-01-14', date('Y-m-d', strtotime("$septuagesimaSunday -1 day")));
+            addDateRange($dateRanges, date('Y-m-d', strtotime($septuagesimaSunday)), date('Y-m-d', strtotime("$easterSunday -1 day")));
+            addDateRange($dateRanges, date('Y-m-d', strtotime($easterSunday)), date('Y-m-d', strtotime("$trinity -1 day")));
+            addDateRange($dateRanges, date('Y-m-d', strtotime($trinity)), date('Y-m-d', strtotime("$sundayAdvent -1 day")));
+            addDateRange($dateRanges, $id . '-11-01', $id . '-11-08');
+            addDateRange($dateRanges, date('Y-m-d', strtotime($sundayAdvent)), $id . '-12-24');
+            addDateRange($dateRanges, $id . '-12-25', $id . '-12-31');
 
             // Example of accessing the date ranges
-/*            foreach ($dateRanges as $range) {
-                $start_date = $range['start_date'];
-                $end_date = $range['end_date'];
+            /*            foreach ($dateRanges as $range) {
+                            $start_date = $range['start_date'];
+                            $end_date = $range['end_date'];
 
-                echo "Start Date: $start_date, End Date: $end_date<br>";
-            }*/
+                            echo "Start Date: $start_date, End Date: $end_date<br>";
+                        }*/
 
             ?>
             <div class="table-responsive">
@@ -292,62 +312,53 @@ $description = '';
                             $j = 1;
                             $desiredMonth = date('m', strtotime($i . '/01/' . $id));
                             foreach ($val_1 as $event => $date) {
-                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&date('l', strtotime($date))=='Sunday') {
-                                    echo '<td class="cpo-white"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2) && substr($date, 6, 4) == $id && date('l', strtotime($date)) == 'Sunday') {
+                                    echo '<td class="cpo-white"><b>' . substr($date, 3, 2) . '</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
                                     $j += 1;
                                 }
                             }
 
                             foreach ($val as $event => $date) {
-                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2)&&substr($date, 6, 4)==$id&&(date('l', strtotime($date))=='Sunday')) {
+                                if (substr($date, 0, 2) == substr($desiredMonth, 0, 2) && substr($date, 6, 4) == $id && (date('l', strtotime($date)) == 'Sunday')) {
 
 
-                                    $color='';
-                                    $condition='';
+                                    $color = '';
+                                    $condition = '';
 
-                                    if($event=='Pentecost (Whitsunday)'){
-                                        $color='cpo-red';
-                                        $condition='0';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[0]['start_date'])&&strtotime($date)<=strtotime($dateRanges[0]['end_date'])){
-                                        $color='cpo-white';
-                                        $condition='1';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[1]['start_date'])&&strtotime($date)<=strtotime($dateRanges[1]['end_date'])){
-                                        $color='cpo-green';
-                                        $condition='2';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[2]['start_date'])&&strtotime($date)<=strtotime($dateRanges[2]['end_date'])){
-                                        $color='cpo-pink';
-                                        $condition='3';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[3]['start_date'])&&strtotime($date)<=strtotime($dateRanges[3]['end_date'])){
-                                        $color='cpo-white';
-                                        $condition='4';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[5]['start_date'])&&strtotime($date)<=strtotime($dateRanges[5]['end_date'])){
-                                        $color='cpo-white';
-                                        $condition='5';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[4]['start_date'])&&strtotime($date)<=strtotime($dateRanges[4]['end_date'])){
-                                        $color='cpo-green';
-                                        $condition='6';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[6]['start_date'])&&strtotime($date)<=strtotime($dateRanges[6]['end_date'])){
-                                        $color='cpo-pink';
-                                        $condition='7';
-                                    }
-                                    else if(strtotime($date)>=strtotime($dateRanges[7]['start_date'])&&strtotime($date)<=strtotime($dateRanges[7]['end_date'])){
-                                        $color='cpo-white';
-                                        $condition='8';
-                                    }
-                                    else{
-                                        $color='cpo-white';
-                                        $condition='9';
+                                    if ($event == 'Pentecost (Whitsunday)') {
+                                        $color = 'cpo-red';
+                                        $condition = '0';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[0]['start_date']) && strtotime($date) <= strtotime($dateRanges[0]['end_date'])) {
+                                        $color = 'cpo-white';
+                                        $condition = '1';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[1]['start_date']) && strtotime($date) <= strtotime($dateRanges[1]['end_date'])) {
+                                        $color = 'cpo-green';
+                                        $condition = '2';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[2]['start_date']) && strtotime($date) <= strtotime($dateRanges[2]['end_date'])) {
+                                        $color = 'cpo-pink';
+                                        $condition = '3';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[3]['start_date']) && strtotime($date) <= strtotime($dateRanges[3]['end_date'])) {
+                                        $color = 'cpo-white';
+                                        $condition = '4';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[5]['start_date']) && strtotime($date) <= strtotime($dateRanges[5]['end_date'])) {
+                                        $color = 'cpo-white';
+                                        $condition = '5';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[4]['start_date']) && strtotime($date) <= strtotime($dateRanges[4]['end_date'])) {
+                                        $color = 'cpo-green';
+                                        $condition = '6';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[6]['start_date']) && strtotime($date) <= strtotime($dateRanges[6]['end_date'])) {
+                                        $color = 'cpo-pink';
+                                        $condition = '7';
+                                    } else if (strtotime($date) >= strtotime($dateRanges[7]['start_date']) && strtotime($date) <= strtotime($dateRanges[7]['end_date'])) {
+                                        $color = 'cpo-white';
+                                        $condition = '8';
+                                    } else {
+                                        $color = 'cpo-white';
+                                        $condition = '9';
                                     }
 
 
-                                    echo '<td class="' . $color . '"><b>'.substr($date, 3, 2).'</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
+                                    echo '<td class="' . $color . '"><b>' . substr($date, 3, 2) . '</b>&nbsp;&nbsp;<small>' . $event . '</small></td>';
                                     $j += 1;
                                 }
                             }

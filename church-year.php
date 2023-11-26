@@ -32,7 +32,8 @@ $currentMonthKallender = date('Y-m');
                 <label class="form-check-label" for="darkModeSwitch">Light</label>
             </div>
             <div class="col-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" style="margin-left: unset;">
+                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                       style="margin-left: unset;">
             </div>
             <div class="col-4">
                 <label class="form-check-label" for="darkModeSwitch">Dark</label>
@@ -166,8 +167,8 @@ $currentMonthKallender = date('Y-m');
                     w/Morning & Evening<br/>
                     Readings/Propers Links
                 </p>
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
         <div class="col-lg-4 mt-3 text-center">
             <a class="text-decoration-none cpo-text" href="sunday/<?php echo date('Y'); ?>">
@@ -175,8 +176,9 @@ $currentMonthKallender = date('Y-m');
                     2023<br/>
                     Sunday Kalendar
                 </p>
+
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
         <div class="col-lg-4 mt-3 text-center">
             <a class="text-decoration-none cpo-text" href="kallender/<?php echo $currentMonthKallender; ?>">
@@ -184,8 +186,8 @@ $currentMonthKallender = date('Y-m');
                     2023<br/>
                     Monthly Kalendar
                 </p>
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
     </div>
     <div class="row mt-5">
@@ -196,8 +198,9 @@ $currentMonthKallender = date('Y-m');
                     Yearly Kalendar<br/>
                     (Text Format)
                 </p>
+
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
         <div class="col-lg-4 mt-3 text-center">
             <a class="text-decoration-none cpo-text" href="#">
@@ -206,8 +209,9 @@ $currentMonthKallender = date('Y-m');
                     Yearly Kalendar<br/>
                     (Text Format)
                 </p>
+
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
         <div class="col-lg-4 mt-3 text-center">
             <a class="text-decoration-none cpo-text" href="#">
@@ -216,8 +220,9 @@ $currentMonthKallender = date('Y-m');
                     Liturgical Kalendar<br/>
                     Downloads
                 </p>
+
+                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
             </a>
-            <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
         </div>
     </div>
     <div class="row mt-5">
@@ -285,7 +290,7 @@ $currentMonthKallender = date('Y-m');
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -297,8 +302,10 @@ $currentMonthKallender = date('Y-m');
                            href="morning-prayer-brief">
                             MORNING PRAYER
                         </a>
-                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i class="fa-solid fa-arrow-right"></i></p>
-                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
+                                    class="fa-solid fa-arrow-right"></i></p>
+                        <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="evening-prayer-brief">
                             EVENING PRAYER

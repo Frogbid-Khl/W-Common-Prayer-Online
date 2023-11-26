@@ -224,20 +224,22 @@ function numberToWords($number) {
             </h5>
             <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
-        <div class="col-lg-6 text-center mt-3">
-            <p>
-                <?php
-                $dateString = date("l, F j, Y");
-                echo "Today is " . $dateString;
-                ?>
-            </p>
-            <h3>
-                <?php
-                $day=date('Y-m-d');
-                getOccasionName($day);
-                ?>
-            </h3>
-            <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
+        <div class="col-lg-6 text-center mt-3 d-flex justify-content-center align-items-center">
+            <div>
+                <p>
+                    <?php
+                    $dateString = date("l, F j, Y");
+                    echo "Today is " . $dateString;
+                    ?>
+                </p>
+                <h3>
+                    <?php
+                    $day = date('Y-m-d');
+                    getOccasionName($day);
+                    ?>
+                </h3>
+                <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
+            </div>
         </div>
         <div class="col-lg-12 mt-3">
             <div>
