@@ -12,7 +12,7 @@ $currentMonthKallender = date('Y-m');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Ordo Kalendar and The Church Year - Common Prayer Online</title>
+    <title>1928 BCP Calendar (Text Format) - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -152,115 +152,132 @@ $currentMonthKallender = date('Y-m');
     <!-- Button End -->
 </section>
 
-<!-- Church Year Start -->
-<section class="container-fluid cpo-body-padding-top">
+<section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1>Ordo Kalendar and The Church Year</h1>
+            <h1 class="cpo-content-page-title">1928 BCP of Fixed Holy/Saints Days</h1>
+            <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="catholic/<?php echo $currentMonthKallender; ?>">
-                <h5>
-                    2023 Monthly Kalendar
-                </h5>
-                <p>
-                    w/Morning & Evening<br/>
-                    Readings/Propers Links
-                </p>
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="sunday/<?php echo date('Y'); ?>">
-                <p>
-                    2023<br/>
-                    Sunday Kalendar
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="kallender/<?php echo $currentMonthKallender; ?>">
-                <p>
-                    2023<br/>
-                    Monthly Kalendar
-                </p>
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="bcp">
-                <p>
-                    1928 BCP<br/>
-                    Yearly Kalendar<br/>
-                    (Text Format)
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="anglo">
-                <p>
-                    Anglo-Catholic<br/>
-                    Yearly Kalendar<br/>
-                    (Text Format)
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="#">
-                <p>
-                    iCal Format<br/>
-                    Liturgical Kalendar<br/>
-                    Downloads
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Links to Propers by
+        <div class="col-lg-12 text-center mt-3">
+            <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>
+            <p class="mt-4">Presented By the</p>
+            <h5 class="cpo-angelina-title">
+                ANGLICAN PROVINCE OF AMERICA
             </h5>
-            <a class="text-decoration-none cpo-text" href="holiday">
-                <p>
-                    Kalendar Year and<br/>
-                    Liturgical Year
-                </p>
-            </a>
+            <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Links to Readings for<br/>
-                the Liturgical Year
-            </h5>
+        <div class="col-lg-12 mt-3">
+            <div>
+                <span>Aa</span>
+                <input type="range" id="fontSizeRange" class="cpo-range" min="10" max="40" step="1" value="16"/>
+                <span>Aa</span>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-3">
+            <div id="text-container">
 
-            <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning Prayer</a> <a
-                        class="text-decoration-none cpo-text" href="#">Evening Prayer</a>
-            </p>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Text Files of<br/>
-                Daily Reading Lists
-            </h5>
-            <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning .DOC Morning .PDF</a><br/>
-                <a class="text-decoration-none cpo-text" href="#">Evening .DOC Evening .PDF</a>
-            </p>
+                <div class="text-center">
+                    <small><b>1928 BCP of Fixed Holy/Saints Days</b></small><br/>
+                    (color of the box after each entry is the liturgical color of the day)<br/>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5><b><u>January</u></b></h5><br/>
+                        01 - Circumcision of Christ&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                              alt="color square"/><br/>
+                        06 - The Epiphany of our Lord&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                                alt="color square"/><br/>
+                        25 - The Conversion of St. Paul&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                                  alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>February</u></b></h5><br/>
+                        02 - The Presentation of Christ&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                                  alt="color square"/><br/>
+                        24 - St. Matthias the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>March</u></b></h5><br/>
+                        25 - Annunciation of the BVM&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                               alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>April</u></b></h5><br/>
+                        25 - St. Mark the Evangelist&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                               alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>May</u></b></h5><br/>
+                        01 - St. Philip &amp; St. James, Apostles&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                            alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>June</u></b></h5><br/>
+                        11 - St. Barnabas the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                alt="color square"/><br/>
+                        24 - St. John the Baptist&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                            alt="color square"/><br/>
+                        29 - St. Peter the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                             alt="color square"/><br/>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5><b><u>July</u></b></h5><br/>
+                        04 - Independence Day&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                        alt="color square"/><br/>
+                        25 - St. James the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                             alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>August</u></b></h5><br/>
+                        06 - The Transfiguration of our Lord&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                                       alt="color square"/><br/>
+                        24 - St. Bartholomew the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                   alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>September</u></b></h5><br/>
+                        21 - St. Matthew, Apostle &amp; Evangelist&nbsp;<img
+                                src="assets/images/color/redsq1.gif" alt="color square"/><br/>
+                        29 - St. Michael &amp; All Angels&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                    alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>October</u></b></h5><br/>
+                        18 - St. Luke the Evangelist&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                               alt="color square"/><br/>
+                        28 - St. Simon &amp; St. Jude, Apostles&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                          alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>November</u></b></h5><br/>
+                        01 - All Saints Day&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                      alt="color square"/><br/>
+                        30 - St. Andrew the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                              alt="color square"/><br/>
+                        (Thanksgiving is celebrated the 4th Thursday in November)&nbsp;<img
+                                src="assets/images/color/whtsq1.gif" alt="color square"/><br/>
+                        <br/>
+
+                        <h5><b><u>December</u></b></h5><br/>
+                        21 - St. Thomas the Apostle&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                              alt="color square"/><br/>
+                        25 - Christmas Day&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                     alt="color square"/><br/>
+                        26 - St. Stephen, Deacon &amp; Martyr&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                                        alt="color square"/><br/>
+                        27 - St. John, Apostle &amp; Evangelist&nbsp;<img src="assets/images/color/whtsq1.gif"
+                                                                          alt="color square"/><br/>
+                        28 - The Holy Innocents&nbsp;<img src="assets/images/color/redsq1.gif"
+                                                          alt="color square"/><br/>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!-- Church Year End -->
 
 <!-- Main Button Start -->
 <section class="container-fluid">
@@ -270,10 +287,10 @@ $currentMonthKallender = date('Y-m');
                 <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="church-year">The Church Year</a>
             </div>
         </div>
     </div>

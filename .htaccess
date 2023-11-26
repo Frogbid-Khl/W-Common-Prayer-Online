@@ -1,3 +1,5 @@
+ErrorDocument 404 https://cpo.frogbid.com/404
+
 RewriteEngine On
 
 RewriteRule ^home index.php [NE,L]
@@ -52,6 +54,10 @@ RewriteRule ^catholic(.*) catholic.php [NE,L]
 
 RewriteRule ^bcpcal(.*) bcpcal.php [NE,L]
 
+RewriteRule ^bcp bcp.php [NE,L]
+
+RewriteRule ^anglo anglo.php [NE,L]
+
 RewriteRule ^morn-pray(.*) morn-pray.php [NE,L]
 
 RewriteRule ^even-pray(.*) even-pray.php [NE,L]
@@ -61,3 +67,7 @@ RewriteRule ^event(.*) event.php [NE,L]
 RewriteRule ^event-calculation event-calculation.php [NE,L]
 
 RewriteRule ^show-event-list show-event-list.php [NE,L]
+
+RewriteRule ^coming-soon coming-soon.php [NE,L]
+
+RewriteRule ^404 404.php [NE,L]

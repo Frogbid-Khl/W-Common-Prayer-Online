@@ -12,7 +12,7 @@ $currentMonthKallender = date('Y-m');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Ordo Kalendar and The Church Year - Common Prayer Online</title>
+    <title>404 - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -66,26 +66,11 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="home">Home</a>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="daily-office">
-                            Daily <br/>
-                            Offices
-                        </a>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="morning-prayer">
                             Morning <br/>
                             Prayer
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="evening-prayer">
@@ -97,7 +82,25 @@ $currentMonthKallender = date('Y-m');
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="hourly-office">
                             Hourly <br/>
-                            Offices
+                            office
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="kallender/<?php echo $currentMonthKallender; ?>">
+                            Ordo <br/>
+                            Kalender
+                        </a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="#">
+                            Readings for<br/>
+                            Church Year
                         </a>
                     </div>
                     <div class="col-4 mb-3">
@@ -113,17 +116,11 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="visitation-of-the-sick">
-                            Visitation <br/>
-                            of Sick
-                        </a>
+                           href="litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">
-                            Family <br/>
-                            Prayer
-                        </a>
+                           href="visitation-of-the-sick">Visitation of the Sick</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -135,15 +132,15 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers</a>
+                           href="collects">Collects</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="prayers-and-thanksgivings">Prayers & Thanksgivings</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="family-prayer">Family Prayer</a>
                     </div>
                 </div>
             </div>
@@ -152,115 +149,20 @@ $currentMonthKallender = date('Y-m');
     <!-- Button End -->
 </section>
 
-<!-- Church Year Start -->
-<section class="container-fluid cpo-body-padding-top">
+
+<section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
-            <h1>Ordo Kalendar and The Church Year</h1>
+            <h1 class="cpo-content-page-title">
+                404
+            </h1>
+            <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="catholic/<?php echo $currentMonthKallender; ?>">
-                <h5>
-                    2023 Monthly Kalendar
-                </h5>
-                <p>
-                    w/Morning & Evening<br/>
-                    Readings/Propers Links
-                </p>
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="sunday/<?php echo date('Y'); ?>">
-                <p>
-                    2023<br/>
-                    Sunday Kalendar
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="kallender/<?php echo $currentMonthKallender; ?>">
-                <p>
-                    2023<br/>
-                    Monthly Kalendar
-                </p>
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="bcp">
-                <p>
-                    1928 BCP<br/>
-                    Yearly Kalendar<br/>
-                    (Text Format)
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="anglo">
-                <p>
-                    Anglo-Catholic<br/>
-                    Yearly Kalendar<br/>
-                    (Text Format)
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="#">
-                <p>
-                    iCal Format<br/>
-                    Liturgical Kalendar<br/>
-                    Downloads
-                </p>
-
-                <i class="fa-regular fa-calendar-days fa-6x mt-3"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Links to Propers by
-            </h5>
-            <a class="text-decoration-none cpo-text" href="holiday">
-                <p>
-                    Kalendar Year and<br/>
-                    Liturgical Year
-                </p>
-            </a>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Links to Readings for<br/>
-                the Liturgical Year
-            </h5>
-
-            <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning Prayer</a> <a
-                        class="text-decoration-none cpo-text" href="#">Evening Prayer</a>
-            </p>
-        </div>
-        <div class="col-lg-4 mt-3 text-center">
-            <h5>
-                Text Files of<br/>
-                Daily Reading Lists
-            </h5>
-            <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning .DOC Morning .PDF</a><br/>
-                <a class="text-decoration-none cpo-text" href="#">Evening .DOC Evening .PDF</a>
-            </p>
+        <div class="col-12 text-center">
+            <img src="assets/images/404.png" alt="" class="img-fluid p-4" style="max-height: 500px"/>
         </div>
     </div>
 </section>
-<!-- Church Year End -->
 
 <!-- Main Button Start -->
 <section class="container-fluid">
@@ -270,10 +172,10 @@ $currentMonthKallender = date('Y-m');
                 <a class="btn btn-primary cpo-btn-home w-100" href="home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="daily-office">The Daily and Hourly Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="church-year">The Church Year</a>
             </div>
         </div>
     </div>
@@ -287,7 +189,7 @@ $currentMonthKallender = date('Y-m');
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day = date('Y-m-d');
+                $day=date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -300,9 +202,9 @@ $currentMonthKallender = date('Y-m');
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
-                                    class="fa-solid fa-arrow-right"></i></p>
+                                class="fa-solid fa-arrow-right"></i></p>
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
-                                    class="fa-solid fa-arrow-right"></i></p>
+                                class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="evening-prayer-brief">
                             EVENING PRAYER
