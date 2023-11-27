@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function scrollToId(id) {
-    let navbarHeight = 150;
+    let navbarHeight = 200;
     let target = document.getElementById(id);
     if (target) {
         window.scrollTo({
