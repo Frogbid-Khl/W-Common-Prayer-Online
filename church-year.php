@@ -214,7 +214,7 @@ $currentMonthKallender = date('Y-m');
             </a>
         </div>
         <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="#">
+            <a class="text-decoration-none cpo-text" href="coming-soon">
                 <p>
                     iCal Format<br/>
                     Liturgical Kalendar<br/>
@@ -244,8 +244,8 @@ $currentMonthKallender = date('Y-m');
             </h5>
 
             <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning Prayer</a> <a
-                        class="text-decoration-none cpo-text" href="#">Evening Prayer</a>
+                <a class="text-decoration-none cpo-text" href="lesmor">Morning Prayer</a> <a
+                        class="text-decoration-none cpo-text" href="leseve">Evening Prayer</a>
             </p>
         </div>
         <div class="col-lg-4 mt-3 text-center">
@@ -254,8 +254,8 @@ $currentMonthKallender = date('Y-m');
                 Daily Reading Lists
             </h5>
             <p>
-                <a class="text-decoration-none cpo-text" href="#">Morning .DOC Morning .PDF</a><br/>
-                <a class="text-decoration-none cpo-text" href="#">Evening .DOC Evening .PDF</a>
+                <a class="text-decoration-none cpo-text" href="coming-soon">Morning .DOC Morning .PDF</a><br/>
+                <a class="text-decoration-none cpo-text" href="coming-soon">Evening .DOC Evening .PDF</a>
             </p>
         </div>
     </div>

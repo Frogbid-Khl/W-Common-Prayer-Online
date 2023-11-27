@@ -27,7 +27,7 @@ for ($j = 0; $j < $row; $j++) {
 
 if ($row == 0) {
     echo "<script>
-                window.location.href='../404';
+                window.location.href='../coming-soon';
                 </script>";
 }
 ?>
