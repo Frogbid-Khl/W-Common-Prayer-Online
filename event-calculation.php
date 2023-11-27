@@ -226,6 +226,113 @@ function getPreviousLiturgicalOccasion($date)
 
 }
 
+function checkSeason($event){
+    $epiphany_sunday = [
+        'Epiphany',
+        '1st Sunday after the Epiphany',
+        '2nd Sunday after the Epiphany',
+        '3rd Sunday after the Epiphany',
+        '4th Sunday after the Epiphany',
+        '5th Sunday after the Epiphany',
+        '6th Sunday after the Epiphany'
+    ];
+
+    $pre_lent_sunday = [
+        'Septuagesima Sunday',
+        'Sexagesima Sunday',
+        'Quinquagesima Sunday'
+    ];
+
+    $lent_sunday = [
+        'Epiphany',
+        'Ash Wednesday',
+        '1st Sunday in Lent',
+        '2nd Sunday in Lent',
+        '3rd Sunday in Lent',
+        '4th Sunday in Lent',
+        '5th Sunday in Lent (Passion Sunday)'
+    ];
+
+    $easter_sunday = [
+        'Easter',
+        '1st Sunday after Easter',
+        '2nd Sunday after Easter',
+        '3rd Sunday after Easter',
+        '4th Sunday after Easter',
+        '5th Sunday after Easter (Rogation Sunday)'
+    ];
+
+    $accession_sunday = [
+        'Ascension',
+        'Sunday after the Ascension',
+        'Pentecost (Whitsunday)'
+    ];
+
+    $trinity_sunday = [
+        'Trinity Sunday',
+        '1st Sunday after Trinity',
+        '2nd Sunday after Trinity',
+        '3rd Sunday after Trinity',
+        '4th Sunday after Trinity',
+        '5th Sunday after Trinity',
+        '6th Sunday after Trinity',
+        '7th Sunday after Trinity',
+        '8th Sunday after Trinity',
+        '9th Sunday after Trinity',
+        '10th Sunday after Trinity',
+        '11th Sunday after Trinity',
+        '12th Sunday after Trinity',
+        '13th Sunday after Trinity',
+        '14th Sunday after Trinity',
+        '15th Sunday after Trinity',
+        '16th Sunday after Trinity',
+        '17th Sunday after Trinity',
+        '18th Sunday after Trinity',
+        '19th Sunday after Trinity',
+        '20th Sunday after Trinity',
+        '21st Sunday after Trinity',
+        '22nd Sunday after Trinity',
+        '23rd Sunday after Trinity',
+        '24th Sunday after Trinity',
+        '25th Sunday after Trinity',
+        '26th Sunday after Trinity',
+        'Sunday next before Advent'
+    ];
+
+    $advent_sunday = [
+        '1st Sunday of Advent',
+        '2nd Sunday of Advent',
+        '3rd Sunday of Advent',
+        '4th Sunday of Advent'
+    ];
+
+    $christmas_sunday = [
+        'Christmas',
+        '1st Sunday after Christmas',
+        '2nd Sunday after Christmas'
+    ];
+
+    if (in_array($event, $epiphany_sunday)) {
+        return "Epiphany";
+    } else if (in_array($event, $pre_lent_sunday)) {
+        return "Pre Lent";
+    } else if (in_array($event, $lent_sunday)) {
+        return "Lent";
+    } else if (in_array($event, $easter_sunday)) {
+        return "Easter";
+    } else if (in_array($event, $accession_sunday)) {
+        return "Ascension";
+    } else if (in_array($event, $trinity_sunday)) {
+        return "Trinity";
+    } else if (in_array($event, $advent_sunday)) {
+        return "Advent";
+    } else if (in_array($event, $christmas_sunday)) {
+        return "Christmas";
+    } else {
+        return 0;
+    }
+}
+
 function getOccasionName($today)
 {
 
@@ -238,6 +345,16 @@ function getOccasionName($today)
 
         $epiphany = date('m-d', strtotime($today));
 
+        $eventName=checkSeason($occasionForLastSunday);
+
+        $class='';
+        if($eventName=="Epiphany" || $eventName=="Trinity" ){
+            $class='cpo-event-color-green';
+        }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
+            $class='cpo-event-color-white';
+        }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
+            $class='cpo-event-color-pink';
+        }
 
         if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
 
@@ -260,12 +377,26 @@ function getOccasionName($today)
                 $lastWord = $occasionForLastSunday;
             }
 
-            echo "Today is <span class='cpo-event-color'>$dayOfWeek after $lastWord $found_number</span><br/>";
-            echo "Season of <span class='cpo-event-color'>$lastWord</span><br/>";
-
+            echo "Today is <span class='$class'>$dayOfWeek after $lastWord $found_number</span><br/>";
+            echo "Season of <span class='$class'>".$eventName." ".$found_number."</span><br/>";
         } else {
-            echo "Today is <span class='cpo-event-color'>$occasionForLastSunday</span><br/>";
+            echo "Today is <span class='$class'>$occasionForLastSunday</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
         }
+    }
+}
+
+function liturgicalColor($today){
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
+    $eventName=checkSeason($occasionForLastSunday);
+
+    if($eventName=="Epiphany" || $eventName=="Trinity" ){
+        echo '<p class="mt-3 cpo-event-color-green">The liturgical color of the day is GREEN</p>';
+    }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
+        echo '<p class="mt-3 cpo-event-color-white">The liturgical color of the day is WHITE</p>';
+    }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
+        echo '<p class="mt-3 cpo-event-color-pink">The liturgical color of the day is PINK</p>';
     }
 }
 

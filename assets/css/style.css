@@ -196,8 +196,18 @@ body {
 }
 
 
-.cpo-event-color {
+.cpo-event-color-green {
     color: #03671f;
+}
+
+
+.cpo-event-color-pink {
+    color: #8a0073;
+}
+
+
+.cpo-event-color-white {
+    color: #cecece;
 }
 
 #cpo-scroll-to-top {

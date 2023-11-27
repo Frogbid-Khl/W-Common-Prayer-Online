@@ -172,7 +172,9 @@ if((int)$id>0){
                     getOccasionName($day);
                     ?>
                 </h3>
-                <p class="mt-3 text-success">The liturgical color of the day is GREEN</p>
+                <?php
+                liturgicalColor($day);
+                ?>
             </div>
         </div>
         <div class="col-lg-6 mt-3">
