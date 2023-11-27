@@ -62,7 +62,7 @@ $currentMonthKallender = date('Y-m');
                     <h5 class="cpo-angelina-title">
                         ANGLICAN PROVINCE OF AMERICA
                     </h5>
-                    <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
+                    <p><a href="https://anglicanprovince.org/" class="cpo-angli-url text-dark">www.anglicanprovince.org</a></p>
                 </div>
             </div>
         </div>
