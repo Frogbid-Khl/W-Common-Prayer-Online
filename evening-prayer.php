@@ -103,7 +103,7 @@ if((int)$id>0){
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>collects">Collect</a>
+                           href="#collect">Collect</a>
                     </div>
                 </div>
             </div>
