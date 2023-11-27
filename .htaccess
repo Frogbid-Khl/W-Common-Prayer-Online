@@ -58,6 +58,12 @@ RewriteRule ^bcp bcp.php [NE,L]
 
 RewriteRule ^anglo anglo.php [NE,L]
 
+RewriteRule ^holiday holiday.php [NE,L]
+
+RewriteRule ^lesmor lesmor.php [NE,L]
+
+RewriteRule ^leseve leseve.php [NE,L]
+
 RewriteRule ^morn-pray(.*) morn-pray.php [NE,L]
 
 RewriteRule ^even-pray(.*) even-pray.php [NE,L]
