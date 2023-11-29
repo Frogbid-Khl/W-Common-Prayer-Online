@@ -16,6 +16,10 @@ $currentDate = date('Y-m-d');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
+
+    <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
+    <!-- Company: Frogbid (www.frogbid.com) -->
+
     <title>Hourly Office - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>

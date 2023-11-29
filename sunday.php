@@ -20,6 +20,10 @@ $description = '';
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
+    <!-- Company: Frogbid (www.frogbid.com) -->
+
     <link href="<?php echo $extension; ?>assets/images/favicon.ico" rel="icon" type="image/x-icon">
     <title><?php echo $id; ?> Sunday Calendar - Common Prayer Online</title>
     <link href="<?php echo $extension; ?>assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
