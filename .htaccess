@@ -22,6 +22,8 @@ RewriteRule ^info info.php [NE,L]
 
 RewriteRule ^hourly-office hourly-office.php [NE,L]
 
+RewriteRule ^office(.*) office.php [NE,L]
+
 RewriteRule ^occasional-office occasional-office.php [NE,L]
 
 RewriteRule ^litany litany.php [NE,L]

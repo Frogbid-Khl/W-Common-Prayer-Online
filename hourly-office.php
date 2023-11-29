@@ -1498,7 +1498,7 @@ $currentDate = date('Y-m-d');
                     <br/>
                     <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                     <br/>
-                    <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
+                    <div class="text-center"><A HREF="office/prim">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
                     </div>
                     <a id="primehym">&nbsp;</A>
                     <br/>
@@ -1819,7 +1819,7 @@ $currentDate = date('Y-m-d');
                     <br/>
                     <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                     <br/>
-                    <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
+                    <div class="text-center"><A HREF="office/terc">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
                     </div>
                     <a id="tercehym">&nbsp;</A>
                     <br/>
@@ -2072,7 +2072,7 @@ $currentDate = date('Y-m-d');
                     <br/>
                     <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                     <br/>
-                    <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
+                    <div class="text-center"><A HREF="office/sext">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
                     </div>
                     <a id="sexthym">&nbsp;</A>
                     <br/>
@@ -2342,7 +2342,7 @@ $currentDate = date('Y-m-d');
                     <br/>
                     <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                     <br/>
-                    <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
+                    <div class="text-center"><A HREF="office/none">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></A>
                     </div>
                     <a id="nonehym">&nbsp;</A>
                     <br/>
@@ -2822,7 +2822,7 @@ $currentDate = date('Y-m-d');
                         <br/>
                         <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                         <br/>
-                        <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></div>
+                        <div class="text-center"><A HREF="office/vesp">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></div>
                         <a id="vesphym">&nbsp;</A>
                         <br/>
                         <br/>
@@ -3211,7 +3211,7 @@ $currentDate = date('Y-m-d');
 
                         <div class="text-center"><i>(Here may be sung a Hymn)</i></div>
                         <br/>
-                        <div class="text-center"><A HREF="#">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></div>
+                        <div class="text-center"><A HREF="office/comp">View Music &amp; Lyrics for the Hymn &nbsp;&nbsp;<i class="fa-solid fa-music"></i></div>
                         <a id="comphym">&nbsp;</A>
                         <br/>
                         <br/>
