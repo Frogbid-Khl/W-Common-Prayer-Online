@@ -425,7 +425,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
                     ?>">Readings</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#">Abbreviations Used</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>abbreviations-used">Abbreviations Used</a>
                 </div>
             </div>
         </div>

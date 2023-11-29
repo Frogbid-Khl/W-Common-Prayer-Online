@@ -98,7 +98,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
+                           href="church-year">
                             Readings for<br/>
                             Church Year
                         </a>

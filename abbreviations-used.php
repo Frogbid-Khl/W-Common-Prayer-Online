@@ -2,6 +2,7 @@
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
+
 $db_handle = new DBController();
 
 $currentMonthKallender = date('Y-m');
@@ -12,7 +13,7 @@ $currentMonthKallender = date('Y-m');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Sources, Information, and Resources - Common Prayer Online</title>
+    <title>About the Abbreviations used on the Ordo Calendar - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -66,11 +67,26 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="home">Home</a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="daily-office">
+                            Daily <br/>
+                            Offices
+                        </a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="morning-prayer">
                             Morning <br/>
                             Prayer
                         </a>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="evening-prayer">
@@ -82,25 +98,7 @@ $currentMonthKallender = date('Y-m');
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="hourly-office">
                             Hourly <br/>
-                            office
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                <div class="row">
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">
-                            Ordo <br/>
-                            Kalender
-                        </a>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="church-year">
-                            Readings for<br/>
-                            Church Year
+                            Offices
                         </a>
                     </div>
                     <div class="col-4 mb-3">
@@ -116,11 +114,17 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="litany">Litany</a>
+                           href="visitation-of-the-sick">
+                            Visitation <br/>
+                            of Sick
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="visitation-of-the-sick">Visitation of the Sick</a>
+                           href="family-prayer">
+                            Family <br/>
+                            Prayer
+                        </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
@@ -132,15 +136,15 @@ $currentMonthKallender = date('Y-m');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="collects">Collects</a>
+                           href="prayers-and-thanksgivings">Prayers</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="prayers-and-thanksgivings">Prayers & Thanksgivings</a>
+                           href="litany">Litany</a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="family-prayer">Family Prayer</a>
+                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -149,12 +153,11 @@ $currentMonthKallender = date('Y-m');
     <!-- Button End -->
 </section>
 
-
 <section class="container cpo-body-padding-top">
     <div class="row">
         <div class="col-12 pt-5 text-center">
             <h1 class="cpo-content-page-title">
-                Sources, Information, and Resources
+                About the Abbreviations used on the Ordo Kalendar
             </h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
@@ -166,23 +169,6 @@ $currentMonthKallender = date('Y-m');
             </h5>
             <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
-        <div class="col-lg-6 mt-3">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#SERV">Concerning the Service of the Church</a>
-                </div>
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#LECT">The Use of the Psalter and the Lectionary</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#HYMN">Hymns and Anthems</a>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-12 mt-3">
             <div>
                 <span>Aa</span>
@@ -191,81 +177,56 @@ $currentMonthKallender = date('Y-m');
             </div>
         </div>
         <div class="col-lg-12 mt-3">
-            <div id="text-container">
-                <blockquote>
-                    From time to time, we receive questions about sources used on this website,
-                    usage of the 1928 Book of Common Prayer, and availability of various resources
-                    based on the BCP.  The following list provides quick access to some of the
-                    information which is mentioned on various pages, and other reference
-                    materials associated with past inquiries.<br/>
-                    <br/>
+            <blockquote id="text-container">
+                <p><small>The "1928 Book of Common Prayer" makes provision for numerous
+                        options in the Offices of Morning and Evening Prayer. Many of these are included in the rubrics
+                        written into MP/EP; others
+                        are somewhat "buried", being found in tables, the Lectionary, or various groupings of special
+                        readings such as prayers "Before the Venite" or "Sentences of Scripture".</small></p>
 
-                    <a href="#"><b>
-                            About the Ordo Calendar</b></a>
-                    - a list of the sources used, and descriptions of
-                    Liturgical Colors, how the Calendar is displayed, and how the dates shown for
-                    Saints Days were determined.<br/>
-                    <br/>
+                <p><small>In order to simplify determining the appropriate options which
+                        may need to be used for any given calendar day,
+                        abbreviations are provided on the last line for each day's calendar entry (NOT the "bottom"
+                        line; the "last" line of data for
+                        that day). The information is in italics and between asterisks, looking like: <b><i>* * BV *
+                                *</i></b></small></p>
 
-                    <a href="#"><b>
-                            The "Weeks Before Advent"</b></a>
-                    - an explanation of how the Lessons &amp; Psalms
-                    for the three weeks prior to the First Sunday in Advent are determined.<br/>
-                    <br/>
+                <p><small>In addition to the information for MP/EP, there are abbreviations for use with "Holy
+                        Communion". These denote when there is a seasonal Collect, seasonal Preface, or Proper Readings
+                        (Collect, Epistle, Gospel) for a day other than a Sunday.</small></p>
 
-                    <a href="#"><b>
-                            The Lectionary</b></a>
-                    - Background about The Lectionary/Calendar used as a source for the Lessons &amp; Psalms.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            About The Hourly Offices</b></a>
-                    - Anglican Sources used to compile the Hourly Offices.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Concerning the Service of the Church</b></a>
-                    - Instructions from the 1928 BCP
-                    regarding the usage of Worship Services, and how the Psalter and Lectionary
-                    are used within various services.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Tables from the 1928 BCP</b></a>
-                    - Tables listing the Holy Days, describing how
-                    the date for Easter is determined, and how to determine what observances
-                    take precedence over others.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Miscellaneous Rubrics from the 1928 BCP</b></a>
-                    - A Compilation of rubrics concerning Morning/Evening Prayer and Holy Communion.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="offices/leceve_n.cfm"><b>Evening Prayer Readings</b></a>
-                    - Tables listing the Psalms and Lessons for daily Morning and Evening Prayer.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Propers for the Church Year</b></a>
-                    - Links to the Propers (Collect/Epistle/Gospel) for Sundays &amp; Holy Days.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            iCal Files</b></a>
-                    - importable iCal format files with the Holy Days and Liturgical day
-                    of the year.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Sources for the 1928 Book of Common Prayer</b></a>
-                    - a list of stores which may carry the 1928 BCP, and other related materials.<br/>
-                    <br/>
-
-
-                </blockquote>
-            </div>
+                <div class="row">
+                    <div class="col-12">
+                        <small>
+                            <i>SS</i> - There is a <i>Proper Sentence of Scripture</i> for the Day or
+                            Season.<br>
+                            <small><br>
+                            </small>
+                            <i>BV</i> - A <i>Proper Sentence</i> may be said Before the <i>Venite</i> at Morning
+                            Prayer.<br>
+                            <small><br>
+                            </small>
+                            <i>OV</i> - The <i>Venite</i> is to be Omitted.<br>
+                            <small><br>
+                            </small>
+                            <i>SV</i> - A Substitute is to be read in place of the <i>Venite</i>.<br>
+                            <small><br>
+                            </small>
+                            <i>Col</i> - There is a Proper Collect for the Day or Season.<br>
+                            <small><br>
+                            </small>
+                            <i>Prf</i> - Denotes a Proper Preface for the Day or Season.<br>
+                            <small><br>
+                            </small>
+                            <i>Prp</i> - Indicates a day other than Sunday with Propers for the Day.<br>
+                            <small><br>
+                            </small>
+                            <i>Eve</i> - Indicates "Eve of" EP Readings in the Lectionaary for the following
+                            Holy Day.<br>
+                        </small>
+                    </div>
+                </div>
+            </blockquote>
         </div>
     </div>
 </section>
@@ -295,7 +256,7 @@ $currentMonthKallender = date('Y-m');
              data-wow-delay="0.5s">
             <p>
                 <?php
-                $day=date('Y-m-d');
+                $day = date('Y-m-d');
                 getOccasionName($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
@@ -308,9 +269,9 @@ $currentMonthKallender = date('Y-m');
                             MORNING PRAYER
                         </a>
                         <p class="mt-3 d-lg-none d-block"><i class="fa-solid fa-arrow-left"></i>Today's Readings<i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <p class="mt-3 d-lg-block d-none"><i class="fa-solid fa-arrow-left"></i> Today's Readings <i
-                                class="fa-solid fa-arrow-right"></i></p>
+                                    class="fa-solid fa-arrow-right"></i></p>
                         <a class="btn btn-primary cpo-footer-btn d-flex justify-content-center align-items-center"
                            href="evening-prayer-brief">
                             EVENING PRAYER
@@ -332,3 +293,4 @@ $currentMonthKallender = date('Y-m');
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+

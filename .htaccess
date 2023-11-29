@@ -54,6 +54,8 @@ RewriteRule ^catholic(.*) catholic.php [NE,L]
 
 RewriteRule ^bcpcal(.*) bcpcal.php [NE,L]
 
+RewriteRule ^abbreviations-used abbreviations-used.php [NE,L]
+
 RewriteRule ^bcp bcp.php [NE,L]
 
 RewriteRule ^anglo anglo.php [NE,L]
