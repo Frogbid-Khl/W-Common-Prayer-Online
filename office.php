@@ -170,7 +170,7 @@ $extension = '../';
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
         <div class="col-lg-12 mt-3 text-center">
-            <img src="<?php echo $extension; ?>assets/images/music/<?php echo ucwords($id); ?>_hym.gif" class="img-fluid" alt=""/>
+            <img src="<?php echo $extension; ?>assets/images/music/<?php echo $id; ?>_hym.gif" class="img-fluid" alt=""/>
         </div>
     </div>
 </section>
