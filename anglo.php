@@ -14,7 +14,7 @@ $currentMonthKallender = date('Y-m');
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
 
     <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
-    <!-- Company: Frogbid (www.frogbid.com) -->
+    <!-- Company: FrogBid (www.frogbid.com) -->
 
     <title>Anglo-Catholic Calendar of Holy Days - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
