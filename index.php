@@ -215,9 +215,9 @@ $currentMonthKallender = date('Y-m');
                     </div>
                 </div>
             </div>
-            <p class="text-danger">
-                <?php echo date("l, F j, Y"); ?><br/>
-                Web Server Time is <?php echo date('h:i A'); ?>
+            <p class="text-dark">
+                <?php echo date("l, F j, Y"); ?><!--<br/>
+                Time is --><?php /*echo date('h:i A'); */?>
             </p>
         </div>
     </div>
