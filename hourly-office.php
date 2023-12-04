@@ -170,10 +170,10 @@ $currentDate = date('Y-m-d');
                 None -   3:00 P.M. (Ninth Hour of the day)<br/>
                 Vespers - Dusk/Sunset<br/>
                 Compline - Just prior to retiring for the day
-            </p>
+            </p><!--
             <p class="text-danger">
-                Web Server Time is <?php echo date('h:i A'); ?>
-            </p>
+                Web Server Time is <?php /*echo date('h:i A'); */?>
+            </p>-->
         </div>
         <div class="col-lg-6 text-center mt-3">
             <img alt="" class="img-fluid cpo-logo" src="assets/images/book.webp"/>

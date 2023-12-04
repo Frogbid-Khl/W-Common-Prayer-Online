@@ -353,7 +353,7 @@ function getOccasionName($today)
         }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
             $class='cpo-event-color-white';
         }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
-            $class='cpo-event-color-pink';
+            $class='cpo-event-color-purple';
         }
 
         if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
@@ -396,7 +396,7 @@ function liturgicalColor($today){
     }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
         echo '<p class="mt-3 cpo-event-color-white">The liturgical color of the day is WHITE</p>';
     }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
-        echo '<p class="mt-3 cpo-event-color-pink">The liturgical color of the day is PINK</p>';
+        echo '<p class="mt-3 cpo-event-color-purple">The liturgical color of the day is PURPLE</p>';
     }
 }
 
