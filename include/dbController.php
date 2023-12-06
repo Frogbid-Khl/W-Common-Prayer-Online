@@ -7,11 +7,11 @@ class DBController {
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="www.cpo.frogbid.com"||$_SERVER['SERVER_NAME']=="cpo.frogbid.com"){
-            $this->host = "localhost";
-            $this->user = "uxcm1zcftoout";
-            $this->password = "+91iexAy61@)";
-            $this->database = "dbepbgl0geptt1";
+        if($_SERVER['SERVER_NAME']=="www.commonprayeronline.com"||$_SERVER['SERVER_NAME']=="commonprayeronline.com"){
+            $this->host = "chi200";
+            $this->user = "commonp1_cpo_user";
+            $this->password = "Q6M#o+v1Tl{p";
+            $this->database = "commonp1_cpo";
         }
 
         $this->conn = $this->connectDB();

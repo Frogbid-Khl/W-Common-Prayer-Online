@@ -378,7 +378,7 @@ function getOccasionName($today)
             }
 
             echo "Today is <span class='$class'>$dayOfWeek after $lastWord $found_number</span><br/>";
-            echo "Season of <span class='$class'>".$eventName." ".$found_number."</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
         } else {
             echo "Today is <span class='$class'>$occasionForLastSunday</span><br/>";
             echo "Season of <span class='$class'>$eventName</span><br/>";

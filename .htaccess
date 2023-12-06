@@ -1,4 +1,4 @@
-ErrorDocument 404 https://cpo.frogbid.com/404
+ErrorDocument 404 http://commonprayeronline.com/404
 
 RewriteEngine On
 
@@ -79,5 +79,7 @@ RewriteRule ^event-calculation event-calculation.php [NE,L]
 RewriteRule ^show-event-list show-event-list.php [NE,L]
 
 RewriteRule ^coming-soon coming-soon.php [NE,L]
+
+RewriteRule ^php-info php-info.php [NC,L]
 
 RewriteRule ^404 404.php [NE,L]
