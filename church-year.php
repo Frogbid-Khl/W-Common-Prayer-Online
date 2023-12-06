@@ -4,7 +4,7 @@ require_once("include/dbController.php");
 require_once('event-calculation.php');
 $db_handle = new DBController();
 
-$currentMonthKallender = date('Y-m');
+$currentMonthkalendar = date('Y-m');
 ?>
 <!doctype html>
 <html lang="en">
@@ -147,7 +147,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="kalendar/<?php echo $currentMonthkalendar; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@ $currentMonthKallender = date('Y-m');
             <h1>Ordo Kalendar and The Church Year</h1>
         </div>
         <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="catholic/<?php echo $currentMonthKallender; ?>">
+            <a class="text-decoration-none cpo-text" href="catholic/<?php echo $currentMonthkalendar; ?>">
                 <h5>
                     2023 Monthly Kalendar
                 </h5>
@@ -185,7 +185,7 @@ $currentMonthKallender = date('Y-m');
             </a>
         </div>
         <div class="col-lg-4 mt-3 text-center">
-            <a class="text-decoration-none cpo-text" href="kallender/<?php echo $currentMonthKallender; ?>">
+            <a class="text-decoration-none cpo-text" href="kalendar/<?php echo $currentMonthkalendar; ?>">
                 <p>
                     2023<br/>
                     Monthly Kalendar

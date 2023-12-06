@@ -1,4 +1,4 @@
-ErrorDocument 404 http://commonprayeronline.com/404
+ErrorDocument 404 https://www.commonprayeronline.com/404
 
 RewriteEngine On
 
@@ -50,7 +50,7 @@ RewriteRule ^church-year church-year.php [NE,L]
 
 RewriteRule ^sunday(.*) sunday.php [NE,L]
 
-RewriteRule ^kallender(.*) kallender.php [NE,L]
+RewriteRule ^kalendar(.*) kalendar.php [NE,L]
 
 RewriteRule ^catholic(.*) catholic.php [NE,L]
 

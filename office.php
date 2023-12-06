@@ -3,7 +3,7 @@ date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
 require_once('event-calculation.php');
 
-$currentMonthKallender = date('Y-m');
+$currentMonthkalendar = date('Y-m');
 
 $db_handle = new DBController();
 
@@ -154,7 +154,7 @@ $extension = '../';
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="<?php echo $extension; ?>kalendar/<?php echo $currentMonthkalendar; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ require_once('event-calculation.php');
 
 $db_handle = new DBController();
 
-$currentMonthKallender = date('Y-m');
+$currentMonthkalendar = date('Y-m');
 
 $url = $_SERVER['REQUEST_URI'];
 $id = substr($url, strrpos($url, '/') + 1);
@@ -204,7 +204,7 @@ function numberToWords($number) {
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                           href="<?php echo $extension; ?>kalendar/<?php echo $currentMonthkalendar; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

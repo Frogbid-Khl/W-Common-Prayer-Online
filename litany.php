@@ -4,7 +4,7 @@ require_once("include/dbController.php");
 require_once('event-calculation.php');
 $db_handle = new DBController();
 
-$currentMonthKallender = date('Y-m');
+$currentMonthkalendar = date('Y-m');
 ?>
 <!doctype html>
 <html lang="en">
@@ -146,7 +146,7 @@ $currentMonthKallender = date('Y-m');
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                            href="kallender/<?php echo $currentMonthKallender; ?>">Kalendar</a>
+                            href="kalendar/<?php echo $currentMonthkalendar; ?>">Kalendar</a>
                     </div>
                 </div>
             </div>

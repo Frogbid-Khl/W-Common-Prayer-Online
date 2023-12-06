@@ -4,7 +4,7 @@ require_once("include/dbController.php");
 require_once('event-calculation.php');
 $db_handle = new DBController();
 
-$currentMonthKallender = date('Y-m');
+$currentMonthkalendar = date('Y-m');
 
 $currentYear = date('Y');
 
