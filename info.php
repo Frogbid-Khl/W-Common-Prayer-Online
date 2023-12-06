@@ -97,7 +97,7 @@ $currentMonthkalendar = date('Y-m');
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="kalendar/<?php echo $currentMonthkalendar; ?>">
                             Ordo <br/>
-                            Kalender
+                            Kalendar
                         </a>
                     </div>
                     <div class="col-4 mb-3">
@@ -170,23 +170,6 @@ $currentMonthkalendar = date('Y-m');
             </h5>
             <p><a href="https://anglicanprovince.org/" class="cpo-angli-url">www.anglicanprovince.org</a></p>
         </div>
-        <div class="col-lg-6 mt-3">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#SERV">Concerning the Service of the Church</a>
-                </div>
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#LECT">The Use of the Psalter and the Lectionary</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-3">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="#HYMN">Hymns and Anthems</a>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-12 mt-3">
             <div>
                 <span>Aa</span>
@@ -197,14 +180,8 @@ $currentMonthkalendar = date('Y-m');
         <div class="col-lg-12 mt-3">
             <div id="text-container">
                 <blockquote>
-                    From time to time, we receive questions about sources used on this website,
-                    usage of the 1928 Book of Common Prayer, and availability of various resources
-                    based on the BCP.  The following list provides quick access to some of the
-                    information which is mentioned on various pages, and other reference
-                    materials associated with past inquiries.<br/>
-                    <br/>
 
-                    <a href="#"><b>
+                    <a href="ordo-info"><b>
                             About the Ordo Calendar</b></a>
                     - a list of the sources used, and descriptions of
                     Liturgical Colors, how the Calendar is displayed, and how the dates shown for
@@ -247,7 +224,7 @@ $currentMonthkalendar = date('Y-m');
                     <br/>
 
                     <a href="#"><b>
-                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="offices/leceve_n.cfm"><b>Evening Prayer Readings</b></a>
+                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="#"><b>Evening Prayer Readings</b></a>
                     - Tables listing the Psalms and Lessons for daily Morning and Evening Prayer.<br/>
                     <br/>
 
@@ -255,19 +232,6 @@ $currentMonthkalendar = date('Y-m');
                             Propers for the Church Year</b></a>
                     - Links to the Propers (Collect/Epistle/Gospel) for Sundays &amp; Holy Days.<br/>
                     <br/>
-
-                    <a href="#"><b>
-                            iCal Files</b></a>
-                    - importable iCal format files with the Holy Days and Liturgical day
-                    of the year.<br/>
-                    <br/>
-
-                    <a href="#"><b>
-                            Sources for the 1928 Book of Common Prayer</b></a>
-                    - a list of stores which may carry the 1928 BCP, and other related materials.<br/>
-                    <br/>
-
-
                 </blockquote>
             </div>
         </div>

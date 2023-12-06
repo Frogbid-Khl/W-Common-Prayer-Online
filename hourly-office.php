@@ -74,6 +74,12 @@ $currentDate = date('Y-m-d');
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
+                           href="home">
+                            Home
+                        </a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
                            href="morning-prayer">
                             Morning <br/>
                             Prayer
@@ -84,13 +90,6 @@ $currentDate = date('Y-m-d');
                            href="evening-prayer">
                             Evening <br/>
                             Prayer
-                        </a>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="hourly-office">
-                            Hourly <br/>
-                            office
                         </a>
                     </div>
                 </div>
