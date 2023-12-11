@@ -18,7 +18,7 @@ $query = "SELECT * FROM evening_pray where id='$id'";
 $data = $db_handle->runQuery($query);
 $row = $db_handle->numRows($query);
 for ($j = 0; $j < $row; $j++) {
-    $description = $data[$j]["description"];
+    $description = utf8_encode($data[$j]["description"]);
 }
 
 if ($row == 0) {
