@@ -16,7 +16,7 @@ $currentMonthkalendar = date('Y-m');
     <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
     <!-- Company: FrogBid (www.frogbid.com) -->
 
-    <title>Sources, Information, and Resources - Common Prayer Online</title>
+    <title>Anglican Usage - About the Hourly Offices - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -158,7 +158,7 @@ $currentMonthkalendar = date('Y-m');
     <div class="row">
         <div class="col-12 pt-5 text-center">
             <h1 class="cpo-content-page-title">
-                Sources, Information, and Resources
+                Anglican Usage - About the Hourly Offices
             </h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
@@ -179,60 +179,21 @@ $currentMonthkalendar = date('Y-m');
         </div>
         <div class="col-lg-12 mt-3">
             <div id="text-container">
-                <blockquote>
-
-                    <a href="ordo-info"><b>
-                            About the Ordo Calendar</b></a>
-                    - a list of the sources used, and descriptions of
-                    Liturgical Colors, how the Calendar is displayed, and how the dates shown for
-                    Saints Days were determined.<br/>
-                    <br/>
-
-                    <a href="bef-adv"><b>
-                            The "Weeks Before Advent"</b></a>
-                    - an explanation of how the Lessons &amp; Psalms
-                    for the three weeks prior to the First Sunday in Advent are determined.<br/>
-                    <br/>
-
-                    <a href="lection"><b>
-                            The Lectionary</b></a>
-                    - Background about The Lectionary/Calendar used as a source for the Lessons &amp; Psalms.<br/>
-                    <br/>
-
-                    <a href="hourly"><b>
-                            About The Hourly Offices</b></a>
-                    - Anglican Sources used to compile the Hourly Offices.<br/>
-                    <br/>
-
-                    <a href="services"><b>
-                            Concerning the Service of the Church</b></a>
-                    - Instructions from the 1928 BCP
-                    regarding the usage of Worship Services, and how the Psalter and Lectionary
-                    are used within various services.<br/>
-                    <br/>
-
-                    <a href="tables"><b>
-                            Tables from the 1928 BCP</b></a>
-                    - Tables listing the Holy Days, describing how
-                    the date for Easter is determined, and how to determine what observances
-                    take precedence over others.<br/>
-                    <br/>
-
-                    <a href="rubrics"><b>
-                            Miscellaneous Rubrics from the 1928 BCP</b></a>
-                    - A Compilation of rubrics concerning Morning/Evening Prayer and Holy Communion.<br/>
-                    <br/>
-
-                    <a href="lesmor"><b>
-                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="leseve"><b>Evening Prayer Readings</b></a>
-                    - Tables listing the Psalms and Lessons for daily Morning and Evening Prayer.<br/>
-                    <br/>
-
-                    <a href="holidays"><b>
-                            Propers for the Church Year</b></a>
-                    - Links to the Propers (Collect/Epistle/Gospel) for Sundays &amp; Holy Days.<br/>
-                    <br/>
-                </blockquote>
+                <p>
+                    There are many sources containing forms of the Hourly Offices which claim to be ancient,
+                    authoritative, or both.  Some are Roman, pre-dating the Anglican Church; some are American,
+                    some English, some religious (that is, pertaining to religious orders such as the Franciscans and
+                    Benedictines), some parochial/clerical, and some lay-oriented.  After searching through many of these and noting a great
+                    deal of repetition, four primary sources were chosen as the basis for this website:<i>The Monastic
+                        Diurnal</i>, <i>The Anglican Breviary</i>, <i>A Manual for Prayers</i>, and <i>The Priest's Prayer Book</i>.
+                    Other editions of the Offices used for reference include <i>The Lesser Hours of the Day</i>,
+                    <i>Breviary Offices</i>, and <i>The Lesser Hours of the Sarum Breviary</i>.
+                    The Hourly Offices contained in each of these was compared against the others, and an edited version
+                    harmonizing them to the greatest extent possible was created.  The Hourly Offices as they appear
+                    here are not more "official" or valid than what can be found elsewhere; they are simply the
+                    result of one editor's selections from amongst the variety of available materials.  Those with a
+                    deep interest in the Offices are encouraged to contact local clergy, bookstores and the Internet to
+                    obtain firsthand information.</p>
             </div>
         </div>
     </div>

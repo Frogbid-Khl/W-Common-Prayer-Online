@@ -16,7 +16,7 @@ $currentMonthkalendar = date('Y-m');
     <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
     <!-- Company: FrogBid (www.frogbid.com) -->
 
-    <title>Sources, Information, and Resources - Common Prayer Online</title>
+    <title>Information About Sundays Before Advent - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -158,7 +158,7 @@ $currentMonthkalendar = date('Y-m');
     <div class="row">
         <div class="col-12 pt-5 text-center">
             <h1 class="cpo-content-page-title">
-                Sources, Information, and Resources
+                Information About Sundays Before Advent
             </h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
@@ -180,58 +180,147 @@ $currentMonthkalendar = date('Y-m');
         <div class="col-lg-12 mt-3">
             <div id="text-container">
                 <blockquote>
-
-                    <a href="ordo-info"><b>
-                            About the Ordo Calendar</b></a>
-                    - a list of the sources used, and descriptions of
-                    Liturgical Colors, how the Calendar is displayed, and how the dates shown for
-                    Saints Days were determined.<br/>
+                    The Table of "Psalms and Lessons for the Christian Year" which lists the
+                    readings to be used at Morning &amp; Evening Prayer utilizes a calendar
+                    which is not quite the same as that used for the determining the Propers
+                    (Collect, Epistle &amp; Gospel) to be read at Holy Communion.  The difference
+                    centers around the variation in the number of Sundays after Epiphany and
+                    Sundays after Trinity, which results from the date for Easter not being
+                    the same every year.<br/>
                     <br/>
-
-                    <a href="bef-adv"><b>
-                            The "Weeks Before Advent"</b></a>
-                    - an explanation of how the Lessons &amp; Psalms
-                    for the three weeks prior to the First Sunday in Advent are determined.<br/>
+                    Because Easter can fall anywhere within a span of five weeks (March 22nd through
+                    April 25th) the number of Sundays after Epiphany varies from 1&nbsp;to&nbsp;5,
+                    and similarly the number of Sundays after Trinity varies from 22&nbsp;to&nbsp;27.
+                    The list of Collects, Epistles and Gospels handles this by including
+                    Propers for 6 Sundays after Epiphany, and 25 Sundays after Trinity.  Note
+                    that there are only 24 "numbered" sets of Sunday Propers after Trinity; the
+                    25th set is that for Sunday Next Before Advent.  Since there can be up to
+                    27 Sundays after Trinity, this leaves a potential "gap" of two weeks.<br/>
                     <br/>
-
-                    <a href="lection"><b>
-                            The Lectionary</b></a>
-                    - Background about The Lectionary/Calendar used as a source for the Lessons &amp; Psalms.<br/>
+                    The Prayer Book solves this problem by directing that in years where there are
+                    26 Sundays after Trinity, the Propers for the 6th Sunday after Epiphany are
+                    used for the "extra" (25th) Sunday.  When there are 27 Sundays, the Propers
+                    for the Fifth Sunday after Epiphany are used for the 25th Sunday, and the
+                    Sixth Sunday after Epiphany for the 26th Sunday.  The Sunday Next Before
+                    Advent always retains its position as the "last" Sunday after Trinity,
+                    and immediately preceeding the First Sunday in Advent.  (ref. BCP pp.224)
+                    This is made possible by the fact that as the number of Sundays after Trinity
+                    increases, the number of Sundays after Epiphany decreases, leaving "unused"
+                    sets of propers.<br/>
                     <br/>
-
-                    <a href="hourly"><b>
-                            About The Hourly Offices</b></a>
-                    - Anglican Sources used to compile the Hourly Offices.<br/>
+                    For Morning and Evening Prayer, this variance in the church year is
+                    handled differently.  There are enough sets of Psalms and Lessons to
+                    make it unnecessary to "borrow" from the period after Epiphany.  As with
+                    the Propers, the Psalms/Lessons for the weeks after Epiphany are used as
+                    needed during those weeks.  For the weeks after Trinity, a different
+                    method is utilized.  There are sets of Psalms/Lessons for 24 numbered
+                    weeks after Trinity, and 3 weeks before Advent.  This provides for a full
+                    27 weeks after Trinity - the maximum possible.  The Psalms/Lessons for
+                    the weeks after Trinity after are used "forward" until three weeks before Advent,
+                    at which point the Psalms/Lessons for the 3 weeks before Advent are used.<br/>
                     <br/>
+                </blockquote>
 
-                    <a href="services"><b>
-                            Concerning the Service of the Church</b></a>
-                    - Instructions from the 1928 BCP
-                    regarding the usage of Worship Services, and how the Psalter and Lectionary
-                    are used within various services.<br/>
-                    <br/>
+                <div class="text-center">
+                    <b>Table illustrating usage of Sundays after Trinity/Sundays before Advent</b><br/>
+                </div>
 
-                    <a href="tables"><b>
-                            Tables from the 1928 BCP</b></a>
-                    - Tables listing the Holy Days, describing how
-                    the date for Easter is determined, and how to determine what observances
-                    take precedence over others.<br/>
-                    <br/>
-
-                    <a href="rubrics"><b>
-                            Miscellaneous Rubrics from the 1928 BCP</b></a>
-                    - A Compilation of rubrics concerning Morning/Evening Prayer and Holy Communion.<br/>
-                    <br/>
-
-                    <a href="lesmor"><b>
-                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="leseve"><b>Evening Prayer Readings</b></a>
-                    - Tables listing the Psalms and Lessons for daily Morning and Evening Prayer.<br/>
-                    <br/>
-
-                    <a href="holidays"><b>
-                            Propers for the Church Year</b></a>
-                    - Links to the Propers (Collect/Epistle/Gospel) for Sundays &amp; Holy Days.<br/>
-                    <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <br/>
+                        Easter Day - March 23 <i>(27 Sundays after Trinity)</i>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Calendar Day</u><br/>
+                        November 2<br/>
+                        November 9<br/>
+                        November 16<br/>
+                        November 23<br/>
+                        November 30<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Psalms/Lessons</u><br/>
+                        24th Sunday After Trinity<br/>
+                        Third Sunday Before Advent<br/>
+                        Second Sunday Before Advent<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Propers</u><br/>
+                        24th Sunday After Trinity<br/>
+                        Fifth Sunday After Epiphany<br/>
+                        Sixth Sunday After Epiphany<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                    <div class="col-12">
+                        <br/>
+                        Easter Day - March 28 <i>(26 Sundays after Trinity)</i>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Calendar Day</u><br/>
+                        October  30<br/>
+                        November 6<br/>
+                        November 13<br/>
+                        November 20<br/>
+                        November 27<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Psalms/Lessons</u><br/>
+                        23rd Sunday After Trinity<br/>
+                        Third Sunday Before Advent<br/>
+                        Second Sunday Before Advent<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Propers</u><br/>
+                        23rd Sunday After Trinity<br/>
+                        24th Sunday After Trinity<br/>
+                        Sixth Sunday After Epiphany<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                    <div class="col-12">
+                        <br/>
+                        Easter Day - April 14 <i>(24 Sundays after Trinity)</i>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Calendar Day</u><br/>
+                        November  3<br/>
+                        November 10<br/>
+                        November 17<br/>
+                        November 24<br/>
+                        December 1<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Psalms/Lessons</u><br/>
+                        21st Sunday After Trinity<br/>
+                        Third Sunday Before Advent<br/>
+                        Second Sunday Before Advent<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                    <div class="col-lg-4">
+                        <u>Propers</u><br/>
+                        21st Sunday After Trinity<br/>
+                        22nd Sunday After Trinity<br/>
+                        23rd Sunday After Epiphany<br/>
+                        Sunday Next Before Advent<br/>
+                        First Sunday in Advent<br/>
+                    </div>
+                </div>
+                <br/>
+                <blockquote>
+                    There is an alternate method arrangement of the Psalms/Lessons which
+                    is used in some places.  The Psalms/Lessons for the weeks after Trinity
+                    are used until they run out, at which point the Psalms/Lessons for the
+                    weeks before Advent are used, working backwards from the Sunday Next before
+                    Advent to the Third Sunday before Advent, as needed.  This means that in
+                    some years no "Sundays Before Advent" are used; in other years, some/all of the
+                    "Sundays before Advent" are used.  This website does not display the
+                    Psalms/Lessons in this method; the arrangement illustrated in the table above is used.<br/>
                 </blockquote>
             </div>
         </div>

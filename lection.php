@@ -16,7 +16,7 @@ $currentMonthkalendar = date('Y-m');
     <!-- Developer: Monoget Saha (www.monoget.com.bd) -->
     <!-- Company: FrogBid (www.frogbid.com) -->
 
-    <title>Sources, Information, and Resources - Common Prayer Online</title>
+    <title>About the Lectionary - Common Prayer Online</title>
     <link href="assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/vendor/FontAwesome/css/all.min.css" rel="stylesheet"/>
     <link href='assets/vendor/Animate/animate.min.css' rel='stylesheet'/>
@@ -158,7 +158,7 @@ $currentMonthkalendar = date('Y-m');
     <div class="row">
         <div class="col-12 pt-5 text-center">
             <h1 class="cpo-content-page-title">
-                Sources, Information, and Resources
+                About the Lectionary
             </h1>
             <p>As Written in the 1928 Book of Common Prayer</p>
         </div>
@@ -180,58 +180,57 @@ $currentMonthkalendar = date('Y-m');
         <div class="col-lg-12 mt-3">
             <div id="text-container">
                 <blockquote>
-
-                    <a href="ordo-info"><b>
-                            About the Ordo Calendar</b></a>
-                    - a list of the sources used, and descriptions of
-                    Liturgical Colors, how the Calendar is displayed, and how the dates shown for
-                    Saints Days were determined.<br/>
+                    This website is based on the 1928 Book of Common Prayer.  However, there's
+                    a catch to that statement.  Some of the 1928 BCP was changed after that
+                    date - yet there was no change to the date of the book itself.<br/>
                     <br/>
 
-                    <a href="bef-adv"><b>
-                            The "Weeks Before Advent"</b></a>
-                    - an explanation of how the Lessons &amp; Psalms
-                    for the three weeks prior to the First Sunday in Advent are determined.<br/>
+                    What was it that changed?  The Lectionary.  The Lectionary is the term commonly
+                    used to denote the tables which set forth the Psalms, Lessons, and the
+                    selection of Propers (Collect/Epistle/Gospel).  There was a great deal of disapproval
+                    with the original 1928 Lectionary, which was very limited in scope with
+                    its usage of the Psalter, and also did not try to coordinate the Lessons
+                    at Sunday Morning/Evening Prayer with those at Holy Communion.  Work was
+                    soon initiated on an update to the Lectionary, which was completed in 1940.
+                    The changes were adopted by the General Convention of 1943, and thereafter
+                    became the official Lectionary for the BCP.<br/>
                     <br/>
 
-                    <a href="lection"><b>
-                            The Lectionary</b></a>
-                    - Background about The Lectionary/Calendar used as a source for the Lessons &amp; Psalms.<br/>
-                    <br/>
+                    So - since the date of the BCP didn't change, how can you tell if you have
+                    a 1928 BCP with the original Lectionary, or one
+                    with the 1943 Lectionary?  The first thing to do is check the date of printing;
+                    if it is after 1943, it should have the 1943 Lectionary.  If there's any
+                    doubt, or you cannot find a printing date, there's another easy way to check.
+                    The page usually on the reverse of the title page includes a statement
+                    that reads something like "....conforms to the Standard Book of Common Prayer as adopted
+                    by the General Convention...."<br/>
+                </blockquote>
 
-                    <a href="hourly"><b>
-                            About The Hourly Offices</b></a>
-                    - Anglican Sources used to compile the Hourly Offices.<br/>
+                <div class="row">
+                    <div class="col-lg-6">
+                        In a BCP printed in 1935, this is how it reads:<br/>
+                        <br/>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  CERTIFICATE<br/>
+                        &nbsp; &nbsp; I certify that this edition of the Book of Common Prayer<br/>
+                        &nbsp; &nbsp; has been conpared with a certified copy of the<br/>
+                        &nbsp; &nbsp; Standard Book of 1928, as the Canon directs, and<br/>
+                        &nbsp; &nbsp; that it conforms thereto.<br/>
+                    </div>
+                    <div class="col-lg-6">
+                        In a 1953 edition, note the change (in italics):<br/>
+                        <br/>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CERTIFICATE<br/>
+                        &nbsp; &nbsp; I certify that this edition of the Book of Common Prayer<br/>
+                        &nbsp; &nbsp; conforms to the Standard Book of 1928,<br/>
+                        &nbsp; &nbsp; <i>as amended by subsequent acts of General Convention.</i><br/>
+                    </div>
+                </div>
+                <blockquote>
                     <br/>
-
-                    <a href="services"><b>
-                            Concerning the Service of the Church</b></a>
-                    - Instructions from the 1928 BCP
-                    regarding the usage of Worship Services, and how the Psalter and Lectionary
-                    are used within various services.<br/>
-                    <br/>
-
-                    <a href="tables"><b>
-                            Tables from the 1928 BCP</b></a>
-                    - Tables listing the Holy Days, describing how
-                    the date for Easter is determined, and how to determine what observances
-                    take precedence over others.<br/>
-                    <br/>
-
-                    <a href="rubrics"><b>
-                            Miscellaneous Rubrics from the 1928 BCP</b></a>
-                    - A Compilation of rubrics concerning Morning/Evening Prayer and Holy Communion.<br/>
-                    <br/>
-
-                    <a href="lesmor"><b>
-                            Morning Prayer Readings</b></a> &nbsp; and &nbsp;<a href="leseve"><b>Evening Prayer Readings</b></a>
-                    - Tables listing the Psalms and Lessons for daily Morning and Evening Prayer.<br/>
-                    <br/>
-
-                    <a href="holidays"><b>
-                            Propers for the Church Year</b></a>
-                    - Links to the Propers (Collect/Epistle/Gospel) for Sundays &amp; Holy Days.<br/>
-                    <br/>
+                    The final test is to examine the Lectionary itself.  If the reading for
+                    the first lesson at Morning Prayer on the First Sunday in Advent is Isaiah 55,
+                    it is the 1928 Lectionary.  If the reading is a choice between Malachi 3
+                    and Isaiah 28, it is the 1943 Lectionary.<br/>
                 </blockquote>
             </div>
         </div>

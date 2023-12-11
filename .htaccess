@@ -22,7 +22,15 @@ RewriteRule ^info info.php [NE,L]
 
 RewriteRule ^ordo-info ordo-info.php [NE,L]
 
-RewriteRule ^hourly-office hourly-office.php [NE,L]
+RewriteRule ^bef-adv bef-adv.php [NE,L]
+
+RewriteRule ^lection lection.php [NE,L]
+
+RewriteRule ^tables tables.php [NE,L]
+
+RewriteRule ^hourly\-office hourly-office.php [NE,L]
+
+RewriteRule ^hourly hourly.php [NE,L]
 
 RewriteRule ^office(.*) office.php [NE,L]
 
