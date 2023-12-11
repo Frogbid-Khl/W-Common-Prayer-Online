@@ -581,8 +581,13 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
-
-                <a href="#">Today's Psalms from the Daily Psalter</a><br/>
+                <?php
+                $todayDayNum=date('d');
+                if($todayDayNum==31){
+                    $todayDayNum=30;
+                }
+                ?>
+                <a href="dailye/<?php echo $todayDayNum; ?>">Today's Psalms from the Daily Psalter</a><br/>
 
 
                 <?php
@@ -1001,7 +1006,7 @@ if((int)$id>0){
                 <small>
                     <i>In places where it may be convenient, here followeth the Anthem.<br/>
                         The Minister may here end the Evening Prayer with such
-                        <a href="#"><b>Prayer</b></a>, or Prayers,
+                        <a href=prayer><b>Prayer</b></a>, or Prayers,
                         taken out of this Book, as he shall think fit.</i>
                 </small><br/>
                 <br/>

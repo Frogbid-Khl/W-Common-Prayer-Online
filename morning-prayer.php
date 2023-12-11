@@ -10,12 +10,12 @@ $currentYear = date('Y');
 
 $currentDate = date('Y-m-d');
 
-$extension='';
+$extension = '';
 
 $url = $_SERVER['REQUEST_URI'];
 $id = substr($url, strrpos($url, '/') + 1);
 
-if((int)$id>0){
+if ((int)$id > 0) {
     $extension = '../';
 }
 ?>
@@ -184,13 +184,16 @@ if((int)$id>0){
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>services">Concerning the Service of the Church</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>services">Concerning
+                        the Service of the Church</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>rubrics">Miscellaneous Rubrics from the 1928 BCP</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>rubrics">Miscellaneous
+                        Rubrics from the 1928 BCP</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>info">Information about the BCP and Lectionary</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>info">Information about
+                        the BCP and Lectionary</a>
                 </div>
             </div>
         </div>
@@ -208,21 +211,26 @@ if((int)$id>0){
         }
 
 
-        if((int)$id>0){
-            $dayOfYear=$id;
+        if ((int)$id > 0) {
+            $dayOfYear = $id;
         }
 
         ?>
         <div class="col-lg-6 mt-3">
             <div class="row">
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer">Today's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer">Today's
+                        Readings/Propers</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear+1; ?>">Tomorrow's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100"
+                       href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear + 1; ?>">Tomorrow's
+                        Readings/Propers</a>
                 </div>
                 <div class="col-lg-12 mb-3">
-                    <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear-1; ?>">Yesterday's Readings/Propers</a>
+                    <a class="btn btn-primary cpo-btn-home w-100"
+                       href="<?php echo $extension; ?>morning-prayer/<?php echo $dayOfYear - 1; ?>">Yesterday's
+                        Readings/Propers</a>
                 </div>
             </div>
         </div>
@@ -253,10 +261,10 @@ if((int)$id>0){
                 $second_lesson_pattern = '/<a id="lesson2">(.*?)<a id="collect">/s';
                 $collect_pattern = '/<a id="collect">(.*?)<\/blockquote>/s';
 
-                $psalm='';
-                $first_lesson='';
-                $second_lesson='';
-                $collect='';
+                $psalm = '';
+                $first_lesson = '';
+                $second_lesson = '';
+                $collect = '';
 
                 // Use preg_match to find the matching content
                 if (preg_match($psalm_pattern, $description, $psalm_matches)) {
@@ -570,6 +578,7 @@ if((int)$id>0){
                         the People still kneeling, and repeating it with him, both here and
                         wheresoever else it is used in Divine Service.</i>
                 </small>
+                <a id="lordsprayer"></a>
                 <br/>
                 <br/>
 
@@ -584,13 +593,12 @@ if((int)$id>0){
                 </b>
                 <br/>
 
-
                 <div class="text-center">
                     <small>
                         <i>Then likewise he shall say,</i>
                     </small>
                 </div>
-
+                <a id="versicles"></a>
                 <div class="text-center">
                     <b>
                         O Lord, open thou our lips.<br/>
@@ -678,13 +686,14 @@ if((int)$id>0){
                 </b>
 
 
+                <a id="venite"></a>
                 <div class="text-center">
                     <hr>
 
                     <small><i>
                             Seasonal substitute the Venite</i><br/>
-                        <a href="#">Easter</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
-                                href="#">Thanksgiving</a>
+                        <a href="event/Easter">Easter</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
+                                href="event/Thanksgiving">Thanksgiving</a>
                     </small>
 
                 </div>
@@ -728,12 +737,17 @@ if((int)$id>0){
                 <br/>
                 <br/>
 
-
-                <a href="#">Today's Psalms from the Daily Psalter</a><br/>
+                <?php
+                $todayDayNum=date('d');
+                if($todayDayNum==31){
+                    $todayDayNum=30;
+                }
+                ?>
+                <a href="dailym/<?php echo $todayDayNum; ?>">Today's Psalms from the Daily Psalter</a><br/>
 
 
                 <?php
-                    echo $psalm;
+                echo $psalm;
                 ?>
                 <br/>
 
@@ -833,7 +847,7 @@ if((int)$id>0){
                     </small>
                 </div>
 
-
+                <a id="benedictuses"></a>
                 <div class="text-center"><i><b>Benedictus es, Domine.</b></i></div>
                 <br/>
 
@@ -863,7 +877,7 @@ if((int)$id>0){
                         <i>Or this Canticle.</i>
                     </small>
                 </div>
-
+                <a id="benedicite"></a>
                 <div class="text-center"><i><b>Benedicite, omnia opera Domini.</b></i></div>
                 <br/>
 
@@ -1012,7 +1026,7 @@ if((int)$id>0){
                         <i>Or this Psalm.</i>
                     </small>
                 </div>
-
+                <a id="jubilate"></a>
                 <div class="text-center"><i><b>Jubilate Deo.</b></i> Psalm c.</div>
                 <br/>
 
@@ -1062,7 +1076,7 @@ if((int)$id>0){
                 <div class="text-center">
                     <i class="fa-solid fa-circle-arrow-down"></i> <a href="#prayers"> Go to <i>Prayers</i></a><br/>
                 </div>
-
+                <a id="creed"></a>
                 <br/>
                 <div class="text-center">
                     <small>
@@ -1106,6 +1120,7 @@ if((int)$id>0){
                     <i>And after that, these Prayers following, the People devoutly kneeling;
                         the Minister first pronouncing,</i>
                 </small>
+                <a id="prayers"></a>
                 <br/>
                 <br/>
 
@@ -1183,11 +1198,11 @@ if((int)$id>0){
                 <br/>
                 <small>
                     <i>The following Prayers shall be omitted here when the
-                        <a href="#"><b>Litany</b></a> is said,
+                        <a href="litany"><b>Litany</b></a> is said,
                         and may be omitted when the Holy Communion is to follow.<br/>
                         <br/>
                         And </i>Note,<i> That the Minister may here end the Morning Prayer with
-                        such general <a href="#"><b>intercessions</b></a> taken out of this Book, as he shall think
+                        such general <a href="prayer"><b>intercessions</b></a> taken out of this Book, as he shall think
                         fit,
                         or with the Grace.</i>
                 </small>
@@ -1341,10 +1356,12 @@ if((int)$id>0){
                 <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>home">Home</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional Offices</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>occasional-office">Occasional
+                    Offices</a>
             </div>
             <div class="col-lg-4 mb-3">
-                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>church-year">The Church Year</a>
+                <a class="btn btn-primary cpo-btn-home w-100" href="<?php echo $extension; ?>church-year">The Church
+                    Year</a>
             </div>
         </div>
     </div>

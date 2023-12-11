@@ -14,6 +14,22 @@ RewriteRule ^evening\-prayer-brief(.*) evening-prayer-brief.php [NE,L]
 
 RewriteRule ^evening-prayer(.*) evening-prayer.php [NE,L]
 
+RewriteRule ^absol absol.php [NE,L]
+
+RewriteRule ^chrysos chrysos.php [NE,L]
+
+RewriteRule ^gthank gthank.php [NE,L]
+
+RewriteRule ^mobeno mobeno.php [NE,L]
+
+RewriteRule ^mojubi mojubi.php [NE,L]
+
+RewriteRule ^motede motede.php [NE,L]
+
+RewriteRule ^presidm presidm.php [NE,L]
+
+RewriteRule ^prayer prayer.php [NE,L]
+
 RewriteRule ^services services.php [NE,L]
 
 RewriteRule ^rubrics rubrics.php [NE,L]

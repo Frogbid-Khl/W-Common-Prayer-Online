@@ -306,7 +306,7 @@ if((int)$id>0){
                     <br/>
 
                     <a id="absol">&nbsp;</A>
-                    <a href="#">General Confession &amp; Absolution</a><br/>
+                    <a href="absol">General Confession &amp; Absolution</a><br/>
                     <br/>
 
                     <b>
@@ -332,7 +332,7 @@ if((int)$id>0){
 
                         <small><i>
                                 Seasonal substitute the Venite</i><br/>
-                            <A href="#">Easter</A> &nbsp; &nbsp; &nbsp; &nbsp;<A href="#">Thanksgiving</A>
+                            <A href="event/Easter">Easter</A> &nbsp; &nbsp; &nbsp; &nbsp;<A href="event/Thanksgiving">Thanksgiving</A>
                         </small>
 
                     </div>
@@ -418,9 +418,9 @@ if((int)$id>0){
                     <br/>
 
                     <a id="less1gl">&nbsp;</A>
-                    <a href="#">Te deum laudamus</a>
+                    <a href="motede">Te deum laudamus</a>
                     &nbsp; &nbsp; &nbsp;
-                    <a href="#">Benedicite, omnia</a><br/>
+                    <a href="mobeno">Benedicite, omnia</a><br/>
                     <br/>
 
                     <b>Glory be to the Father, and to the Son, and to the Holy Ghost;<br/>
@@ -472,7 +472,7 @@ if((int)$id>0){
                     </b>
 
                     <a id="less2gl">&nbsp;</A>
-                    <a href="#">Jubilate Deo</a><br/>
+                    <a href="mojubi">Jubilate Deo</a><br/>
                     <br/>
 
 
@@ -572,7 +572,7 @@ if((int)$id>0){
                     <br/>
 
                     <a id="presidmo">&nbsp;</A>
-                    <a href="#">A Prayer for the President of the United States</a><br/>
+                    <a href="presidm">A Prayer for the President of the United States</a><br/>
                     <br/>
 
                     <div class="text-center"><i><b>A Prayer for the Clergy and People.</b></i></div>
@@ -611,9 +611,9 @@ if((int)$id>0){
                     <br/>
 
                     <a id="prymen">&nbsp;</A>
-                    <a href="#">A General Thanksgiving</a>
+                    <a href="gthank">A General Thanksgiving</a>
                     &nbsp; &nbsp; &nbsp;
-                    <a href="#">A Prayer of St. Chrysostom</a><br/>
+                    <a href="chrysos">A Prayer of St. Chrysostom</a><br/>
                     <br/>
 
                     <div class="text-center"><i><b>2 Cor. xiii. 14.</b></i></div>

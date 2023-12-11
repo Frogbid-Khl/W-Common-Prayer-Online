@@ -301,7 +301,7 @@ if((int)$id>0){
                 <br/>
 
                 <a id="absol">&nbsp;</a>
-                <a href="#">General Confession &amp; Absolution</a><br/>
+                <a href="absol">General Confession &amp; Absolution</a><br/>
                 <br/>
 
                 <b>
@@ -385,9 +385,9 @@ if((int)$id>0){
                 <br/>
 
                 <a id="less1gl">&nbsp;</a>
-                <a href="#">Cantate Domino</a>
+                <a href="evcant">Cantate Domino</a>
                 &nbsp; &nbsp; &nbsp;
-                <a href="#">Bonum est confiteri</a><br/>
+                <a href="evbonu">Bonum est confiteri</a><br/>
                 <br/>
 
                 <b>Glory be to the Father, and to the Son, and to the Holy Ghost;<br/>
@@ -419,9 +419,9 @@ if((int)$id>0){
                 <br/>
 
                 <a id="less2gl">&nbsp;</a>
-                <a href="#">Deus misereatur</a>
+                <a href="evdeus">Deus misereatur</a>
                 &nbsp; &nbsp; &nbsp;
-                <a href="#">Benedic, anima mea</a><br/>
+                <a href="evbene">Benedic, anima mea</a><br/>
                 <br/>
 
                 <b>Glory be to the Father, and to the Son, and to the Holy Ghost;<br/>
@@ -526,7 +526,7 @@ if((int)$id>0){
                 <br/>
 
                 <a id="presidev">&nbsp;</a>
-                <a href="#">A Prayer for the President of the United States</a><br/>
+                <a href="preside">A Prayer for the President of the United States</a><br/>
                 <br/>
 
                 <div class="text-center"><i><b>A Prayer for the Clergy and People.</b></i></div>
@@ -565,9 +565,9 @@ if((int)$id>0){
                 <br/>
 
                 <a id="prymen">&nbsp;</a>
-                <a href="#">A General Thanksgiving</a>
+                <a href="gthank">A General Thanksgiving</a>
                 &nbsp; &nbsp; &nbsp;
-                <a href="#">A Prayer of St. Chrysostom</a><br/>
+                <a href="chrysos">A Prayer of St. Chrysostom</a><br/>
                 <br/>
 
                 <div class="text-center"><i><b>2 Cor. xiii. 14.</b></i></div>
