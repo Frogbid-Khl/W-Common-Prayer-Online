@@ -28,6 +28,16 @@ RewriteRule ^motede motede.php [NE,L]
 
 RewriteRule ^presidm presidm.php [NE,L]
 
+RewriteRule ^evcant evcant.php [NE,L]
+
+RewriteRule ^evbene evbene.php [NE,L]
+
+RewriteRule ^evbonu evbonu.php [NE,L]
+
+RewriteRule ^evdeus evdeus.php [NE,L]
+
+RewriteRule ^preside preside.php [NE,L]
+
 RewriteRule ^prayer prayer.php [NE,L]
 
 RewriteRule ^services services.php [NE,L]
