@@ -1202,7 +1202,7 @@ if ((int)$id > 0) {
                         and may be omitted when the Holy Communion is to follow.<br/>
                         <br/>
                         And </i>Note,<i> That the Minister may here end the Morning Prayer with
-                        such general <a href="prayer"><b>intercessions</b></a> taken out of this Book, as he shall think
+                        such general <a href="prayers-and-thanksgivings"><b>intercessions</b></a> taken out of this Book, as he shall think
                         fit,
                         or with the Grace.</i>
                 </small>

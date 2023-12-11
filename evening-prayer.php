@@ -1006,7 +1006,7 @@ if((int)$id>0){
                 <small>
                     <i>In places where it may be convenient, here followeth the Anthem.<br/>
                         The Minister may here end the Evening Prayer with such
-                        <a href=prayer><b>Prayer</b></a>, or Prayers,
+                        <a href="prayers-and-thanksgivings"><b>Prayer</b></a>, or Prayers,
                         taken out of this Book, as he shall think fit.</i>
                 </small><br/>
                 <br/>

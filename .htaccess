@@ -38,8 +38,6 @@ RewriteRule ^evdeus evdeus.php [NE,L]
 
 RewriteRule ^preside preside.php [NE,L]
 
-RewriteRule ^prayer prayer.php [NE,L]
-
 RewriteRule ^services services.php [NE,L]
 
 RewriteRule ^rubrics rubrics.php [NE,L]
