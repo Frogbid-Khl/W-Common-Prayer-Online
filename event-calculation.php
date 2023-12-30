@@ -327,7 +327,7 @@ function checkSeason($event){
     } else if (in_array($event, $advent_sunday)) {
         return "Advent";
     } else if (in_array($event, $christmas_sunday)) {
-        return "Christmas";
+        return "Christmastide";
     } else {
         return 0;
     }
@@ -350,7 +350,7 @@ function getOccasionName($today)
         $class='';
         if($eventName=="Epiphany" || $eventName=="Trinity" ){
             $class='cpo-event-color-green';
-        }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
+        }else if($eventName=="Easter" || $eventName=="Christmastide" || $eventName=="Ascension"){
             $class='cpo-event-color-white';
         }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
             $class='cpo-event-color-purple';

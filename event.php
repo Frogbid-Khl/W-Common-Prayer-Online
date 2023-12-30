@@ -106,21 +106,24 @@ if ($row == 0) {
                 <div class="row">
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            1st<br/>
-                            Lesson
+                           href="#epist">
+                            The <br/>
+                            Epistle
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="#">
-                            2nd<br/>
-                            Lesson
+                           href="#gospl">
+                            The <br/>
+                            Gospel
                         </a>
                     </div>
                     <div class="col-4 mb-3">
                         <a class="btn btn-primary cpo-home-btn w-100 d-flex justify-content-center align-items-center"
-                           href="<?php echo $extension; ?>collects">Collect</a>
+                           href="#collect">
+                            The <br/>
+                            Collect
+                        </a>
                     </div>
                 </div>
             </div>
