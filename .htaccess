@@ -114,6 +114,8 @@ RewriteRule ^show-event-list show-event-list.php [NE,L]
 
 RewriteRule ^coming-soon coming-soon.php [NE,L]
 
+RewriteRule ^update update.php [NE,L]
+
 RewriteRule ^php-info php-info.php [NC,L]
 
 RewriteRule ^404 404.php [NE,L]
