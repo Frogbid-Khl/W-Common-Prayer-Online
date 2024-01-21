@@ -387,43 +387,43 @@ function getOccasionName($today)
     }
 }
 
-function getTodayOcasion($today)
+$dateRanges = [];
+
+function addsDateRanges(&$dateRanges, $start_date, $end_date)
 {
+    $dateRanges[] = array(
+        'start_date' => $start_date,
+        'end_date' => $end_date,
+    );
+}
 
-    $dateRanges = [];
+function getThirdSundayDateInSeptembers($year)
+{
+    $sundays = 0;
+    for ($day = 1; $day <= 30; $day++) {
+        $currentDate = strtotime("$year-09-$day");
+        $dayOfWeek = date('w', $currentDate);
 
-    function addDateRange(&$dateRanges, $start_date, $end_date)
-    {
-        $dateRanges[] = array(
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-        );
-    }
-
-    function getThirdSundayDateInSeptember($year)
-    {
-        $sundays = 0;
-        for ($day = 1; $day <= 30; $day++) {
-            $currentDate = strtotime("$year-09-$day");
-            $dayOfWeek = date('w', $currentDate);
-
-            if ($dayOfWeek === '0') {
-                $sundays++;
-            }
-
-            if ($sundays === 3) {
-                return date('Y-m-d', $currentDate);
-            }
+        if ($dayOfWeek === '0') {
+            $sundays++;
         }
 
-        return false;
+        if ($sundays === 3) {
+            return date('Y-m-d', $currentDate);
+        }
     }
+
+    return false;
+}
+
+function getTodayOcasion($today)
+{
 
 
     $currentYear = date('Y', strtotime($today));
     $currentMonth = date('m', strtotime($today));
 
-    $thirdSunday = getThirdSundayDateInSeptember($currentYear);
+    $thirdSunday = getThirdSundayDateInSeptembers($currentYear);
 
     $septuagesimaSunday = '';
     $easterSunday = '';
@@ -570,14 +570,14 @@ function getTodayOcasion($today)
     array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +6 days")));
 
 
-    addDateRange($dateRanges, $currentYear . '-01-01', $currentYear . '-01-13');
-    addDateRange($dateRanges, $currentYear . '-01-14', date('Y-m-d', strtotime("$septuagesimaSunday -1 day")));
-    addDateRange($dateRanges, date('Y-m-d', strtotime($septuagesimaSunday)), date('Y-m-d', strtotime("$easterSunday -1 day")));
-    addDateRange($dateRanges, date('Y-m-d', strtotime($easterSunday)), date('Y-m-d', strtotime("$trinity -1 day")));
-    addDateRange($dateRanges, date('Y-m-d', strtotime($trinity)), date('Y-m-d', strtotime("$sundayAdvent -1 day")));
-    addDateRange($dateRanges, $currentYear . '-11-01', $currentYear . '-11-08');
-    addDateRange($dateRanges, date('Y-m-d', strtotime($sundayAdvent)), $currentYear . '-12-24');
-    addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
+    addsDateRanges($dateRanges, $currentYear . '-01-01', $currentYear . '-01-13');
+    addsDateRanges($dateRanges, $currentYear . '-01-14', date('Y-m-d', strtotime("$septuagesimaSunday -1 day")));
+    addsDateRanges($dateRanges, date('Y-m-d', strtotime($septuagesimaSunday)), date('Y-m-d', strtotime("$easterSunday -1 day")));
+    addsDateRanges($dateRanges, date('Y-m-d', strtotime($easterSunday)), date('Y-m-d', strtotime("$trinity -1 day")));
+    addsDateRanges($dateRanges, date('Y-m-d', strtotime($trinity)), date('Y-m-d', strtotime("$sundayAdvent -1 day")));
+    addsDateRanges($dateRanges, $currentYear . '-11-01', $currentYear . '-11-08');
+    addsDateRanges($dateRanges, date('Y-m-d', strtotime($sundayAdvent)), $currentYear . '-12-24');
+    addsDateRanges($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
 
 
     if (in_array(date('Y-m-d', strtotime($today)), $pentecostWeek)) {

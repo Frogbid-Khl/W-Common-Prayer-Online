@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set("America/New_York");
 require_once("include/dbController.php");
+require_once('show-event-list.php');
 require_once('event-calculation.php');
 
 $currentMonthkalendar = date('Y-m');
