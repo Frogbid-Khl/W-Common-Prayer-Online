@@ -226,7 +226,9 @@ function getPreviousLiturgicalOccasion($date)
 
 }
 
-function checkSeason($event){
+
+function checkSeason($event)
+{
     $epiphany_sunday = [
         'Epiphany',
         '1st Sunday after the Epiphany',
@@ -244,7 +246,6 @@ function checkSeason($event){
     ];
 
     $lent_sunday = [
-        'Epiphany',
         'Ash Wednesday',
         '1st Sunday in Lent',
         '2nd Sunday in Lent',
@@ -345,15 +346,15 @@ function getOccasionName($today)
 
         $epiphany = date('m-d', strtotime($today));
 
-        $eventName=checkSeason($occasionForLastSunday);
+        $eventName = checkSeason($occasionForLastSunday);
 
-        $class='';
-        if($eventName=="Epiphany" || $eventName=="Trinity" ){
-            $class='cpo-event-color-green';
-        }else if($eventName=="Easter" || $eventName=="Christmastide" || $eventName=="Ascension"){
-            $class='cpo-event-color-white';
-        }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
-            $class='cpo-event-color-purple';
+        $class = '';
+        if ($eventName == "Epiphany" || $eventName == "Trinity") {
+            $class = 'cpo-event-color-green';
+        } else if ($eventName == "Easter" || $eventName == "Christmastide" || $eventName == "Ascension") {
+            $class = 'cpo-event-color-white';
+        } else if ($eventName == "Pre Lent" || $eventName == "Lent" || $eventName == "Advent") {
+            $class = 'cpo-event-color-purple';
         }
 
         if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
@@ -386,16 +387,423 @@ function getOccasionName($today)
     }
 }
 
-function liturgicalColor($today){
+function getTodayOcasion($today)
+{
+
+    $dateRanges = [];
+
+    function addDateRange(&$dateRanges, $start_date, $end_date)
+    {
+        $dateRanges[] = array(
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        );
+    }
+
+    function getThirdSundayDateInSeptember($year)
+    {
+        $sundays = 0;
+        for ($day = 1; $day <= 30; $day++) {
+            $currentDate = strtotime("$year-09-$day");
+            $dayOfWeek = date('w', $currentDate);
+
+            if ($dayOfWeek === '0') {
+                $sundays++;
+            }
+
+            if ($sundays === 3) {
+                return date('Y-m-d', $currentDate);
+            }
+        }
+
+        return false;
+    }
+
+
+    $currentYear = date('Y', strtotime($today));
+    $currentMonth = date('m', strtotime($today));
+
+    $thirdSunday = getThirdSundayDateInSeptember($currentYear);
+
+    $septuagesimaSunday = '';
+    $easterSunday = '';
+    $trinity = '';
+    $sundayAdvent = '';
+
+    $eventList = array();
+
+    $pentecostWeek = array();
+    $emberDays = array();
+
+    $epiphany = "06-01-" . $currentYear;
+
+    $eventList[date('Y-m-d', strtotime("01-01-" . $currentYear))] = array('event' => 'Circumcision', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +1 day"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +2 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +3 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +4 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +5 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +6 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("$epiphany +7 days"))] = array('event' => 'of the Octave of Epiphany', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("25-01-" . $currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("02-02-" . $currentYear))] = array('event' => 'Presentation of Christ (Purification of BVM)', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("24-02-" . $currentYear))] = array('event' => 'St. Matthias the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("25-03-" . $currentYear))] = array('event' => 'Annunciation of the B. V. M.', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("25-04-" . $currentYear))] = array('event' => 'St. Mark the Evangelist', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("01-05-" . $currentYear))] = array('event' => 'St. Philip & St. James, Apostles', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("11-06-" . $currentYear))] = array('event' => 'St. Barnabas the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("24-06-" . $currentYear))] = array('event' => 'St. John the Baptist', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("29-06-" . $currentYear))] = array('event' => 'St. Peter the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("04-07-" . $currentYear))] = array('event' => 'Independence Day', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("25-07-" . $currentYear))] = array('event' => 'St. James the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("06-08-" . $currentYear))] = array('event' => 'Transfiguration of Our Lord', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("24-08-" . $currentYear))] = array('event' => 'St. Bartholomew the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("29-08-" . $currentYear))] = array('event' => 'Beheading of St. John Baptist', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("17-09-" . $currentYear))] = array('event' => 'St. Lambert ', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("21-09-" . $currentYear))] = array('event' => 'St. Matthew, Apostle & Evangelist', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("29-09-" . $currentYear))] = array('event' => 'St. Michael & All Angels', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("04-10-" . $currentYear))] = array('event' => 'St. Francis of Assisi', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("18-10-" . $currentYear))] = array('event' => 'St. Luke the Evangelist', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("24-10-" . $currentYear))] = array('event' => 'St. Raphael', 'color' => 'cpo-event-color-green');
+    $eventList[date('Y-m-d', strtotime("28-10-" . $currentYear))] = array('event' => 'St. Simon & St. Jude Apostles', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("01-11-" . $currentYear))] = array('event' => 'All Saints Day', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("02-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("03-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("04-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("05-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("06-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("07-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("08-11-" . $currentYear))] = array('event' => 'of the Octave of All Saints', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("10-11-" . $currentYear))] = array('event' => 'St. Martin', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("22-11-" . $currentYear))] = array('event' => 'St. Cecilia', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("30-11-" . $currentYear))] = array('event' => 'St. Andrew the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("04-12-" . $currentYear))] = array('event' => 'St. Barbara', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("21-12-" . $currentYear))] = array('event' => 'St. Thomas the Apostle', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("24-12-" . $currentYear))] = array('event' => 'Christmas Eve', 'color' => 'cpo-event-color-pink');
+    $eventList[date('Y-m-d', strtotime("26-12-" . $currentYear))] = array('event' => 'St. Stephen, Deacon & Martyr (of the Octave)', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("27-12-" . $currentYear))] = array('event' => 'St. John the Evangelist (of the Octave)', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("28-12-" . $currentYear))] = array('event' => 'The Holy Innocents (of the Octave)', 'color' => 'cpo-event-color-red');
+    $eventList[date('Y-m-d', strtotime("29-12-" . $currentYear))] = array('event' => 'of the Octave of Christmas', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("30-12-" . $currentYear))] = array('event' => 'of the Octave of Christmas', 'color' => 'cpo-event-color-white');
+    $eventList[date('Y-m-d', strtotime("31-12-" . $currentYear))] = array('event' => 'of the Octave of Christmas', 'color' => 'cpo-event-color-white');
+
+
+    foreach (calculateLiturgicalDatess((int)$currentYear) as $eventName => $date) {
+        $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+
+        if ($dateTime->format('Y') == $currentYear) {
+
+            if ($eventName == 'Septuagesima Sunday') {
+                $septuagesimaSunday = $date;
+            } else if ($eventName == 'Easter') {
+                $easterSunday = $date;
+
+                $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Easter Monday<br/>(of the Octave)', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Easter Tuesday<br/>(of the Octave)', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +7 days"))] = array('event' => 'of the Octave<br/>of Easter', 'color' => 'cpo-event-color-white');
+            } else if ($eventName == '1st Sunday after Trinity') {
+                $trinity = $date;
+            } else if ($eventName == '1st Sunday of Advent') {
+                $sundayAdvent = $date;
+            } else if ($eventName == 'Pentecost (Whitsunday)') {
+                array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +1 days")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +2 days")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +3 days")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +4 days")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +5 days")));
+                array_push($pentecostWeek, date('Y-m-d', strtotime("$date +6 days")));
+
+
+                $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Whitsun Monday', 'color' => 'cpo-event-color-red');
+                $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Whitsun Tuesday', 'color' => 'cpo-event-color-red');
+
+            } else if ($eventName == '1st Sunday in Lent') {
+                array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+            } else if ($eventName == '3rd Sunday of Advent') {
+                array_push($emberDays, date('Y-m-d', strtotime("$date +3 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +5 days")));
+                array_push($emberDays, date('Y-m-d', strtotime("$date +6 days")));
+            } else if ($eventName == 'Quinquagesima Sunday') {
+                $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Ash Wednesday', 'color' => 'cpo-event-color-pink');
+            } else if ($eventName == 'Palm Sunday') {
+                $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Monday in Holy Week', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Tuesday in Holy Week', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Wednesday in Holy Week', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'Maundy Thursday', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'Good Friday', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'Holy Saturday', 'color' => 'cpo-event-color-pink');
+            } else if ($eventName == '5th Sunday after Easter (Rogation Sunday)') {
+                $eventList[date('Y-m-d', strtotime("$date +1 day"))] = array('event' => 'Rogation Monday', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +2 days"))] = array('event' => 'Rogation Tuesday', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +3 days"))] = array('event' => 'Rogation Wednesday', 'color' => 'cpo-event-color-pink');
+                $eventList[date('Y-m-d', strtotime("$date +4 days"))] = array('event' => 'Ascension Day', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +5 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +6 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +7 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +8 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +9 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +10 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+                $eventList[date('Y-m-d', strtotime("$date +11 days"))] = array('event' => 'of the Octave<br/>of Ascension', 'color' => 'cpo-event-color-white');
+            } else if ($eventName == 'Sunday next before Advent') {
+                $eventList[date('Y-m-d', strtotime("$date -3 days"))] = array('event' => 'Thanksgiving', 'color' => 'cpo-event-color-white');
+            }
+
+            $val[$eventName] = $date;
+        }
+    }
+
+
+    array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +3 days")));
+    array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +5 days")));
+    array_push($emberDays, date('Y-m-d', strtotime("$thirdSunday +6 days")));
+
+
+    addDateRange($dateRanges, $currentYear . '-01-01', $currentYear . '-01-13');
+    addDateRange($dateRanges, $currentYear . '-01-14', date('Y-m-d', strtotime("$septuagesimaSunday -1 day")));
+    addDateRange($dateRanges, date('Y-m-d', strtotime($septuagesimaSunday)), date('Y-m-d', strtotime("$easterSunday -1 day")));
+    addDateRange($dateRanges, date('Y-m-d', strtotime($easterSunday)), date('Y-m-d', strtotime("$trinity -1 day")));
+    addDateRange($dateRanges, date('Y-m-d', strtotime($trinity)), date('Y-m-d', strtotime("$sundayAdvent -1 day")));
+    addDateRange($dateRanges, $currentYear . '-11-01', $currentYear . '-11-08');
+    addDateRange($dateRanges, date('Y-m-d', strtotime($sundayAdvent)), $currentYear . '-12-24');
+    addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
+
+
+    if (in_array(date('Y-m-d', strtotime($today)), $pentecostWeek)) {
+        $color = 'cpo-event-color-red';
+        $condition = '0';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[0]['start_date']) && strtotime($today) <= strtotime($dateRanges[0]['end_date'])) {
+        $color = 'cpo-event-color-white';
+        $condition = '1';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[1]['start_date']) && strtotime($today) <= strtotime($dateRanges[1]['end_date'])) {
+        $color = 'cpo-event-color-green';
+        $condition = '2';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[2]['start_date']) && strtotime($today) <= strtotime($dateRanges[2]['end_date'])) {
+        $color = 'cpo-event-color-pink';
+        $condition = '3';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[3]['start_date']) && strtotime($today) <= strtotime($dateRanges[3]['end_date'])) {
+        $color = 'cpo-event-color-white';
+        $condition = '4';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[5]['start_date']) && strtotime($today) <= strtotime($dateRanges[5]['end_date'])) {
+        $color = 'cpo-event-color-white';
+        $condition = '5';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[4]['start_date']) && strtotime($today) <= strtotime($dateRanges[4]['end_date'])) {
+        $color = 'cpo-event-color-green';
+        $condition = '6';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[6]['start_date']) && strtotime($today) <= strtotime($dateRanges[6]['end_date'])) {
+        $color = 'cpo-event-color-pink';
+        $condition = '7';
+    }
+    else if (strtotime($today) >= strtotime($dateRanges[7]['start_date']) && strtotime($today) <= strtotime($dateRanges[7]['end_date'])) {
+        $color = 'cpo-event-color-white';
+        $condition = '8';
+    }
+    else {
+        $color = 'cpo-event-color-white';
+        $condition = '9';
+    }
+
+
+    $event = '';
+
+    $text = '';
+
+    if (isset($val_1['1st Sunday after Christmas']) && $val_1['1st Sunday after Christmas'] == date('m/d/Y', strtotime($today))) {
+        $event = "1st Sunday after Christmas";
+
+        $text .= $event;
+    }
+    elseif (isset($val_1['2nd Sunday after Christmas']) && $val_1['2nd Sunday after Christmas'] == date('m/d/Y', strtotime($today))) {
+        $event = "2nd Sunday after Christmas";
+        $text .= $event;
+    }
+    else {
+        if (in_array(date('Y-m-d', strtotime($today)), $emberDays)) {
+            $event = 'Ember Days';
+            $text .= $event;
+
+            if ($condition != '0') {
+                $color = 'cpo-event-color-pink';
+            }
+        } else {
+            $event = getOccasionNameSunday($today);
+            $text .= $event;
+        }
+    }
+
+    if (isset($eventList[date('Y-m-d', strtotime($today))])) {
+        if ($event == '') {
+            $event = $eventList[date('Y-m-d', strtotime($today))]['event'];
+
+            $parts = explode('<br/>', $eventList[date('Y-m-d', strtotime($today))]['event']);
+            if ($parts[0] == 'of the Octave') {
+                $event = '<small>' . $eventList[date('Y-m-d', strtotime($today))]['event'] . '</small>';
+                $text .= $event;
+            } else {
+                if (isset($parts[1]) && $parts[1] == '(of the Octave)') {
+
+
+                    $text .= $parts[0] . '<small>(of the Octave)</small>';
+                } else {
+                    $text .= $event;
+                }
+            }
+        }
+        $color = $eventList[date('Y-m-d', strtotime($today))]['color'];
+    }
+
     $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
 
-    $eventName=checkSeason($occasionForLastSunday);
+    if ($occasionForLastSunday) {
+        $dayOfWeek = getDayOfWeekName($today);
 
-    if($eventName=="Epiphany" || $eventName=="Trinity" ){
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+        $eventName = checkSeason($occasionForLastSunday);
+
+        $class = '';
+        if ($eventName == "Epiphany" || $eventName == "Trinity") {
+            $class = 'cpo-event-color-green';
+        } else if ($eventName == "Easter" || $eventName == "Christmastide" || $eventName == "Ascension") {
+            $class = 'cpo-event-color-white';
+        } else if ($eventName == "Pre Lent" || $eventName == "Lent" || $eventName == "Advent") {
+            $class = 'cpo-event-color-purple';
+        }
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
+            if ($text != '') {
+                echo "Today is <span class='$color'>$text</span><br/>";
+                echo "Season of <span class='$class'>$eventName</span><br/>";
+            } else {
+                $found_number = '';
+
+                $text = $occasionForLastSunday;
+
+                $pattern = '/\b(\d+)(?:st|nd|rd|th)?\b/';
+
+                if (preg_match($pattern, $text, $matches)) {
+                    $found_number = $matches[1];
+                }
+
+                $lastSpacePos = strrpos($occasionForLastSunday, ' ');
+
+
+                if ($lastSpacePos !== false && $found_number != '') {
+                    $lastWord = substr($occasionForLastSunday, $lastSpacePos + 1);
+                } else {
+                    $lastWord = $occasionForLastSunday;
+                }
+
+                echo "Today is <span class='$class'>$dayOfWeek after $lastWord $found_number</span><br/>";
+                echo "Season of <span class='$class'>$eventName</span><br/>";
+            }
+        } else {
+            echo "Today is <span class='$color'>$text</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
+        }
+
+    }
+    else {
+        $dayOfWeek = getDayOfWeekName($today);
+
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+        $eventName = "Christmastide";
+        $class = 'cpo-event-color-white';
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
+            if ($text != '') {
+                echo "Today is <span class='$color'>$text</span><br/>";
+                echo "Season of <span class='$class'>$eventName</span><br/>";
+            } else {
+                $found_number = '';
+
+                $text = $occasionForLastSunday;
+
+                $pattern = '/\b(\d+)(?:st|nd|rd|th)?\b/';
+
+                if (preg_match($pattern, $text, $matches)) {
+                    $found_number = $matches[1];
+                }
+
+                $lastSpacePos = strrpos($occasionForLastSunday, ' ');
+
+
+                if ($lastSpacePos !== false && $found_number != '') {
+                    $lastWord = substr($occasionForLastSunday, $lastSpacePos + 1);
+                } else {
+                    $lastWord = $occasionForLastSunday;
+                }
+
+                $yearNo = date('Y', strtotime($today));
+
+                $circum = [
+                    '01-01-' . $yearNo,
+                    '02-01-' . $yearNo,
+                    '03-01-' . $yearNo,
+                    '04-01-' . $yearNo,
+                    '05-01-' . $yearNo
+                ];
+
+                $epiphany = [
+                    '06-01-' . $yearNo,
+                    '07-01-' . $yearNo,
+                    '08-01-' . $yearNo,
+                    '09-01-' . $yearNo,
+                    '10-01-' . $yearNo,
+                    '11-01-' . $yearNo,
+                    '12-01-' . $yearNo
+                ];
+
+                if (in_array(date('d-m-Y', strtotime($today)), $circum)) {
+                    $lastWord = "Circumstance";
+                } else if (in_array(date('d-m-Y', strtotime($today)), $epiphany)) {
+                    $lastWord = "Epiphany";
+                }
+
+                echo "Today is <span class='$class'>$dayOfWeek after $lastWord $found_number</span><br/>";
+                echo "Season of <span class='$class'>$eventName</span><br/>";
+            }
+        } else {
+            echo "Today is <span class='$color'>$text</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
+        }
+    }
+}
+
+function liturgicalColor($today)
+{
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
+    $eventName = checkSeason($occasionForLastSunday);
+
+    if ($eventName == "Epiphany" || $eventName == "Trinity") {
         echo '<p class="mt-3 cpo-event-color-green">The liturgical color of the day is GREEN</p>';
-    }else if($eventName=="Easter" || $eventName=="Christmas" || $eventName=="Ascension"){
+    } else if ($eventName == "Easter" || $eventName == "Christmas" || $eventName == "Ascension") {
         echo '<p class="mt-3 cpo-event-color-white">The liturgical color of the day is WHITE</p>';
-    }else if($eventName=="Pre Lent" || $eventName=="Lent" || $eventName=="Advent"){
+    } else if ($eventName == "Pre Lent" || $eventName == "Lent" || $eventName == "Advent") {
         echo '<p class="mt-3 cpo-event-color-purple">The liturgical color of the day is PURPLE</p>';
     }
 }
@@ -439,6 +847,56 @@ function getOccasionNamePray($today)
 
         } else {
             echo "<span class='cpo-event-color'>$occasionForLastSunday</span><br/>";
+        }
+    }
+
+
+    $occasionForLastSunday = getPreviousLiturgicalOccasion($today);
+
+    if ($occasionForLastSunday) {
+        $dayOfWeek = getDayOfWeekName($today);
+
+        $christmas = date('m-d', strtotime($today));
+
+        $epiphany = date('m-d', strtotime($today));
+
+        $eventName = checkSeason($occasionForLastSunday);
+
+        $class = '';
+        if ($eventName == "Epiphany" || $eventName == "Trinity") {
+            $class = 'cpo-event-color-green';
+        } else if ($eventName == "Easter" || $eventName == "Christmastide" || $eventName == "Ascension") {
+            $class = 'cpo-event-color-white';
+        } else if ($eventName == "Pre Lent" || $eventName == "Lent" || $eventName == "Advent") {
+            $class = 'cpo-event-color-purple';
+        }
+
+        if ($dayOfWeek != 'Sunday' && $christmas != '12-25' && $epiphany != '01-06') {
+
+            $found_number = '';
+
+            $text = $occasionForLastSunday;
+
+            $pattern = '/\b(\d+)(?:st|nd|rd|th)?\b/';
+
+            if (preg_match($pattern, $text, $matches)) {
+                $found_number = $matches[1];
+            }
+
+            $lastSpacePos = strrpos($occasionForLastSunday, ' ');
+
+
+            if ($lastSpacePos !== false && $found_number != '') {
+                $lastWord = substr($occasionForLastSunday, $lastSpacePos + 1);
+            } else {
+                $lastWord = $occasionForLastSunday;
+            }
+
+            echo "Today is <span class='$class'>$dayOfWeek after $lastWord $found_number</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
+        } else {
+            echo "Today is <span class='$class'>$occasionForLastSunday</span><br/>";
+            echo "Season of <span class='$class'>$eventName</span><br/>";
         }
     }
 }

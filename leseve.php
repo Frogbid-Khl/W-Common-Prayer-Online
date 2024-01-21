@@ -3641,7 +3641,7 @@ $currentMonthkalendar = date('Y-m');
             <p>
                 <?php
                 $day = date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>

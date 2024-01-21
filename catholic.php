@@ -893,7 +893,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <p>
                 <?php
                 $day = date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>

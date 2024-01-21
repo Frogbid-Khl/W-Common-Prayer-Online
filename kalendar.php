@@ -76,6 +76,7 @@ $emberDays = array();
 
 $epiphany = "06-01-" . $currentYear;
 
+$eventList[date('Y-m-d', strtotime("01-01-". $currentYear))] = array('event' => 'Circumcision', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("$epiphany"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("$epiphany +1 day"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("$epiphany +2 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
@@ -84,7 +85,7 @@ $eventList[date('Y-m-d', strtotime("$epiphany +4 days"))] = array('event' => 'of
 $eventList[date('Y-m-d', strtotime("$epiphany +5 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("$epiphany +6 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("$epiphany +7 days"))] = array('event' => 'of the Octave<br/>of Epiphany', 'color' => 'cpo-white');
-$eventList[date('Y-m-d', strtotime("25-01-" . $currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-red');
+$eventList[date('Y-m-d', strtotime("25-01-" . $currentYear))] = array('event' => 'Conversion of St. Paul', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("02-02-" . $currentYear))] = array('event' => 'Presentation of Christ (Purification of BVM)', 'color' => 'cpo-white');
 $eventList[date('Y-m-d', strtotime("24-02-" . $currentYear))] = array('event' => 'St. Matthias the Apostle', 'color' => 'cpo-red');
 $eventList[date('Y-m-d', strtotime("25-03-" . $currentYear))] = array('event' => 'Annunciation of the B. V. M.', 'color' => 'cpo-white');
@@ -813,7 +814,7 @@ addDateRange($dateRanges, $currentYear . '-12-25', $currentYear . '-12-31');
             <p>
                 <?php
                 $day = date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>

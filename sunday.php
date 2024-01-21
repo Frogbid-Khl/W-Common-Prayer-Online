@@ -195,7 +195,7 @@ $description = '';
                 <h3>
                     <?php
                     $day = date('Y-m-d');
-                    getOccasionName($day);
+                    getTodayOcasion($day);
                     ?>
                 </h3>
                 <?php
@@ -414,7 +414,7 @@ $description = '';
             <p>
                 <?php
                 $day = date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>

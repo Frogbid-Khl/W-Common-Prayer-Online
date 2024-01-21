@@ -215,7 +215,7 @@ function numberToWords($number) {
             <h3>
                 <?php
                 $day= $endDate->format('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
             </h3>
             <p>As Written in the 1928 Book of Common Prayer</p>
@@ -239,7 +239,7 @@ function numberToWords($number) {
                 <h3>
                     <?php
                     $day = date('Y-m-d');
-                    getOccasionName($day);
+                    getTodayOcasion($day);
                     ?>
                 </h3>
                 <?php
@@ -288,7 +288,7 @@ function numberToWords($number) {
             <p>
                 <?php
                 $day=date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>

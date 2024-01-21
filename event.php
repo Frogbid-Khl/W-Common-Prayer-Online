@@ -189,7 +189,7 @@ if ($row == 0) {
                 <h3>
                     <?php
                     $day = date('Y-m-d');
-                    getOccasionName($day);
+                    getTodayOcasion($day);
                     ?>
                 </h3>
                 <?php
@@ -238,7 +238,7 @@ if ($row == 0) {
             <p>
                 <?php
                 $day=date('Y-m-d');
-                getOccasionName($day);
+                getTodayOcasion($day);
                 ?>
                 (Text color indicates liturgical color for the Day & Season)
             </p>
